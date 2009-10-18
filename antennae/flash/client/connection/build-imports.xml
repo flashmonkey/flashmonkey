@@ -1,3 +1,0 @@
-<project name="paperworld-connection.imports">
-    <import file="../../../build-imports.xml"/>
-</project>

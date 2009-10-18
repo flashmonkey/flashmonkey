@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/red5_server/red5.jar"/>
-	<classpathentry kind="lib" path="/private/var/root/Repository/paperworld3d/branches/antennae/java/server/trunk/lib/jme.jar"/>
-	<classpathentry kind="lib" path="/private/var/root/Repository/paperworld3d/branches/antennae/java/server/trunk/lib/EventDispatcher-0.12.0.jar"/>
-	<classpathentry kind="output" path="output"/>
-</classpath>
