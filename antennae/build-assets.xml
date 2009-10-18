@@ -1,0 +1,13 @@
+<!--
+    Assets definition file for multi-project application.
+
+    This file defines all declared assets in subprojects; the
+    definitions are shared across those subprojects so that assets
+    exported by one project can be referenced by another,
+    without knowing the exact location of the exported asset.
+-->
+<project name="paperworld.assets">
+    <import file="flash/client/build-assets.xml" />
+	<import file="java/server/build-assets.xml" />
+	<import file="java/examples/build-assets.xml" />
+</project>

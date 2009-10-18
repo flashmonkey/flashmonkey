@@ -1,0 +1,15 @@
+<!-- Build assets for library1.  Note that all paths are defined
+     relative to ${multi.dir} since we don't know what the current
+     directory is in which Ant is running. -->
+<project name="HelloWorldMultiplayer.assets">
+    <dirname property="HelloWorldMultiplayer.assets.dir" file="${ant.file.HelloWorldMultiplayer.assets}"/>
+	
+	<!--property name="red5.jar" location="${red5.dir}/red5.jar" />
+	<property name="jme.jar" location="${paperworld-server.assets.dir}/lib/jme.jar" />
+	<property name="slf4j.jar" location="${paperworld-server.assets.dir}/lib/slf4j-api-1.5.6.jar" />
+	<property name="spring.core.jar" location="${paperworld-server.assets.dir}/lib/spring-core-2.5.6.jar" /-->
+
+    <!-- Define JAR exported by this library. -->
+    <property name="HelloWorldMultiplayer.jar" location="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/WEB-INF/lib/HelloWorldMultiplayer.jar"/>
+
+</project>

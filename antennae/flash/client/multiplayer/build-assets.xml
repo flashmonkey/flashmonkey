@@ -1,0 +1,10 @@
+<!-- Build assets for library1.  Note that all paths are defined
+     relative to ${multi.dir} since we don't know what the current
+     directory is in which Ant is running. -->
+<project name="paperworld-multiplayer.assets">
+    <dirname property="paperworld-multiplayer.assets.dir" file="${ant.file.paperworld-multiplayer.assets}"/>
+
+    <!-- Define SWC exported by this library. -->
+    <property name="paperworld.paperworld-multiplayer.swc" location="${paperworld-multiplayer.assets.dir}/${build.compc.dir}/paperworld-multiplayer.swc"/>
+
+</project>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties version="1">
+  <includeClasses>
+    <classEntry path="org.flashmonkey.flash.multiplayer.inputhandlers.PhysicsInputHandler2D"/>
+    <classEntry path="org.flashmonkey.flash.utils.History"/>
+    <classEntry path="org.flashmonkey.flash.utils.SyncObject"/>
+    <classEntry path="org.flashmonkey.flash.multiplayer.messages.ServerSyncMessage"/>
+    <classEntry path="org.flashmonkey.flash.utils.Move"/>
+    <classEntry path="org.flashmonkey.flash.multiplayer.lod.LodConstraint"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

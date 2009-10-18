@@ -1,0 +1,18 @@
+<project name="paperworld.java.core" default="build">
+    <import file="build-imports.xml"/>
+
+    <!-- This library doesn't depend on anything else. -->
+    <path id="javac.lib.path">
+		<pathelement location="${paperworld.red5.jar}" />
+		<pathelement location="${paperworld.jme.jar}" />
+		<pathelement location="${eventdispatcher.jar}" />
+	</path>
+
+    <!-- targets -->
+    <target name="build" depends="init,java-classes,jar" description="Build the library"/>
+	
+	<target name="jar" description="creates a jar file from the compiled classes">
+		<jar jarfile="${paperworld-java-core.jar}" basedir="${build.javac.dir}"/>
+	</target>
+	
+</project>
