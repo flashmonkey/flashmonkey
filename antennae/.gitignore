@@ -1,3 +1,4 @@
+build-user.properties
 java/server/adaptor/jmonkey/bin/*
 java/server/ai/bin/*
 java/server/core/bin/*
