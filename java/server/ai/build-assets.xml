@@ -1,0 +1,15 @@
+<!-- Build assets for library1.  Note that all paths are defined
+     relative to ${multi.dir} since we don't know what the current
+     directory is in which Ant is running. -->
+<project name="paperworld-java-ai.assets">
+    <dirname property="paperworld-java-ai.assets.dir" file="${ant.file.paperworld-java-ai.assets}"/>
+	
+	<!--property name="red5.jar" location="${red5.dir}/red5.jar" /-->
+	<!--property name="jme.jar" location="${paperworld-server.assets.dir}/lib/jme.jar" /-->
+	<!--property name="slf4j.jar" location="${paperworld-server.assets.dir}/lib/slf4j-api-1.5.6.jar" />
+	<property name="spring.core.jar" location="${paperworld-server.assets.dir}/lib/spring-core-2.5.6.jar" /-->
+
+    <!-- Define JAR exported by this library. -->
+    <property name="paperworld-java-ai.jar" location="${paperworld-java-ai.assets.dir}/${build.dist.dir}/paperworld-java-ai.jar"/>
+
+</project>

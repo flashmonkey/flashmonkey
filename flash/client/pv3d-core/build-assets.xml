@@ -1,0 +1,10 @@
+<!-- Build assets for library1.  Note that all paths are defined
+     relative to ${multi.dir} since we don't know what the current
+     directory is in which Ant is running. -->
+<project name="paperworld-pv3d-core.assets">
+    <dirname property="paperworld-pv3d-core.assets.dir" file="${ant.file.paperworld-pv3d-core.assets}"/>
+
+    <!-- Define SWC exported by this library. -->
+    <property name="paperworld.paperworld-pv3d-core.swc" location="${paperworld-pv3d-core.assets.dir}/${build.compc.dir}/paperworld-pv3d-core.swc"/>
+
+</project>

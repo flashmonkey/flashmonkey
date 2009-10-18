@@ -1,0 +1,17 @@
+<project name="paperworld.java.ai" default="build">
+    <import file="build-imports.xml"/>
+
+    <!-- This library doesn't depend on anything else. -->
+    <path id="javac.lib.path">
+		<pathelement location="${paperworld.jme.jar}" />
+		<pathelement location="${paperworld-java-core.jar}" />
+	</path>
+
+    <!-- targets -->
+    <target name="build" depends="init,java-classes,jar" description="Build the library"/>
+	
+	<target name="jar" description="creates a jar file from the compiled classes">
+		<jar jarfile="${paperworld-java-ai.jar}" basedir="${build.javac.dir}"/>
+	</target>
+	
+</project>

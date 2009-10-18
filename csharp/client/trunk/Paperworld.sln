@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paperworld", "Paperworld\Paperworld.csproj", "{13274A00-02A2-4D27-B049-E7E94528583D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperworldForm", "PaperworldForm\PaperworldForm.csproj", "{3F66863A-4AB8-4358-817D-C9C38C09DD77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaperworldConsole", "PaperworldConsole\PaperworldConsole.csproj", "{172B54D9-AB58-472A-A680-8CC63DD87689}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13274A00-02A2-4D27-B049-E7E94528583D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13274A00-02A2-4D27-B049-E7E94528583D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13274A00-02A2-4D27-B049-E7E94528583D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13274A00-02A2-4D27-B049-E7E94528583D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F66863A-4AB8-4358-817D-C9C38C09DD77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F66863A-4AB8-4358-817D-C9C38C09DD77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F66863A-4AB8-4358-817D-C9C38C09DD77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F66863A-4AB8-4358-817D-C9C38C09DD77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{172B54D9-AB58-472A-A680-8CC63DD87689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{172B54D9-AB58-472A-A680-8CC63DD87689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{172B54D9-AB58-472A-A680-8CC63DD87689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{172B54D9-AB58-472A-A680-8CC63DD87689}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

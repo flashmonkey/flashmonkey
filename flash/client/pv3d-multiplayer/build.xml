@@ -1,0 +1,12 @@
+<project name="paperworld-pv3d-multiplayer" default="build">
+    <import file="build-imports.xml"/>
+
+    <!-- This library doesn't depend on anything else. -->
+    <path id="flex.lib.path">
+		<pathelement location="${paperworld.papervision.swc}"/>
+		<pathelement location="${paperworld.paperworld-multiplayer.swc}"/>
+	</path>
+
+    <!-- targets -->
+    <target name="build" depends="init,flex-library" description="Build the library"/>
+</project>

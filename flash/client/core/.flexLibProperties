@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+<includeClasses>
+<classEntry path="org.flashmonkey.flash.utils.string.StringUtils"/>
+<classEntry path="org.flashmonkey.flash.utils.timer.events.ITimerEvent"/>
+<classEntry path="org.flashmonkey.flash.utils.clock.Clock"/>
+<classEntry path="org.flashmonkey.flash.utils.clock.IClockListener"/>
+<classEntry path="org.flashmonkey.flash.utils.Registration"/>
+<classEntry path="org.flashmonkey.flash.utils.math.FastMath"/>
+<classEntry path="org.flashmonkey.flash.core.player.Player"/>
+<classEntry path="org.flashmonkey.flash.utils.number.RandomUtils"/>
+<classEntry path="org.flashmonkey.flash.utils.xml.IXMLDefinitionsParser"/>
+<classEntry path="org.flashmonkey.flash.utils.input.KeyboardInput"/>
+<classEntry path="org.flashmonkey.flash.utils.Utilities"/>
+<classEntry path="org.flashmonkey.flash.core.model.World"/>
+<classEntry path="org.flashmonkey.flash.utils.input.BasicKeyboardInput"/>
+<classEntry path="org.flashmonkey.flash.utils.input.AbstractUserInput"/>
+<classEntry path="org.flashmonkey.flash.utils.input.events.UserInputEvent"/>
+<classEntry path="org.flashmonkey.flash.utils.timer.TimedEvent"/>
+<classEntry path="org.flashmonkey.flash.utils.keys.KeyDefinitions"/>
+<classEntry path="org.flashmonkey.flash.core.model.Space"/>
+<classEntry path="org.flashmonkey.flash.utils.math.Vector3f"/>
+<classEntry path="org.flashmonkey.flash.utils.keys.KeyUpCommand"/>
+<classEntry path="org.flashmonkey.flash.utils.timer.AbstractTimer"/>
+<classEntry path="org.flashmonkey.flash.utils.clock.events.ClockEvent"/>
+<classEntry path="org.flashmonkey.flash.utils.library.ILibraryManager"/>
+<classEntry path="org.flashmonkey.flash.utils.xml.INodeParser"/>
+<classEntry path="org.flashmonkey.flash.utils.patterns.iterator.IIterator"/>
+<classEntry path="org.flashmonkey.flash.utils.patterns.command.ICommand"/>
+<classEntry path="org.flashmonkey.flash.utils.xml.AbstractNodeParser"/>
+<classEntry path="org.flashmonkey.flash.utils.input.KeyboardAndMouseInput"/>
+<classEntry path="org.flashmonkey.flash.utils.math.Quaternion"/>
+<classEntry path="org.flashmonkey.flash.utils.timer.TimerManager"/>
+<classEntry path="org.flashmonkey.flash.utils.keys.KeyCommand"/>
+<classEntry path="org.flashmonkey.flash.utils.library.LibraryManager"/>
+<classEntry path="org.flashmonkey.flash.utils.NullOperation"/>
+<classEntry path="org.flashmonkey.flash.utils.input.IUserInput"/>
+<classEntry path="org.flashmonkey.flash.utils.keys.KeyboardManager"/>
+<classEntry path="org.flashmonkey.flash.utils.number.NumberUtils"/>
+<classEntry path="org.flashmonkey.flash.utils.library.EmbeddedLibraryManager"/>
+<classEntry path="org.flashmonkey.flash.utils.math.Matrix4f"/>
+<classEntry path="org.flashmonkey.flash.utils.input.IUserInputListener"/>
+<classEntry path="org.flashmonkey.flash.utils.input.Input"/>
+<classEntry path="org.flashmonkey.flash.utils.timer.AccurateIntervalTimer"/>
+<classEntry path="org.flashmonkey.flash.utils.IRegisteredClass"/>
+<classEntry path="org.flashmonkey.flash.utils.keys.KeyDownCommand"/>
+<classEntry path="org.flashmonkey.flash.utils.timer.SimpleIntervalTimer"/>
+<classEntry path="org.flashmonkey.flash.utils.library.ExternalLibraryManager"/>
+<classEntry path="org.flashmonkey.flash.utils.timer.events.CountdownTimerEvent"/>
+<classEntry path="org.flashmonkey.flash.utils.timer.CountdownTimer"/>
+<classEntry path="org.flashmonkey.flash.utils.math.Matrix3f"/>
+<classEntry path="org.flashmonkey.flash.utils.timer.ITimer"/>
+</includeClasses>
+<includeResources/>
+<namespaceManifests/>
+</flexLibProperties>

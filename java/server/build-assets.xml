@@ -1,0 +1,18 @@
+<!-- build-assets.xml: This file pulls in definitions of all build assets for
+     project directories below it. -->
+<project name="paperworld.java.server.assets">
+	
+	<dirname property="paperworld.java.server.assets.dir" file="${ant.file.paperworld.java.server.assets}"/>
+	
+    <import file="core/build-assets.xml"/>
+	<import file="ai/build-assets.xml"/>
+	<import file="multiplayer/build-assets.xml"/>
+	<import file="adaptor/jmonkey/build-assets.xml"/>
+	
+	<!-- Define library SWC files shared by the flash projects. -->		
+	<property name="paperworld.jme.jar" location="${paperworld.java.server.assets.dir}/lib/jme.jar"/>
+    <property name="paperworld.slf4j.jar" location="${paperworld.java.server.assets.dir}/lib/slf4j-api-1.5.6.jar" />
+    <property name="paperworld.spring.core.jar" location="${paperworld.java.server.assets.dir}/lib/spring-core-2.5.6.jar" />
+	<property name="paperworld.red5.jar" location="${red5.dir}/red5.jar"/>
+
+</project>

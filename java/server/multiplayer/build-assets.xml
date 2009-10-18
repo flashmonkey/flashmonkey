@@ -1,0 +1,10 @@
+<!-- Build assets for library1.  Note that all paths are defined
+     relative to ${multi.dir} since we don't know what the current
+     directory is in which Ant is running. -->
+<project name="paperworld.java.multiplayer.assets">
+    <dirname property="paperworld.java.multiplayer.assets.dir" file="${ant.file.paperworld.java.multiplayer.assets}"/>
+	
+    <!-- Define JAR exported by this library. -->
+    <property name="paperworld-java-multiplayer.jar" location="${paperworld.java.multiplayer.assets.dir}/${build.dist.dir}/paperworld-java-multiplayer.jar"/>
+
+</project>

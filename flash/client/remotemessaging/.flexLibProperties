@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties version="1">
+  <includeClasses>
+    <classEntry path="org.flashmonkey.flash.api.connection.IClient"/>
+    <classEntry path="org.flashmonkey.flash.api.message.IMessage"/>
+    <classEntry path="org.flashmonkey.flash.api.message.IMessageService"/>
+    <classEntry path="org.flashmonkey.flash.connection.Red5Client"/>
+    <classEntry path="org.flashmonkey.flash.message.BaseMessage"/>
+    <classEntry path="org.flashmonkey.flash.message.BaseMessageService"/>
+    <classEntry path="org.flashmonkey.flash.utils.NetObject"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

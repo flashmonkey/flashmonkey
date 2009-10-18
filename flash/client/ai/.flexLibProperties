@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+<includeClasses>
+<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.SteeringConstraint"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.SteeringUtils"/>
+<classEntry path="org.flashmonkey.flash.ai.dectree.DecisionTreeAction"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.Decomposer"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.behaviours.kinematic.KinematicSeek"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.constraints.AvoidLocationConstraint"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.constraints.AvoidAgentConstraint"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.behaviours.kinematic.KinematicWander"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.behaviours.Flee"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.Targeter"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.Actuator"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.constraints.AvoidWallsConstraint"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.constraints.AvoidPredatorConstraint"/>
+<classEntry path="org.flashmonkey.flash.ai.dectree.DecisionTreeNode"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.behaviours.kinematic.TargetedKinematicMovement"/>
+<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.SteeringPipeline"/>
+</includeClasses>
+<includeResources/>
+<namespaceManifests/>
+</flexLibProperties>

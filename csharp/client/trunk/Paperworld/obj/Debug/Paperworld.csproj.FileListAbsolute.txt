@@ -1,0 +1,5 @@
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\Paperworld\bin\Debug\Paperworld.dll
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\Paperworld\bin\Debug\Paperworld.pdb
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\Paperworld\obj\Debug\ResolveAssemblyReference.cache
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\Paperworld\obj\Debug\Paperworld.dll
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\Paperworld\obj\Debug\Paperworld.pdb

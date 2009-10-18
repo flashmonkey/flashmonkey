@@ -1,0 +1,10 @@
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\PaperworldForm\bin\Debug\PaperworldForm.exe
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\PaperworldForm\bin\Debug\PaperworldForm.pdb
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\PaperworldForm\bin\Debug\Paperworld.dll
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\PaperworldForm\bin\Debug\Paperworld.pdb
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\PaperworldForm\obj\Debug\ResolveAssemblyReference.cache
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\PaperworldForm\obj\Debug\PaperworldForm.Form1.resources
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\PaperworldForm\obj\Debug\PaperworldForm.Properties.Resources.resources
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\PaperworldForm\obj\Debug\PaperworldForm.csproj.GenerateResource.Cache
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\PaperworldForm\obj\Debug\PaperworldForm.exe
+D:\projects\paperworld\branches\reorganising_structure\client\csharp\Paperworld\PaperworldForm\obj\Debug\PaperworldForm.pdb

@@ -1,0 +1,10 @@
+<!-- Build assets for library1.  Note that all paths are defined
+     relative to ${multi.dir} since we don't know what the current
+     directory is in which Ant is running. -->
+<project name="paperworld-ai.assets">
+    <dirname property="paperworld-ai.assets.dir" file="${ant.file.paperworld-ai.assets}"/>
+
+    <!-- Define SWC exported by this library. -->
+    <property name="paperworld.paperworld-ai.swc" location="${paperworld-ai.assets.dir}/${build.compc.dir}/paperworld-ai.swc"/>
+
+</project>

@@ -1,0 +1,46 @@
+<project name="paperworld.java" default="build">
+    <import file="build-imports.xml"/>
+	
+	<filelist id="flash.libraries.filelist" dir=".">
+		<file name="core"/>
+		<file name="connection"/>
+		<file name="ai"/>
+		<file name="multiplayer"/>
+		<file name="pv3d-core"/>
+		<file name="pv3d-multiplayer"/>
+	</filelist>
+
+    <!-- targets -->	
+	<target name="init" description="Call init on each sub project">
+        <echoAndRun target="init" children.filelist.id="flash.libraries.filelist" />
+    </target>
+
+    <target name="build" description="Call build on each sub project">
+        <echoAndRun target="build" children.filelist.id="flash.libraries.filelist" />
+    </target>
+
+    <target name="test" description="Call test on each sub project">
+        <echoAndRun target="test" children.filelist.id="flash.libraries.filelist" />
+    </target>
+
+    <target name="stage" description="Call stage on each sub project">
+        <echoAndRun target="stage" children.filelist.id="flash.libraries.filelist" />
+    </target>
+
+    <target name="dist" description="Call dist on each sub project">
+        <echoAndRun target="dist" children.filelist.id="flash.libraries.filelist" />
+    </target>
+
+    <target name="deploy" description="Call deploy on each sub project">
+        <echoAndRun target="deploy" children.filelist.id="flash.libraries.filelist" />
+    </target>
+
+    <target name="clean" description="Call clean on each sub project">
+        <echoAndRun target="clean" children.filelist.id="flash.libraries.filelist" />
+    </target>
+
+    <target name="undeploy" description="Call undeploy on each sub project">
+        <echoAndRun target="undeploy" children.filelist.id="flash.libraries.filelist" />
+    </target>
+	
+</project>
