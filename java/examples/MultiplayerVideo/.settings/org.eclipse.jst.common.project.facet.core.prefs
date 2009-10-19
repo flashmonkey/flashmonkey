@@ -1,0 +1,4 @@
+#Mon Oct 12 19:33:43 BST 2009
+classpath.helper/org.eclipse.jdt.launching.JRE_CONTAINER\:\:org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType\:\:jre6/owners=jst.java\:6.0
+classpath.helper/org.eclipse.jst.server.core.container\:\:org.eclipsewtp.jst.server.generic.red5.runtimeClasspathProvider\:\:Red5\ Server\ Runtime/owners=jst.web\:2.4
+eclipse.preferences.version=1

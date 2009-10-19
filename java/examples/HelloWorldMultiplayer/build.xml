@@ -24,6 +24,7 @@
 		<!-- Copy over any required libraries into the WEB-INF/lib directory -->
 		<copy todir="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${paperworld-java-core.jar}" overwrite="true" />
         <copy todir="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${paperworld-java-multiplayer.jar}" overwrite="true" />
+		<copy todir="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${paperworld-java-jmonkey-adaptor.jar}" overwrite="true" />
 
 	</target>
 	

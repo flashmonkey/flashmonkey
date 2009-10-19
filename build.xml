@@ -9,7 +9,7 @@
         build-common-targets which is pulled in through
         the build-imports.xml process.
     -->
-    <import file="../../antennae/tools/build-master-targets.xml" />
+    <import file="../antennae/tools/build-master-targets.xml" />
     <import file="build-imports.xml" />
 
     <!--

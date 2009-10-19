@@ -14,5 +14,11 @@
     <property name="paperworld.slf4j.jar" location="${paperworld.java.server.assets.dir}/lib/slf4j-api-1.5.6.jar" />
     <property name="paperworld.spring.core.jar" location="${paperworld.java.server.assets.dir}/lib/spring-core-2.5.6.jar" />
 	<property name="paperworld.red5.jar" location="${red5.dir}/red5.jar"/>
+	<property name="xuggle.jar" location="${paperworld.java.server.assets.dir}/lib/xuggle-xuggler.jar"/>
+	<property name="xuggle.red5.jar" location="${paperworld.java.server.assets.dir}/lib/xuggle-xuggler-red5.jar"/>
+	<property name="jme.audio.jar" location="${paperworld.java.server.assets.dir}/lib/jme-audio.jar"/>
+	<property name="jme.gamestates.jar" location="${paperworld.java.server.assets.dir}/lib/jme-gamestates.jar"/>
+	<property name="lwjgl.jar" location="${paperworld.java.server.assets.dir}/lib/lwjgl.jar"/>
+	<property name="lwjgl.util.jar" location="${paperworld.java.server.assets.dir}/lib/lwjgl_util.jar"/>
 
 </project>

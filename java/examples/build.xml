@@ -3,6 +3,7 @@
 	
 	<filelist id="java.examples.filelist" dir=".">
 		<file name="HelloWorldMultiplayer"/>
+		<file name="MultiplayerVideo"/>
 	</filelist>
 
     <!-- targets -->	
