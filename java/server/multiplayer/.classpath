@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/private/var/root/Repository/red5_server-0.8/dist/red5.jar"/>
-	<classpathentry kind="lib" path="/private/var/root/Repository/paperworld3d/branches/antennae/java/server/trunk/lib/slf4j-api-1.5.6.jar"/>
-	<classpathentry kind="lib" path="/private/var/root/Repository/paperworld3d/branches/antennae/java/server/trunk/core/bin/dist/paperworld-java-core.jar"/>
+	<classpathentry kind="lib" path="D:/projects/red5/xuggle_timestamp_fixes/red5.jar"/>
+	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/server/lib/slf4j-api-1.5.6.jar"/>
+	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/server/core/bin/dist/paperworld-java-core.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

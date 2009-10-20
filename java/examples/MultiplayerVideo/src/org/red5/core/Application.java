@@ -59,7 +59,7 @@ public class Application extends ApplicationAdapter {
 		// Create a DebugGameState - has all the built-in features that SimpleGame provides
 		// NOTE: for a distributable game implementation you'll want to use something like
 		// BasicGameState instead and provide control features yourself.
-		DebugGameState state = new DebugGameState();
+		DebugGameState state = new SimpleGameState(resamplerDemo);
 		// Put our box in it
 		Box box = new Box("my box", new Vector3f(0, 0, 0), 2, 2, 2);
 		box.setModelBound(new BoundingSphere());

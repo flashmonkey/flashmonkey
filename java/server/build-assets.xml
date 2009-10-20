@@ -20,5 +20,6 @@
 	<property name="jme.gamestates.jar" location="${paperworld.java.server.assets.dir}/lib/jme-gamestates.jar"/>
 	<property name="lwjgl.jar" location="${paperworld.java.server.assets.dir}/lib/lwjgl.jar"/>
 	<property name="lwjgl.util.jar" location="${paperworld.java.server.assets.dir}/lib/lwjgl_util.jar"/>
+	<property name="jetm.jar" location="${paperworld.java.server.assets.dir}/lib/jetm.jar"/>
 
 </project>

@@ -37,7 +37,7 @@
 		<copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${lwjgl.jar}" overwrite="true" />
 		<copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${jme.audio.jar}" overwrite="true" />
 		<copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${lwjgl.util.jar}" overwrite="true" />
-
+		<copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${jetm.jar}" overwrite="true" />
 		
 	</target>
 	

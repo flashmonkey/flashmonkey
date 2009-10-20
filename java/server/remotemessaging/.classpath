@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/red5_server/dist/red5.jar"/>
+	<classpathentry kind="lib" path="D:/projects/red5/xuggle_timestamp_fixes/red5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
