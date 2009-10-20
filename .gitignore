@@ -5,6 +5,9 @@ java/server/ai/bin/**/*
 java/server/core/bin/**/*
 java/server/multiplayer/bin/**/*
 java/examples/HelloWorldMultiplayer/bin/**/*
+java/examples/HelloWorldMultiplayer/build/**/*
+java/examples/MultiplayerVideo/bin/**/*
+java/examples/MultiplayerVideo/build/**/*
 flash/client/ai/bin/**/*
 flash/client/connection/bin/**/*
 flash/client/core/bin/**/*
