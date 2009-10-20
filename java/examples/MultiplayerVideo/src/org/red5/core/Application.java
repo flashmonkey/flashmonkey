@@ -33,6 +33,12 @@ import com.jmex.game.StandardGame;
 import com.jmex.game.state.DebugGameState;
 import com.jmex.game.state.GameStateManager;
 import com.xuggle.red5.demo.VideoTranscoderDemo;
+import com.xuggle.xuggler.ICodec;
+import com.xuggle.xuggler.IContainer;
+import com.xuggle.xuggler.IPixelFormat;
+import com.xuggle.xuggler.IRational;
+import com.xuggle.xuggler.IStream;
+import com.xuggle.xuggler.IStreamCoder;
 
 /**
  * Sample application that uses the client manager.
@@ -41,14 +47,64 @@ import com.xuggle.red5.demo.VideoTranscoderDemo;
  */
 public class Application extends ApplicationAdapter {
 
+	private static final String OUTPUT_FILE_FLV = System.getProperty("red5.root") + "/webapps/MultiplayerVideo/streams/outputFile.flv";
+	
 	HelloWorld game;
 	
 	private VideoTranscoderDemo resamplerDemo = new VideoTranscoderDemo("xuggle_");
 	
 	public Application() {
+		createContainer();
 		new Thread() {
 			public void run() { createGame(); }
 		}.start();
+	}
+	
+	private void createContainer() {
+		System.out.println("Creating container");
+		IContainer outContainer = IContainer.make();
+
+		int retval = outContainer.open(OUTPUT_FILE_FLV, IContainer.Type.WRITE, null);
+		if (retval <0)
+		    throw new RuntimeException("could not open output file"); 
+		
+		IStream outStream = outContainer.addNewStream(0);
+		IStreamCoder outStreamCoder = outStream.getStreamCoder();
+
+		ICodec codec = ICodec.guessEncodingCodec(null, null, OUTPUT_FILE_FLV, null, ICodec.Type.CODEC_TYPE_VIDEO);
+
+		outStreamCoder.setNumPicturesInGroupOfPictures(30);
+		outStreamCoder.setCodec(codec);
+
+		outStreamCoder.setBitRate(25000);
+		outStreamCoder.setBitRateTolerance(9000);
+
+		outStreamCoder.setPixelType(IPixelFormat.Type.YUV420P);
+		outStreamCoder.setHeight(480);
+		outStreamCoder.setWidth(640);
+		outStreamCoder.setFlag(IStreamCoder.Flags.FLAG_QSCALE, true);
+		outStreamCoder.setGlobalQuality(0);
+
+		IRational frameRate = IRational.make(3,1);
+		outStreamCoder.setFrameRate(frameRate);
+		outStreamCoder.setTimeBase(IRational.make(frameRate.getDenominator(), frameRate.getNumerator()));
+		frameRate = null;
+		
+		retval = outStreamCoder.open();
+		if (retval <0) {
+			throw new RuntimeException("could not open input decoder");
+		}
+		
+		retval = outContainer.writeHeader();
+		if (retval <0) {
+			throw new RuntimeException("could not write file header");
+		}
+		
+		outContainer.close();
+		outStreamCoder.close();
+		
+		
+		System.out.println("Container created");
 	}
 	
 	private void createGame() {
