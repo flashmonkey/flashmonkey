@@ -1,0 +1,7 @@
+MultiplayerVideo
+--------------------------------
+Write the images to the new container - remove the need for a published stream.
+Needs a client application that can subscribe to the stream and seek to the correct time in the stream.
+Add a simulation that demonstrates the capability - has to be something that flash would choke on to show the point.
+Hook into the multiplayer plugin. So client sends messages that update the simulation. 
+Accept user input, object selection etc.
