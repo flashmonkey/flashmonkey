@@ -1,0 +1,12 @@
+<project name="HelloSpeechRecognitionClient" default="build">
+    <import file="build-imports.xml"/>
+
+    <!-- This library doesn't depend on anything else. -->
+    <path id="flex.lib.path">
+		<pathelement location="${paperworld.paperworld-connection.swc}"/>
+	</path>
+
+    <!-- targets -->
+    <target name="build" depends="init,flex-application" description="Build the example application"/>
+	
+</project>

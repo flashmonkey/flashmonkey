@@ -5,3 +5,12 @@ Needs a client application that can subscribe to the stream and seek to the corr
 Add a simulation that demonstrates the capability - has to be something that flash would choke on to show the point.
 Hook into the multiplayer plugin. So client sends messages that update the simulation. 
 Accept user input, object selection etc.
+
+Speech Recognition
+--------------------------------
+Create a webapp/client pair
+Send sound data from client to webapp.
+reencode sound from flv to mov using ffmpeg
+send mov to Sphinx4
+Return text result to client
+client interprets

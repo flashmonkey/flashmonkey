@@ -2,9 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/server/lib/jme.jar"/>
-	<classpathentry kind="lib" path="D:/projects/red5/xuggle_timestamp_fixes/red5.jar"/>
-	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/server/core/bin/dist/paperworld-java-core.jar"/>
-	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/server/multiplayer/bin/dist/paperworld-java-multiplayer.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/server/lib/jme.jar"/>
+	<classpathentry kind="lib" path="/private/var/root/Repository/xuggle_timestamp_fixes/red5.jar"/>
+	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/server/core/bin/dist/paperworld-java-core.jar"/>
+	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/server/multiplayer/bin/dist/paperworld-java-multiplayer.jar"/>
+	<classpathentry kind="output" path="build"/>
 </classpath>

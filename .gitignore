@@ -1,13 +1,17 @@
-.metadata/**/*
+.metadata
 build-user.properties
 java/server/adaptor/jmonkey/bin/**/*
+java/server/adaptor/jmonkey/build/**/*
 java/server/ai/bin/**/*
 java/server/core/bin/**/*
+java/server/core/output/**/*
 java/server/multiplayer/bin/**/*
 java/examples/HelloWorldMultiplayer/bin/**/*
 java/examples/HelloWorldMultiplayer/build/**/*
 java/examples/MultiplayerVideo/bin/**/*
 java/examples/MultiplayerVideo/build/**/*
+java/examples/HelloSpeechRecognition/bin/**/*
+java/examples/HelloSpeechRecognition/build/**/*
 flash/client/ai/bin/**/*
 flash/client/connection/bin/**/*
 flash/client/core/bin/**/*
@@ -15,3 +19,4 @@ flash/client/multiplayer/bin/**/*
 flash/client/pv3d-core/bin/**/*
 flash/client/pv3d-multiplayer/bin/**/*
 flash/examples/HelloPaperworld/bin/**/*
+flash/examples/HelloSpeechRecognitionClient/bin/**/*

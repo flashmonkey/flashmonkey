@@ -3,6 +3,7 @@
 	
 	<filelist id="flash.examples.filelist" dir=".">
 		<file name="HelloPaperworld"/>
+        <file name="HelloSpeechRecognitionClient"/>
 	</filelist>
 
     <!-- targets -->	
