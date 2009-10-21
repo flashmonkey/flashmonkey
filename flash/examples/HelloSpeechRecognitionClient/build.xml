@@ -4,9 +4,15 @@
     <!-- This library doesn't depend on anything else. -->
     <path id="flex.lib.path">
 		<pathelement location="${paperworld.paperworld-connection.swc}"/>
+        <pathelement location="${sos.logging.swc}"/>
 	</path>
 
     <!-- targets -->
-    <target name="build" depends="init,flex-application" description="Build the example application"/>
+    <target name="build" depends="print,init,flex-application" description="Build the example application"/>
+    
+    <target name="print">
+        <echo> FLEX OPTIONS ${flex.mxmlc.options} </echo>
+        <echo> SOS ${sos.logging.swc} </echo>
+    </target>
 	
 </project>

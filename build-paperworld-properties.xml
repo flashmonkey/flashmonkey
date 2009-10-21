@@ -39,5 +39,7 @@
     <property name="project.flash.application" value="${project.name}.as" />
 	
 	<property name="webapp.lib.dir" value="WEB-INF/lib" />
+    <property name="flash.dir" value="${flashmonkey.dir}/flash" />
+    <property name="flash.lib.dir" value="${flash.dir}/lib" />
 
 </project>

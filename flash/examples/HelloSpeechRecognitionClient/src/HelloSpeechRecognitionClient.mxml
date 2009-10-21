@@ -1,4 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" >
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	creationComplete="createMic();">
+
+	<mx:Script>
+	    <![CDATA[
+	    	import mx.logging.Log;
+	    	import mx.logging.ILogger;
+	    import flash.media.Microphone;
+	    import flash.events.ActivityEvent;
+	    import flash.events.Event;
+	    import flash.events.StatusEvent;
+	
+		  private static const logger:ILogger = Log.getLogger("Main");
+		  
+	
+	      public var mic:Microphone;
+	
+	      public function createMic():void
+	      {
+	      	var deviceArray:Array = Microphone.names;
+			logger.info("Available sound input devices:");
+			for (var i:int = 0; i < deviceArray.length; i++)
+			{
+			    logger.info(" " + deviceArray[i]);
+			}
+
+	        mic = Microphone.getMicrophone();
+	        mic.gain = 60;
+			mic.rate = 11;
+			mic.setUseEchoSuppression(true);
+			mic.setLoopBack(true);
+			mic.setSilenceLevel(5, 1000);
+
+	        mic.addEventListener(ActivityEvent.ACTIVITY, activity);
+	        mic.addEventListener(StatusEvent.STATUS, status);
+	        mic.addEventListener(Event.ACTIVATE, active);
+	        
+	        var micDetails:String = "Sound input device name: " + mic.name + '\n';
+			micDetails += "Gain: " + mic.gain + '\n';
+			micDetails += "Rate: " + mic.rate + " kHz" + '\n';
+			micDetails += "Muted: " + mic.muted + '\n';
+			micDetails += "Silence level: " + mic.silenceLevel + '\n';
+			micDetails += "Silence timeout: " + mic.silenceTimeout + '\n';
+			micDetails += "Echo suppression: " + mic.useEchoSuppression + '\n';
+			logger.info(micDetails);
+
+	      }
+	
+	      private function active(event:Event):void
+	      {
+	        logger.info(' active ');
+	      }
+	
+	      private function status(event:StatusEvent):void
+	      {
+	        logger.info("status: level=" + event.level + ", code=" + event.code);
+	      }
+	
+	      private function activity(event:ActivityEvent):void
+	      {
+	        logger.info("activating=" + event.activating + ", activityLevel=" + mic.activityLevel);
+
+	        addEventListener(Event.ENTER_FRAME, showMicLevel);
+	      }
+	
+	      private function showMicLevel(event:Event):void
+	      {
+	        logger.info(mic.gain+" "+mic.activityLevel+" "+mic.silenceLevel+" "+mic.rate);
+	        level.graphics.clear();
+	        level.graphics.beginFill(0xccccff, 1);
+	        level.graphics.drawRect(0, 0, (mic.activityLevel * 30), 100);
+	        level.graphics.endFill();
+	      }
+	
+	    ]]>
+	</mx:Script>
+	<mx:Canvas width="300" height="50" id="level"/>
 
 </mx:Application>

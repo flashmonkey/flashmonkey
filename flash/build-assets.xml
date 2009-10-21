@@ -1,0 +1,10 @@
+<!-- build-assets.xml: This file pulls in definitions of all build assets for
+     project directories below it. -->
+<project name="flash.assets">
+	
+	<dirname property="flash.assets.dir" file="${ant.file.flash.assets}"/>
+	
+	<!-- Define library SWC files shared by the flash projects. -->	
+	<property name="sos.logging.swc" location="${flash.lib.dir}/sosloggingtarget_1.0.1.swc" />
+
+</project>
