@@ -10,6 +10,7 @@
 	<property file="${paperworld.imports.dir}/build-user.properties" />
 	
 	<import file="build-paperworld-properties.xml"/>
+    <import file="build-flashmonkey-targets.xml"/>
     <import file="../antennae/tools/build-common-imports.xml" />
 
     <import file="build-assets.xml" />

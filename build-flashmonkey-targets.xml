@@ -1,0 +1,15 @@
+<project name="flashmonkey.tools.targets">
+        <!--
+        ++ =======================================================================
+        ++ Target: flash-application
+        ++ 
+        ++ Build a Flash application, including the copying of non-compiled
+        ++ resources.
+        ++ =======================================================================
+    -->
+    <target name="flash-application" depends="init,flex-application-check,flex-application-copy"
+        unless="${project.swf}.compiled" description="Compile the application">
+        <mxmlc src="${src.flex.dir}/${project.flash.application}"
+            dest="${build.mxmlc.dir}/${project.swf}" />
+    </target>
+</project>

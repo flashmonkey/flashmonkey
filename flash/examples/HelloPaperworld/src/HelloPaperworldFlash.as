@@ -23,7 +23,7 @@ package {
 
 	public class HelloPaperworldFlash extends ChequerBoardView
 	{
-		private var client:IClient;
+		private var client:IClient
 		
 		private var syncManager:SynchronisationManager;
 		
