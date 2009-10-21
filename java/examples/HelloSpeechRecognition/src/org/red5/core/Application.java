@@ -22,10 +22,10 @@ package org.red5.core;
 import org.red5.server.adapter.ApplicationAdapter;
 import org.red5.server.api.IConnection;
 import org.red5.server.api.IScope;
-import org.red5.server.api.Red5;
 import org.red5.server.api.service.ServiceUtils;
-import org.red5.server.api.stream.IBroadcastStream;
 import org.red5.server.api.stream.IStreamAwareScopeHandler;
+
+import edu.cmu.sphinx.util.props.ConfigurationManager;
 
 /**
  * Red5Server Framework.
@@ -38,6 +38,8 @@ public class Application extends ApplicationAdapter implements IStreamAwareScope
 	
 	public Application() {
 		System.out.println("test");
+		
+		ConfigurationManager cm = new ConfigurationManager(System.getProperty("red5.root") + "/webapps/HelloSpeechRecognition/WEB-INF/config.xml");
 	}
 	
 	/** {@inheritDoc} */

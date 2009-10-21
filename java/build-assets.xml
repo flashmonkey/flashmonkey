@@ -13,5 +13,6 @@
 	<property name="lwjgl.util.jar" location="${java.lib.dir}/lwjgl_util.jar"/>
 	<property name="jetm.jar" location="${java.lib.dir}/jetm.jar"/>
 	<property name="eventdispatcher.jar" location="${java.lib.dir}/EventDispatcher-0.12.0.jar" />
+	<property name="sphinx4.jar" location="${java.lib.dir}/sphinx4.jar" />
 
 </project>
