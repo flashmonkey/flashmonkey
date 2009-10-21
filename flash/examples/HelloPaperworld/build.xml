@@ -1,12 +1,11 @@
 <project name="HelloPaperworldFlash" default="build">
     <import file="build-imports.xml"/>
 
-    <!-- This library doesn't depend on anything else. -->
     <path id="flex.lib.path">
-		<pathelement location="${paperworld.paperworld-connection.swc}"/>
-		<pathelement location="${paperworld.paperworld-multiplayer.swc}"/>
-		<pathelement location="${paperworld.paperworld-pv3d-core.swc}"/>
-		<pathelement location="${paperworld.paperworld-pv3d-multiplayer.swc}"/>
+		<pathelement location="${flash.connection.swc}"/>
+		<pathelement location="${flash.multiplayer.swc}"/>
+		<pathelement location="${flash.pv3d.core.swc}"/>
+		<pathelement location="${flash.pv3d.multiplayer.swc}"/>
 	</path>
 
     <!-- targets -->

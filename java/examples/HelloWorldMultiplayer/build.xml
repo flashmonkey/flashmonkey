@@ -1,11 +1,10 @@
 <project name="HelloWorldMultiplayer" default="build">
     <import file="build-imports.xml"/>
 
-    <!-- This library doesn't depend on anything else. -->
     <path id="javac.lib.path">
 		<pathelement location="${jedai.jar}" />
-		<pathelement location="${paperworld.red5.jar}" />
-    	<pathelement location="${paperworld-java-jmonkey-adaptor.jar}" />
+		<pathelement location="${red5.jar}" />
+    	<pathelement location="${java.jmonkey.adaptor.jar}" />
 	</path>
 
     <!-- targets -->
@@ -22,15 +21,15 @@
 		<jar jarfile="${HelloWorldMultiplayer.jar}" basedir="${build.javac.dir}"/>
 			
 		<!-- Copy over any required libraries into the WEB-INF/lib directory -->
-		<copy todir="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${paperworld-java-core.jar}" overwrite="true" />
-        <copy todir="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${paperworld-java-multiplayer.jar}" overwrite="true" />
-		<copy todir="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${paperworld-java-jmonkey-adaptor.jar}" overwrite="true" />
+		<copy todir="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${java.core.jar}" overwrite="true" />
+        <copy todir="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${java.multiplayer.jar}" overwrite="true" />
+		<copy todir="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${java.jmonkey.adaptor.jar}" overwrite="true" />
 
 	</target>
 	
 	<target name="dist" depends="stage">
 		<!--war destfile="${build.dist.dir}/${project.war}" basedir="${build.stage.dir}" /-->
-		<echo>${jedai.jar}</echo>
+
 		<mkdir dir="${build.dist.dir}/${ant.project.name}" />
 		<delete dir="${build.dist.dir}/${ant.project.name}" />
 		<mkdir dir="${build.dist.dir}/${ant.project.name}" />

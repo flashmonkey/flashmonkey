@@ -1,24 +1,22 @@
-<project name="paperworld.java.multiplayer" default="build">
+<project name="java.multiplayer" default="build">
     <import file="build-imports.xml"/>
 
-    <!-- This library doesn't depend on anything else. -->
     <path id="javac.lib.path">
-        <pathelement location="${paperworld-java-core.jar}" />
-		<pathelement location="${paperworld.red5.jar}" />
-		<!--pathelement location="${jme.jar}" /-->
-		<pathelement location="${paperworld.slf4j.jar}" />
-		<pathelement location="${paperworld.spring.core.jar}" />
+        <pathelement location="${java.core.jar}" />
+		<pathelement location="${red5.jar}" />
+		<pathelement location="${slf4j.jar}" />
+		<pathelement location="${spring.core.jar}" />
 	</path>
 
     <!-- targets -->
-    <target name="build" depends="print,init,java-classes,jar" description="Build the library"/>
-    
-    <target name="print">
-        <echo> CORE JAR ${paperworld-java-core.jar} </echo>
-    </target>
-	
+    <target name="build" depends="init,java-classes,jar" description="Build the library"/>
+    	
 	<target name="jar" description="creates a jar file from the compiled classes">
-		<jar jarfile="${paperworld-java-multiplayer.jar}" basedir="${build.javac.dir}"/>
+		<jar jarfile="${java.multiplayer.jar}" basedir="${build.javac.dir}"/>
+	</target>
+	
+	<target name="dist" depends="build">
+		<copy todir="${java.server.dist.dir}" file="${java.multiplayer.jar}"/>
 	</target>
 	
 </project>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <actionScriptProperties mainApplicationPath="HelloPaperworldFlash.as" version="3">
-  <compiler additionalCompilerArguments="" copyDependentFiles="true" enableModuleDebug="true" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="true" htmlHistoryManagement="true" htmlPlayerVersion="9.0.124" htmlPlayerVersionCheck="true" outputFolderPath="" sourceFolderPath="src" strict="true" useApolloConfig="false" verifyDigests="true" warn="true">
+  <compiler additionalCompilerArguments="" copyDependentFiles="true" enableModuleDebug="true" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="true" htmlHistoryManagement="true" htmlPlayerVersion="9.0.124" htmlPlayerVersionCheck="true" outputFolderPath="bin" sourceFolderPath="src" strict="true" useApolloConfig="false" verifyDigests="true" warn="true">
     <compilerSourcePath/>
     <libraryPath defaultLinkType="1">
       <libraryPathEntry kind="4" path="">
@@ -8,21 +8,18 @@
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_charts.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="1" linkType="1" path="${PROJECT_FRAMEWORKS}/locale/{locale}"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/qtp.swc" useDefaultLinkType="false"/>
-          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/rpc.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/charts.swc" useDefaultLinkType="false"/>
-          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/framework.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/rpc.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/datavisualization.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/framework.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_dmv.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_flashflexkit.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
         </excludedEntries>
       </libraryPathEntry>
-      <libraryPathEntry kind="1" linkType="1" path="${DOCUMENTS}/flash/client/trunk/lib"/>
-      <libraryPathEntry kind="3" linkType="1" path="${DOCUMENTS}/flash/client/trunk/connection/bin/swc/paperworld-connection.swc" useDefaultLinkType="false"/>
-      <libraryPathEntry kind="3" linkType="1" path="${DOCUMENTS}/flash/client/trunk/multiplayer/bin/swc/paperworld-multiplayer.swc" useDefaultLinkType="false"/>
-      <libraryPathEntry kind="3" linkType="1" path="${DOCUMENTS}/flash/client/trunk/pv3d-multiplayer/bin/swc/paperworld-pv3d-multiplayer.swc" useDefaultLinkType="false"/>
-      <libraryPathEntry kind="3" linkType="1" path="${DOCUMENTS}/flash/client/trunk/pv3d-core/bin/swc/paperworld-pv3d-core.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="1" linkType="1" path="${FLASHMONKEY_FLASH_LIB}"/>
+      <libraryPathEntry kind="1" linkType="1" path="${FLASHMONKEY_FLASH_BIN}"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>

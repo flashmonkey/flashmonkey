@@ -1,4 +1,4 @@
-<project name="paperworld.java" default="build">
+<project name="flashmonkey.flash.client" default="build">
     <import file="build-imports.xml"/>
 	
 	<filelist id="flash.libraries.filelist" dir=".">

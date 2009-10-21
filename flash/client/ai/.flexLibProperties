@@ -1,23 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties version="1">
-<includeClasses>
-<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.SteeringConstraint"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.SteeringUtils"/>
-<classEntry path="org.flashmonkey.flash.ai.dectree.DecisionTreeAction"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.Decomposer"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.behaviours.kinematic.KinematicSeek"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.constraints.AvoidLocationConstraint"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.constraints.AvoidAgentConstraint"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.behaviours.kinematic.KinematicWander"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.behaviours.Flee"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.Targeter"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.Actuator"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.constraints.AvoidWallsConstraint"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.constraints.AvoidPredatorConstraint"/>
-<classEntry path="org.flashmonkey.flash.ai.dectree.DecisionTreeNode"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.behaviours.kinematic.TargetedKinematicMovement"/>
-<classEntry path="org.flashmonkey.flash.ai.steering.pipeline.SteeringPipeline"/>
-</includeClasses>
-<includeResources/>
-<namespaceManifests/>
+  <includeClasses>
+    <classEntry path="org.flashmonkey.flash.ai.collision.ICollisionDetector"/>
+    <classEntry path="org.flashmonkey.flash.ai.dectree.Decision"/>
+    <classEntry path="org.flashmonkey.flash.ai.dectree.DecisionTreeAction"/>
+    <classEntry path="org.flashmonkey.flash.ai.dectree.DecisionTreeNode"/>
+    <classEntry path="org.flashmonkey.flash.ai.dectree.RandomDecision"/>
+    <classEntry path="org.flashmonkey.flash.ai.dectree.RandomDecisionWithTimeout"/>
+    <classEntry path="org.flashmonkey.flash.ai.learning.ArrayBasedLearningProblem"/>
+    <classEntry path="org.flashmonkey.flash.ai.learning.LearningProblem"/>
+    <classEntry path="org.flashmonkey.flash.ai.learning.LearningProblemAction"/>
+    <classEntry path="org.flashmonkey.flash.ai.learning.LearningProblemActionResult"/>
+    <classEntry path="org.flashmonkey.flash.ai.learning.LearningProblemState"/>
+    <classEntry path="org.flashmonkey.flash.ai.scheduling.BehaviourSet"/>
+    <classEntry path="org.flashmonkey.flash.ai.scheduling.DirectAccessFrequencyScheduler"/>
+    <classEntry path="org.flashmonkey.flash.ai.scheduling.FrequencyScheduler"/>
+    <classEntry path="org.flashmonkey.flash.ai.scheduling.LoadBalancingScheduler"/>
+    <classEntry path="org.flashmonkey.flash.ai.scheduling.PriorityScheduler"/>
+    <classEntry path="org.flashmonkey.flash.ai.scheduling.Scheduleable"/>
+    <classEntry path="org.flashmonkey.flash.ai.scheduling.ScheduledObject"/>
+    <classEntry path="org.flashmonkey.flash.ai.sm.BaseTransition"/>
+    <classEntry path="org.flashmonkey.flash.ai.sm.Condition"/>
+    <classEntry path="org.flashmonkey.flash.ai.sm.ConditionAwareTransition"/>
+    <classEntry path="org.flashmonkey.flash.ai.sm.StateMachine"/>
+    <classEntry path="org.flashmonkey.flash.ai.sm.StateMachineState"/>
+    <classEntry path="org.flashmonkey.flash.ai.sm.Transition"/>
+    <classEntry path="org.flashmonkey.flash.ai.sm.markov.FixedMarkovTransition"/>
+    <classEntry path="org.flashmonkey.flash.ai.sm.markov.MarkovStateMachine"/>
+    <classEntry path="org.flashmonkey.flash.ai.sm.markov.MarkovTransition"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.Kinematic"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.Location"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.SteeringBehaviour"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.SteeringOutput"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.behaviours.Flee"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.behaviours.Seek"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.behaviours.kinematic.KinematicArrive"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.behaviours.kinematic.KinematicFlee"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.behaviours.kinematic.KinematicMovement"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.behaviours.kinematic.KinematicSeek"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.behaviours.kinematic.KinematicWander"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.behaviours.kinematic.TargetedKinematicMovement"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.pipeline.Actuator"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.pipeline.Decomposer"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.pipeline.SteeringConstraint"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.pipeline.SteeringPipeline"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.pipeline.SteeringUtils"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.pipeline.Targeter"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.pipeline.constraints.AvoidAgentConstraint"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.pipeline.constraints.AvoidLocationConstraint"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.pipeline.constraints.AvoidPredatorConstraint"/>
+    <classEntry path="org.flashmonkey.flash.ai.steering.pipeline.constraints.AvoidWallsConstraint"/>
+    <classEntry path="org.flashmonkey.flash.api.ai.sm.ICondition"/>
+    <classEntry path="org.flashmonkey.flash.api.ai.sm.IStateMachineState"/>
+    <classEntry path="org.flashmonkey.flash.api.ai.sm.ITransition"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
 </flexLibProperties>

@@ -1,0 +1,17 @@
+<project name="java.assets">
+	
+	<!-- Define library jar files shared by the java projects. -->		
+	<property name="jme.jar" location="${java.lib.dir}/jme.jar"/>
+    <property name="slf4j.jar" location="${java.lib.dir}/slf4j-api-1.5.6.jar" />
+    <property name="spring.core.jar" location="${java.lib.dir}/spring-core-2.5.6.jar" />
+	<property name="red5.jar" location="${red5.dir}/red5.jar"/>
+	<property name="xuggle.jar" location="${java.lib.dir}/xuggle-xuggler.jar"/>
+	<property name="xuggle.red5.jar" location="${java.lib.dir}/xuggle-xuggler-red5.jar"/>
+	<property name="jme.audio.jar" location="${java.lib.dir}/jme-audio.jar"/>
+	<property name="jme.gamestates.jar" location="${java.lib.dir}/jme-gamestates.jar"/>
+	<property name="lwjgl.jar" location="${java.lib.dir}/lwjgl.jar"/>
+	<property name="lwjgl.util.jar" location="${java.lib.dir}/lwjgl_util.jar"/>
+	<property name="jetm.jar" location="${java.lib.dir}/jetm.jar"/>
+	<property name="eventdispatcher.jar" location="${java.lib.dir}/EventDispatcher-0.12.0.jar" />
+
+</project>

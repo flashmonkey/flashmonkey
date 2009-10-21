@@ -6,5 +6,10 @@
 	
 	<!-- Define library SWC files shared by the flash projects. -->	
 	<property name="sos.logging.swc" location="${flash.lib.dir}/sosloggingtarget_1.0.1.swc" />
+	<property name="datastructures.swc" location="${flash.lib.dir}/datastructures.swc"/>
+	<property name="spring-as.swc" location="${flash.lib.dir}/spring-actionscript.swc"/>
+	<property name="spring-as-resources.swc" location="${flash.lib.dir}/springactionscript_resourceloading.swc"/>
+	<property name="moccasin.swc" location="${flash.lib.dir}/moccasin-core.swc"/>
+	<property name="papervision.swc" location="${flash.lib.dir}/Papervision3D.swc"/>
 
 </project>

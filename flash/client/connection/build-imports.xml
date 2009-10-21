@@ -1,3 +1,3 @@
-<project name="paperworld-connection.imports">
+<project name="flash.connection.imports">
     <import file="../../../build-imports.xml"/>
 </project>

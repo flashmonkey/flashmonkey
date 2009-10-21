@@ -1,4 +1,4 @@
-<project name="paperworld.flash.examples" default="build">
+<project name="flash.examples" default="build">
     <import file="build-imports.xml"/>
 	
 	<filelist id="flash.examples.filelist" dir=".">

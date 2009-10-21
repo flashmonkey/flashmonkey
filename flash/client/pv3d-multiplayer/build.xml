@@ -1,12 +1,16 @@
-<project name="paperworld-pv3d-multiplayer" default="build">
+<project name="flashmonkey-pv3d-multiplayer" default="build">
     <import file="build-imports.xml"/>
 
-    <!-- This library doesn't depend on anything else. -->
     <path id="flex.lib.path">
-		<pathelement location="${paperworld.papervision.swc}"/>
-		<pathelement location="${paperworld.paperworld-multiplayer.swc}"/>
+		<pathelement location="${papervision.swc}"/>
+		<pathelement location="${flash.multiplayer.swc}"/>
 	</path>
 
     <!-- targets -->
     <target name="build" depends="init,flex-library" description="Build the library"/>
+	
+	<target name="dist" depends="build">
+		<copy todir="${flash.client.dist.dir}" file="${flash.pv3d.multiplayer.swc}"/>
+	</target>
+	
 </project>

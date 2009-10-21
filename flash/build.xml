@@ -1,4 +1,4 @@
-<project name="paperworld.flash" default="build">
+<project name="flashmonkey.flash" default="build">
     <import file="build-imports.xml"/>
 	
 	<filelist id="flash.filelist" dir=".">
@@ -9,6 +9,8 @@
     <!-- targets -->	
 	<target name="init" description="Call init on each sub project">
         <echoAndRun target="init" children.filelist.id="flash.filelist" />
+		<mkdir dir="${flash.dist.dir}" />
+		<mkdir dir="${flash.dist.dir}/${client.dir.name}" />
     </target>
 
     <target name="build" description="Call build on each sub project">
@@ -33,6 +35,8 @@
 
     <target name="clean" description="Call clean on each sub project">
         <echoAndRun target="clean" children.filelist.id="flash.filelist" />
+		<delete dir="${flash.dist.dir}/${client.dir.name}" quiet="true" />
+		<delete dir="${flash.dist.dir}" quiet="true" />
     </target>
 
     <target name="undeploy" description="Call undeploy on each sub project">

@@ -1,8 +1,4 @@
-<!--
-    Master build file for 'multi' project.  Contains an assortment of
-    targets that invoke their counterparts in the various subprojects.
--->
-<project name="paperworld" default="build" basedir=".">
+<project name="flashmonkey" default="build" basedir=".">
     <!--
         Import a special target set for master build files.
         This overrides the standard targets defined in 

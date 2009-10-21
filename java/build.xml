@@ -9,6 +9,8 @@
     <!-- targets -->	
 	<target name="init" description="Call init on each sub project">
         <echoAndRun target="init" children.filelist.id="java.filelist" />
+		<mkdir dir="${java.dist.dir}" />
+		<mkdir dir="${java.dist.dir}/${server.dir.name}" />
     </target>
 
     <target name="build" description="Call build on each sub project">
@@ -33,6 +35,8 @@
 
     <target name="clean" description="Call clean on each sub project">
         <echoAndRun target="clean" children.filelist.id="java.filelist" />
+		<delete dir="${java.dist.dir}/${server.dir}" quiet="true" />
+		<delete dir="${java.dist.dir}" quiet="true" />
     </target>
 
     <target name="undeploy" description="Call undeploy on each sub project">

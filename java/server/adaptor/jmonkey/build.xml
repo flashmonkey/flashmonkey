@@ -1,20 +1,22 @@
-<project name="paperworld.java.jmonkey.adaptor" default="build">
+<project name="java.jmonkey.adaptor" default="build">
     <import file="build-imports.xml"/>
 
-    <!-- This library doesn't depend on anything else. -->
     <path id="javac.lib.path">
-		<pathelement location="${paperworld.jme.jar}" />
-		<pathelement location="${paperworld.red5.jar}" />
-		<pathelement location="${paperworld-java-red5-connection.jar}" />
-		<pathelement location="${paperworld-java-multiplayer.jar}" />
-		<pathelement location="${paperworld-java-core.jar}" />
+		<pathelement location="${jme.jar}" />
+		<pathelement location="${red5.jar}" />
+		<pathelement location="${java.multiplayer.jar}" />
+		<pathelement location="${java.core.jar}" />
 	</path>
 
     <!-- targets -->
     <target name="build" depends="init,java-classes,jar" description="Build the library"/>
 	
 	<target name="jar" description="creates a jar file from the compiled classes">
-		<jar jarfile="${paperworld-java-jmonkey-adaptor.jar}" basedir="${build.javac.dir}"/>
+		<jar jarfile="${java.jmonkey.adaptor.jar}" basedir="${build.javac.dir}"/>
+	</target>
+	
+	<target name="dist" depends="build">
+		<copy todir="${java.server.dist.dir}" file="${java.jmonkey.adaptor.jar}"/>
 	</target>
 	
 </project>

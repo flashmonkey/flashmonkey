@@ -1,9 +1,8 @@
 <project name="HelloSpeechRecognition" default="build">
     <import file="build-imports.xml"/>
 
-    <!-- This library doesn't depend on anything else. -->
     <path id="javac.lib.path">
-		<pathelement location="${paperworld.red5.jar}" />
+		<pathelement location="${red5.jar}" />
 	</path>
 
     <!-- targets -->
@@ -18,30 +17,13 @@
 			
 		<!-- Create a jar file from the compiled classes and place it in the WEB-INF/lib directory -->
 		<jar jarfile="${HelloSpeechRecognition.jar}" basedir="${build.javac.dir}"/>
-        
-		
-		<!-- Copy over any required libraries into the WEB-INF/lib directory 
-		<copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${paperworld-java-core.jar}" overwrite="true" />
-        <copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${paperworld-java-multiplayer.jar}" overwrite="true" />
-		<copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${paperworld-java-jmonkey-adaptor.jar}" overwrite="true" />
-		<copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${jme.gamestates.jar}" overwrite="true" />
-        <copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${xuggle.jar}" overwrite="true" />
-		<copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${xuggle.red5.jar}" overwrite="true" />
-		<copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${lwjgl.jar}" overwrite="true" />
-		<copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${jme.audio.jar}" overwrite="true" />
-		<copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${lwjgl.util.jar}" overwrite="true" />
-		<copy todir="${MultiplayerVideo.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${jetm.jar}" overwrite="true" />-->
 		
 	</target>
 	
 	<target name="dist" depends="stage">
 		<!--war destfile="${build.dist.dir}/${project.war}" basedir="${build.stage.dir}" /-->
-		<echo>${jedai.jar}</echo>
-		<mkdir dir="${build.dist.dir}/${ant.project.name}" />
-		<delete dir="${build.dist.dir}/${ant.project.name}" />
-		<mkdir dir="${build.dist.dir}/${ant.project.name}" />
 		
-		<copy todir="${build.dist.dir}/${ant.project.name}">
+		<copy todir="${build.dist.dir}/${ant.project.name}" overwrite="true">
 			<fileset dir="${build.stage.dir}">
 				<include name="**/*" />
 			</fileset>

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties version="1">
   <includeClasses>
+    <classEntry path="org.flashmonkey.flash.pv3d.objects.SynchronisablePhysicsObject"/>
     <classEntry path="org.flashmonkey.flash.pv3d.objects.SynchronisedObject"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.scenes.SynchronisedScene"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.views.ChequerBoardView"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
