@@ -14,7 +14,7 @@ public abstract class PlayerMessage extends BaseMessage implements IPlayerMessag
 		super(null);
 	}
 	
-	@Override
+	//@Override
 	public void read(IMultiplayerService service) {
 		service.getPlayers().get(playerId).sendMessage(this);
 	}
@@ -33,14 +33,14 @@ public abstract class PlayerMessage extends BaseMessage implements IPlayerMessag
 		this.playerId = playerId;
 	}
 	
-	@Override
+	//@Override
 	public void readExternal(IDataInput input) {
 		super.readExternal(input);
 		
 		playerId = input.readUTF();
 	}
 
-	@Override
+	//@Override
 	public void writeExternal(IDataOutput output) {
 		super.writeExternal(output);
 		

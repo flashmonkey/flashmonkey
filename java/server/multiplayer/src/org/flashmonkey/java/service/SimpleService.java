@@ -28,7 +28,7 @@ public class SimpleService extends BasePaperworldService {
 		application.addScheduledJob(100, new UpdateAvatarsJob());
 	}
 
-	@Override
+	//@Override
 	public boolean appConnect(IConnection connection, Object[] args) {
 		String uid = connection.getClient().getId();
 		String username = args[0].toString();
@@ -96,7 +96,7 @@ public class SimpleService extends BasePaperworldService {
 		}		
 	}
 
-	/*@Override
+	/*//@Override
 	public IAvatarFactory getFactory() {
 		return factory;
 	}*/

@@ -19,7 +19,7 @@ public class AvatarForwardBehaviour extends AbstractAvatarBehaviour {
 		super(speed);
 	}
 
-	@Override
+	//@Override
 	public void update(int time, IInput input, BasicState state) {
 		if (input.getMoveForward()) {
 			Vector3f loc = new Vector3f(state.px, state.py, state.pz);

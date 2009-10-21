@@ -71,7 +71,7 @@ public class SynchroniseCreateMessage extends BroadcastMessage implements
 		this.state = state;
 	}
 	
-	@Override
+	//@Override
 	public void readExternal(IDataInput input) {
 		super.readExternal(input);
 		
@@ -82,7 +82,7 @@ public class SynchroniseCreateMessage extends BroadcastMessage implements
 		state = (BasicState) input.readObject();
 	}
 
-	@Override
+	//@Override
 	public void writeExternal(IDataOutput output) {
 		super.writeExternal(output);
 		

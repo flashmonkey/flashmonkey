@@ -7,192 +7,192 @@ public class SimpleInput extends AbstractInput {
 
 	private boolean moveForward;
 
-	@Override
+	//@Override
 	public boolean getMoveForward() {
 		return moveForward;
 	}
 	
-	@Override
+	//@Override
 	public void setMoveForward(boolean forward) {
 		this.moveForward = forward;
 	}
 	
 	private boolean moveBackward;
 	
-	@Override
+	//@Override
 	public boolean getMoveBackward() {
 		return moveBackward;
 	}
 	
-	@Override
+	//@Override
 	public void setMoveBackward(boolean backward) {
 		this.moveBackward = backward;
 	}
 	
 	private boolean moveLeft;
 
-	@Override
+	//@Override
 	public boolean getMoveLeft() {
 		return moveLeft;
 	}
 	
-	@Override
+	//@Override
 	public void setMoveLeft(boolean left) {
 		this.moveLeft = left;
 	}
 	
 	private boolean moveRight;
 
-	@Override
+	//@Override
 	public boolean getMoveRight() {
 		return moveRight;
 	}
 	
-	@Override
+	//@Override
 	public void setMoveRight(boolean right) {
 		this.moveRight = right;
 	}
 	
 	private boolean moveUp;
 
-	@Override
+	//@Override
 	public boolean getMoveUp() {
 		return moveUp;
 	}
 	
-	@Override
+	//@Override
 	public void setMoveUp(boolean up) {
 		this.moveUp = up;
 	}
 	
 	private boolean moveDown;
 
-	@Override
+	//@Override
 	public boolean getMoveDown() {
 		return moveDown;
 	}
 	
-	@Override
+	//@Override
 	public void setMoveDown(boolean down) {
 		this.moveDown = down;
 	}
 	
 	private boolean pitchPositive;
 
-	@Override
+	//@Override
 	public boolean getPitchPositive() {
 		return pitchPositive;
 	}
 	
-	@Override
+	//@Override
 	public void setPitchPositive(boolean pitchPositive) {
 		this.pitchPositive = pitchPositive;
 	}	
 	
 	private boolean pitchNegative;
 
-	@Override
+	//@Override
 	public boolean getPitchNegative() {
 		return pitchNegative;
 	}
 	
-	@Override
+	//@Override
 	public void setPitchNegative(boolean pitchNegative) {
 		this.pitchNegative = pitchNegative;
 	}
 	
 	private boolean rollPositive;
 
-	@Override
+	//@Override
 	public boolean getRollPositive() {
 		return rollPositive;
 	}
 	
-	@Override
+	//@Override
 	public void setRollPositive(boolean rollPositive) {
 		this.rollPositive = rollPositive;
 	}
 
 	private boolean rollNegative;
 	
-	@Override
+	//@Override
 	public boolean getRollNegative() {
 		return rollNegative;
 	}
 	
-	@Override
+	//@Override
 	public void setRollNegative(boolean rollNegative) {
 		this.rollNegative = rollNegative;
 	}
 
 	private boolean yawPositive;
 
-	@Override
+	//@Override
 	public boolean getYawPositive() {
 		return yawPositive;
 	}
 
-	@Override
+	//@Override
 	public void setYawPositive(boolean yawPositive) {
 		this.yawPositive = yawPositive;
 	}
 	
 	private boolean yawNegative;
 	
-	@Override
+	//@Override
 	public boolean getYawNegative() {
 		return yawNegative;
 	}
 	
-	@Override
+	//@Override
 	public void setYawNegative(boolean yawNegative) {
 		this.yawNegative = yawNegative;
 	}
 
 	private boolean fire;
 
-	@Override
+	//@Override
 	public boolean getFire() {
 		return fire;
 	}
 
-	@Override
+	//@Override
 	public void setFire(boolean fire) {
 		this.fire = fire;
 	}
 
 	private boolean jump;
 
-	@Override
+	//@Override
 	public boolean getJump() {
 		return jump;
 	}
 
-	@Override
+	//@Override
 	public void setJump(boolean jump) {
 		this.jump = jump;
 	}
 	
 	private float mouseX;
 	
-	@Override
+	//@Override
 	public float getMouseX() {
 		return mouseX;
 	}
 	
-	@Override
+	//@Override
 	public void setMouseX(float mouseX) {
 		this.mouseX = mouseX;
 	}
 	
 	private float mouseY;
 	
-	@Override
+	//@Override
 	public float getMouseY() {
 		return mouseY;
 	}
 	
-	@Override
+	//@Override
 	public void setMouseY(float mouseY) {
 		this.mouseY = mouseY;
 	}
@@ -201,7 +201,7 @@ public class SimpleInput extends AbstractInput {
 		
 	}
 	
-	@Override
+	//@Override
 	public void readExternal(IDataInput input) {
 		moveForward = input.readBoolean();
 		moveBackward = input.readBoolean();
@@ -221,7 +221,7 @@ public class SimpleInput extends AbstractInput {
 		mouseY = input.readFloat();
 	}
 
-	@Override
+	//@Override
 	public void writeExternal(IDataOutput output) {
 		output.writeBoolean(moveForward);
 		output.writeBoolean(moveBackward);

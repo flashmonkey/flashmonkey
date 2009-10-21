@@ -28,7 +28,7 @@ public class JMScene extends SimpleHeadlessApp implements IScene {
 		return null;
 	}
 
-	@Override
+	//@Override
 	protected void simpleInitGame() {
 		// TODO Auto-generated method stub
 		

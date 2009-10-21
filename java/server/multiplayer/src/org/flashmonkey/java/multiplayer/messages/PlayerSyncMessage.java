@@ -52,7 +52,7 @@ public class PlayerSyncMessage extends AbstractMessage implements IPlayerSyncMes
 		this.time = time;
 	}
 	
-	@Override
+	//@Override
 	public void readExternal(IDataInput input) {
 		super.readExternal(input);
 		
@@ -61,7 +61,7 @@ public class PlayerSyncMessage extends AbstractMessage implements IPlayerSyncMes
 		this.input = (IInput) input.readObject();
 	}
 
-	@Override
+	//@Override
 	public void writeExternal(IDataOutput output) {
 		super.writeExternal(output);
 		
@@ -70,7 +70,7 @@ public class PlayerSyncMessage extends AbstractMessage implements IPlayerSyncMes
 		output.writeObject(input);
 	}
 
-	@Override
+	//@Override
 	public void read(IMultiplayerService service) {
 		IAvatar avatar = service.getAvatar(getObjectId());
 		avatar.updateUserInput(getTime(), getInput());

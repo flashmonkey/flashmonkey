@@ -20,7 +20,7 @@ public class ActionCombination extends ActionCompound {
      * Checks if this action can interrupt. The combination can
      * interrupt if any of its actions can.
      */
-	@Override
+	//@Override
 	public boolean canInterrupt() {
 		Action next = subActions;
 		while (next != null) {
@@ -35,7 +35,7 @@ public class ActionCombination extends ActionCompound {
      * Returns true if all the sub-actions is done. Otherwise the
      * manager keeps scheduling the action.
      */
-	@Override
+	//@Override
 	public boolean isComplete() {
 		Action next = subActions;
 		while (next != null) {
@@ -50,7 +50,7 @@ public class ActionCombination extends ActionCompound {
      * Called to make the action do its stuff. It calls all its
      * subactions.
      */
-	@Override
+	//@Override
 	public void act() {
 		Action next = subActions;
 		while (next != null) {

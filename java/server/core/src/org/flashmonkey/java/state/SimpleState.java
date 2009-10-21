@@ -8,17 +8,17 @@ public class SimpleState extends AbstractState {
 	public SimpleState() {
 	}
 
-	@Override
+	//@Override
 	public Quaternion getOrientation() {
 		return new Quaternion(ox, oy, oz, ow);
 	}
 
-	@Override
+	//@Override
 	public Vector3f getPosition() {
 		return new Vector3f(px, py, pz);
 	}
 
-	@Override
+	//@Override
 	public void setOrientation(Quaternion orientation) {
 		ox = orientation.x;
 		oy = orientation.y;
@@ -26,7 +26,7 @@ public class SimpleState extends AbstractState {
 		ow = orientation.w;
 	}
 
-	@Override
+	//@Override
 	public void setPosition(Vector3f position) {
 		px = position.x;
 		py = position.y;

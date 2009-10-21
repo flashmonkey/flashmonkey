@@ -15,7 +15,7 @@ public class SendMessageOperation extends AbstractAsyncOperation {
 		this.message = message;
 	}
 	
-	@Override
+	//@Override
 	public void execute() {
 		ServiceUtils.invokeOnConnection(connection, "receiveMessag", new Object[]{message});
 	}

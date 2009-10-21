@@ -28,14 +28,14 @@ public class ServerSyncMessage extends PlayerSyncMessage implements IServerSyncM
 		this.state = state;
 	}
 	
-	@Override
+	//@Override
 	public void readExternal(IDataInput input) {
 		super.readExternal(input);
 
 		state = (BasicState) input.readObject();
 	}
 
-	@Override
+	//@Override
 	public void writeExternal(IDataOutput output) {
 		super.writeExternal(output);
 		

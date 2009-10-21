@@ -18,7 +18,7 @@ public class SimpleAvatar extends AbstractAvatar {
 		this.state = state;
 	}
 	
-	@Override
+	//@Override
 	public void updateUserInput(int time, IInput input) {
 		if (time > this.time) {
 			this.time = time;
@@ -26,7 +26,7 @@ public class SimpleAvatar extends AbstractAvatar {
 		}
 	}	
 	
-	@Override 
+	//@Override 
 	public void update() {
 		time++;
 		behaviour.update(time, input, state);

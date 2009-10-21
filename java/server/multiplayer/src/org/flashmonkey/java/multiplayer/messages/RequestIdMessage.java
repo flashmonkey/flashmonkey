@@ -22,26 +22,26 @@ public class RequestIdMessage extends AbstractMessage {
 		this.id = id;
 	}
 	
-	@Override
+	//@Override
 	public void read(IMultiplayerService service) {
 		id = service.getNextId(getSenderId());
 		
 		write(service);
 	}
 	
-	@Override
+	//@Override
 	public void write(IMultiplayerService service) {
 		service.getPlayer(senderId).sendMessage(this);
 	}
 	
-	@Override
+	//@Override
 	public void readExternal(IDataInput input) {
 		super.readExternal(input);
 		
 		id = input.readUTF();
 	}
 
-	@Override
+	//@Override
 	public void writeExternal(IDataOutput output) {
 		super.writeExternal(output);
 		

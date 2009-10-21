@@ -32,12 +32,12 @@ public abstract class AbstractMessage extends NetObject implements IMessage {
 		this.senderId = senderId;
 	}
 
-	@Override
+	//@Override
 	public void readExternal(IDataInput input) {
 		senderId = input.readUTF();
 	}
 
-	@Override
+	//@Override
 	public void writeExternal(IDataOutput output) {
 		output.writeUTF(senderId);
 	}

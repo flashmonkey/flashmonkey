@@ -52,7 +52,7 @@ public class Flee extends AbstractSteeringBehaviour
 		}
 	}
 
-	@Override
+	//@Override
 	public void getSteering(SteeringOutput output, IInput input) {
 		// TODO Auto-generated method stub
 		

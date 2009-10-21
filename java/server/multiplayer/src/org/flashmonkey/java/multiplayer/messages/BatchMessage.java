@@ -16,7 +16,7 @@ public class BatchMessage extends AbstractMessage {
 	
 	
 	
-	@Override
+	//@Override
 	public void readExternal(IDataInput input) {
 		super.readExternal(input);
 		
@@ -31,7 +31,7 @@ public class BatchMessage extends AbstractMessage {
 		}
 	}
 
-	@Override
+	//@Override
 	public void writeExternal(IDataOutput output) {
 		super.writeExternal(output);
 		
@@ -44,7 +44,7 @@ public class BatchMessage extends AbstractMessage {
 		}
 	}
 
-	@Override
+	//@Override
 	public void read(IMultiplayerService service) {
 		for (IMessage message : messages) {
 			message.read(service);
@@ -53,7 +53,7 @@ public class BatchMessage extends AbstractMessage {
 
 
 
-	@Override
+	//@Override
 	public void write(IMultiplayerService service) {
 		
 	}

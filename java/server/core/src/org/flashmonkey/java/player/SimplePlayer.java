@@ -16,18 +16,18 @@ public class SimplePlayer extends AbstractPlayer {
 		this.name = name;
 	}
 	
-	@Override
+	//@Override
 	public void performScopeQuery(List<IAvatar> avatars) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
+	//@Override
 	public boolean sendMessage(IMessage message) {
 		return ServiceUtils.invokeOnConnection(connection, "receiveMessage", new Object[]{message});
 	}
 
-	@Override
+	//@Override
 	public String getId() {
 		return connection.getClient().getId();
 	}

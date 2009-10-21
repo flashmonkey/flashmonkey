@@ -41,7 +41,7 @@ public class Application extends ApplicationAdapter implements IStreamAwareScope
 	}
 	
 	/** {@inheritDoc} */
-    @Override
+    //@Override
 	public boolean connect(IConnection conn, IScope scope, Object[] params) {
 		// Check if the user passed valid parameters.
 		if (params == null || params.length == 0) {
@@ -62,5 +62,9 @@ public class Application extends ApplicationAdapter implements IStreamAwareScope
 				new Object[] { uid });
 		return true;
 	}
+    
+    public String interpretSpeech(String stream) {
+    	return "batter-like discharge";
+    }
 	
 }

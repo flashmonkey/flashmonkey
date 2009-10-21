@@ -20,7 +20,7 @@ public class ActionSequence extends ActionCompound {
      * Checks if this action can interrupt. The combination can
      * interrupt if the first action can.
      */
-	@Override
+	//@Override
     public boolean canInterrupt() {
 		if (subActions != null) return subActions.canInterrupt();
         else return false;
@@ -30,7 +30,7 @@ public class ActionSequence extends ActionCompound {
      * Returns true if all the sub-actions are done. Otherwise the
      * manager keeps scheduling the action.
      */
-	@Override
+	//@Override
     public boolean isComplete() {
 		return (subActions == null);
     }
@@ -39,7 +39,7 @@ public class ActionSequence extends ActionCompound {
      * Called to make the action do its stuff. It calls all its
      * subactions.
      */
-	@Override
+	//@Override
     public void act() {
 		// Check if we have anything to do
         if (subActions == null) return;

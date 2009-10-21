@@ -22,7 +22,7 @@ public class ActionCompound extends Action {
 	/**
 	 * Requests that the action delete itself and its children.
 	 */
-	@Override
+	//@Override
 	public void deleteList() {
 		if (subActions != null)
 			subActions.deleteList();
@@ -33,7 +33,7 @@ public class ActionCompound extends Action {
 	 * Compound actions are compatible, only if all their components are
 	 * compatible.
 	 */
-	@Override
+	//@Override
 	public boolean canDoBoth(Action action) {
 		Action next = subActions;
 		while (next != null) {

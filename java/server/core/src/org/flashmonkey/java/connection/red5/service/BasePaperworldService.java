@@ -38,74 +38,74 @@ public abstract class BasePaperworldService extends AbstractService {
 		//addMessageProcessor(new BroadcastMessageProcessor(this));
 	}
 
-	@Override
+	//@Override
 	public void setApplication(MultiThreadedApplicationAdapter application) {
 		this.application = application;
 		this.application.addListener(this);
 	}
 
-	@Override
+	//@Override
 	public boolean appConnect(IConnection connection, Object[] args) {
 		System.out.println("user " + args[0].toString() + " with password " + args[1].toString() + " joining");
 		return true;
 	}
 
-	@Override
+	//@Override
 	public void appDisconnect(IConnection connection) {
 
 	}
 
-	@Override
+	//@Override
 	public boolean appJoin(IClient client, IScope scope) {
 		System.out.println("appJoin");
 		return true;
 	}
 
-	@Override
+	//@Override
 	public void appLeave(IClient client, IScope scope) {
 
 	}
 
-	@Override
+	//@Override
 	public boolean appStart(IScope scope) {
 		System.out.println("appStart");
 		return true;
 	}
 
-	@Override
+	//@Override
 	public void appStop(IScope scope) {
 
 	}
 
-	@Override
+	//@Override
 	public boolean roomConnect(IConnection connection, Object[] args) {
 		System.out.println("roomConnect");
 		return true;
 	}
 
-	@Override
+	//@Override
 	public void roomDisconnect(IConnection connection) {
 
 	}
 
-	@Override
+	//@Override
 	public boolean roomJoin(IClient client, IScope scope) {
 		System.out.println("roomJoin");
 		return true;
 	}
 
-	@Override
+	//@Override
 	public void roomLeave(IClient client, IScope scope) {
 
 	}
 
-	@Override
+	//@Override
 	public boolean roomStart(IScope scope) {
 		System.out.println("roomStart");
 		return true;
 	}
 
-	@Override
+	//@Override
 	public void roomStop(IScope scope) {
 
 	}

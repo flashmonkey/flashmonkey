@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
-	creationComplete="createMic();">
+	creationComplete="onCreationComplete();">
 
 	<mx:Script>
 	    <![CDATA[
@@ -15,6 +15,40 @@
 		  
 	
 	      public var mic:Microphone;
+	      
+	      private var micActive:Boolean = false;
+	      
+	      private var connection:NetConnection;
+	      
+	      private var netStream:NetStream;
+	      
+	      private function onCreationComplete():void 
+	      {
+	      	connection = new NetConnection();
+	      	connection.addEventListener(NetStatusEvent.NET_STATUS, onNetStatus);
+	      	connection.connect("rtmp://localhost/HelloSpeechRecognition", "iamflashmonkey");
+	      }
+	      
+	      private function onNetStatus(e:NetStatusEvent):void 
+	      {
+	      	var code:String = e.info.code;
+	      	
+	      	switch (code) {
+	      		case "NetConnection.Connect.Success":
+	      			createNetStream();
+	      			createMic();
+	      			break;
+	      		
+	      		default:
+	      			break;
+	      	}
+	      }
+	      
+	      public function createNetStream():void 
+	      {
+	      	netStream = new NetStream(connection);
+	      	netStream.attachAudio(mic);
+	      }
 	
 	      public function createMic():void
 	      {
@@ -47,7 +81,7 @@
 
 	      }
 	
-	      private function active(event:Event):void
+	      private function active(event:ActivityEvent):void
 	      {
 	        logger.info(' active ');
 	      }
@@ -60,8 +94,29 @@
 	      private function activity(event:ActivityEvent):void
 	      {
 	        logger.info("activating=" + event.activating + ", activityLevel=" + mic.activityLevel);
-
-	        addEventListener(Event.ENTER_FRAME, showMicLevel);
+			
+			if (event.activating)
+			{
+				netStream.publish("speech", "record");
+	        	addEventListener(Event.ENTER_FRAME, showMicLevel);
+	        	
+	  		}
+	  		else
+	  		{
+	  			netStream.pause();
+	  			connection.call("interpretSpeech", new Responder(onSpeechResult, onSpeechFault), "speech");
+	  			removeEventListener(Event.ENTER_FRAME, showMicLevel);
+	  		}
+	      }
+	      
+	      public function onSpeechResult(word:String):void 
+	      {
+	      	outputText.text = word;
+	      }
+	      
+	      public function onSpeechFault(o:Object):void 
+	      {
+	      	
 	      }
 	
 	      private function showMicLevel(event:Event):void
@@ -76,5 +131,6 @@
 	    ]]>
 	</mx:Script>
 	<mx:Canvas width="300" height="50" id="level"/>
+	<mx:Text x="95" y="83" width="187" id="outputText"/>
 
 </mx:Application>

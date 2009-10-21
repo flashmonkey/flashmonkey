@@ -37,7 +37,7 @@ public class JMAvatar extends SimpleAvatar {
 		spatial.updateModelBound();
 	}
 	
-	@Override
+	//@Override
 	public void updateUserInput(int time, IInput input) {
 		super.updateUserInput(time, input);
 		
@@ -47,7 +47,7 @@ public class JMAvatar extends SimpleAvatar {
 		//System.out.println("forward: " + input.getMoveForward());
 	}
 	
-	@Override
+	//@Override
 	public void update() {
 		super.update();
 		
@@ -57,7 +57,7 @@ public class JMAvatar extends SimpleAvatar {
 		//System.out.println("position" + spatial.getLocalTranslation().x + " " + spatial.getLocalTranslation().y + " " + spatial.getLocalTranslation().z);
 	}
 
-	@Override
+	//@Override
 	public BasicState getState() {		
 		return state;
 	}
