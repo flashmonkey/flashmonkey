@@ -2,6 +2,9 @@ package org.flashmonkey.java.adaptor.jmonkey;
 
 import org.flashmonkey.java.scene.api.IScene;
 import org.flashmonkey.java.service.SimpleService;
+import org.red5.server.api.IConnection;
+import org.red5.server.api.IScope;
+import org.red5.server.api.service.ServiceUtils;
 
 /**
  * Extends the SimpleService class to provide an adaptor for a JMonkey scene.
