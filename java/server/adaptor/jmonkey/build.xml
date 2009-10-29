@@ -3,6 +3,7 @@
 
     <path id="javac.lib.path">
 		<pathelement location="${jme.jar}" />
+    	<pathelement location="${jme.gamestates.jar}"/>
 		<pathelement location="${red5.jar}" />
 		<pathelement location="${java.multiplayer.jar}" />
 		<pathelement location="${java.core.jar}" />

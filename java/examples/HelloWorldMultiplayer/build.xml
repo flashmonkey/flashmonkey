@@ -21,9 +21,13 @@
 		<jar jarfile="${HelloWorldMultiplayer.jar}" basedir="${build.javac.dir}"/>
 			
 		<!-- Copy over any required libraries into the WEB-INF/lib directory -->
-		<copy todir="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${java.core.jar}" overwrite="true" />
-        <copy todir="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${java.multiplayer.jar}" overwrite="true" />
-		<copy todir="${HelloWorldMultiplayer.assets.dir}/${build.stage.dir}/${webapp.lib.dir}" file="${java.jmonkey.adaptor.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${java.core.jar}" overwrite="true" />
+        <copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${java.multiplayer.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${java.jmonkey.adaptor.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jme.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jme.gamestates.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jme.audio.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${lwjgl.jar}" overwrite="true" />
 
 	</target>
 	

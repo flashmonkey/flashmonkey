@@ -11,9 +11,9 @@ import org.flashmonkey.java.service.SimpleService;
  */
 public class JMService extends SimpleService {
 	
-	IScene scene = new JMScene();
+	IScene scene;
 	
-	public JMService() {
-		
+	public JMService(String gameName) {
+		scene = new JMScene(gameName);
 	}
 }

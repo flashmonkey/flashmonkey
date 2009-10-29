@@ -35,6 +35,8 @@
 	    class="org.red5.core.Application" 
 		singleton="true" />
  
-	<bean id="multiplayer.service" class="org.flashmonkey.java.adaptor.jmonkey.JMService" />
- 
+	<bean id="multiplayer.service" class="org.flashmonkey.java.adaptor.jmonkey.JMService">
+		<constructor-arg value="MultiplayerTestScene"/>
+	</bean>
+	
 </beans>
