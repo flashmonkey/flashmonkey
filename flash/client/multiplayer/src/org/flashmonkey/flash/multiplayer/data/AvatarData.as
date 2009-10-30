@@ -23,7 +23,7 @@ package org.flashmonkey.flash.multiplayer.data
 {
 	import org.flashmonkey.flash.api.IState;
 	import org.flashmonkey.flash.api.multiplayer.ISynchronisedAvatar;
-	import org.flashmonkey.flash.utils.input.Input;	
+	import org.flashmonkey.flash.utils.input.SimpleInput;	
 
 	/**
 	 * @author Trevor Burton [worldofpaper@googlemail.com]
@@ -36,7 +36,7 @@ package org.flashmonkey.flash.multiplayer.data
 
 		public var time : int;
 
-		public var input : Input;
+		public var input : SimpleInput;
 
 		public var state : IState;
 		
@@ -75,12 +75,12 @@ package org.flashmonkey.flash.multiplayer.data
 			this.time = time;
 		}
 
-		public function getInput() : Input
+		public function getInput() : SimpleInput
 		{
 			return input;
 		}
 
-		public function setInput(input : Input) : void
+		public function setInput(input : SimpleInput) : void
 		{
 			this.input = input;
 		}

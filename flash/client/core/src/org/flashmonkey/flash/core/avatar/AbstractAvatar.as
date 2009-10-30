@@ -7,7 +7,7 @@ package org.flashmonkey.flash.core.avatar
 	import org.flashmonkey.flash.api.IState;
 	import org.flashmonkey.flash.api.IUpdatable;
 	import org.flashmonkey.flash.core.objects.BasicState;
-	import org.flashmonkey.flash.utils.input.Input;
+	import org.flashmonkey.flash.utils.input.SimpleInput;
 	
 	import flash.events.Event;
 
@@ -49,7 +49,7 @@ package org.flashmonkey.flash.core.avatar
 			_time = value;
 		}
 		
-		private var _input:IInput = new Input();
+		private var _input:IInput = new SimpleInput();
 		
 		public function get input():IInput
 		{

@@ -2,8 +2,8 @@ package org.flashmonkey.flash.connection.handshake
 {
 	import org.flashmonkey.flash.api.connection.INetConnection;
 	import org.flashmonkey.flash.connection.events.Red5Event;
-	
 	import org.springextensions.actionscript.mvcs.service.operation.AbstractOperation;
+	
 
 	public class ConnectToServerOperation extends AbstractOperation
 	{

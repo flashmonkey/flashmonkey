@@ -1,6 +1,6 @@
 package org.flashmonkey.java.multiplayer.messages;
 
-import org.flashmonkey.java.message.BaseMessage;
+import org.flashmonkey.java.connection.messages.BaseMessage;
 import org.flashmonkey.java.message.api.IGroupMessage;
 
 public abstract class BaseGroupMessage extends BaseMessage implements

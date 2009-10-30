@@ -1,4 +1,4 @@
-package org.flashmonkey.java.message;
+package org.flashmonkey.java.connection.messages;
 
 import org.flashmonkey.java.connection.red5.service.api.IMultiplayerService;
 import org.flashmonkey.java.core.net.NetObject;
@@ -6,21 +6,15 @@ import org.flashmonkey.java.message.api.IMessage;
 import org.red5.io.amf3.IDataInput;
 import org.red5.io.amf3.IDataOutput;
 
-public abstract class AbstractMessage extends NetObject implements IMessage {
+public class BaseMessage extends NetObject implements IMessage {
 
 	protected String senderId;
 	
-	public AbstractMessage() {
+	public BaseMessage() {
 		
 	}
 	
-	public abstract void read(IMultiplayerService service);
-	
-	public void write(IMultiplayerService service) {
-		
-	}
-	
-	public AbstractMessage(String senderId) {
+	public BaseMessage(String senderId) {
 		this.senderId = senderId;
 	}
 	
@@ -31,13 +25,19 @@ public abstract class AbstractMessage extends NetObject implements IMessage {
 	public void setSenderId(String senderId) {
 		this.senderId = senderId;
 	}
+	
+	public void write(IMultiplayerService service) {
+		
+	}
+	
+	public void read(IMultiplayerService service) {
+		
+	}
 
-	//@Override
 	public void readExternal(IDataInput input) {
 		senderId = input.readUTF();
 	}
 
-	//@Override
 	public void writeExternal(IDataOutput output) {
 		output.writeUTF(senderId);
 	}

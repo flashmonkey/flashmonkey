@@ -18,7 +18,7 @@ package {
 	import org.flashmonkey.flash.pv3d.objects.PaperworldObject;
 	import org.flashmonkey.flash.pv3d.scenes.SynchronisedScene;
 	import org.flashmonkey.flash.pv3d.views.ChequerBoardView;
-	import org.flashmonkey.flash.utils.input.Input;
+	import org.flashmonkey.flash.utils.input.SimpleInput;
 	import org.papervision3d.objects.primitives.Sphere;
 
 	public class HelloPaperworldFlash extends ChequerBoardView
@@ -65,7 +65,7 @@ package {
 			message.senderId = "ME!"
 			//var op:IOperation = client.sendToServer(message);
 			//op.execute();
-			trace(new Input().aliasName);
+			trace(new SimpleInput().aliasName);
 			//client.connection.call("multiplayer.receiveMessage", new Responder(onResponse, onFault), new Input());
 			//client.connection.call("multiplayer.receiveMessage", new Responder(onResponse, onFault), new State());
 			//client.connection.call("multiplayer.receiveMessage", new Responder(onResponse, onFault), message);

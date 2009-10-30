@@ -1,9 +1,5 @@
 package org.flashmonkey.flash.connection.messages
 {
-	import org.flashmonkey.flash.api.connection.INetConnection;
-	import org.flashmonkey.flash.api.connection.messages.IMessage;
-	import org.flashmonkey.flash.utils.NetObject;
-	
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.IEventDispatcher;
@@ -12,6 +8,10 @@ package org.flashmonkey.flash.connection.messages
 	import flash.utils.IDataOutput;
 	
 	import mx.rpc.events.FaultEvent;
+	
+	import org.flashmonkey.flash.api.connection.INetConnection;
+	import org.flashmonkey.flash.api.connection.messages.IMessage;
+	import org.flashmonkey.flash.utils.NetObject;
 
 	/**
 	 * Base class for messages sent to a Red5 server using a NetConnection.
@@ -34,7 +34,7 @@ package org.flashmonkey.flash.connection.messages
 		/**
 		 * @private
 		 */
-		private var _senderId:String;
+		private var _senderId:String = "-1";
 		
 		/**
 		 * The String id value of the client that originated this message.
@@ -204,6 +204,11 @@ package org.flashmonkey.flash.connection.messages
 		public function willTrigger(type:String):Boolean
 		{
 			return _eventDispatcher.willTrigger(type);
+		}
+		
+		public function toString():String 
+		{
+			return "BaseMessage[" + _senderId + "]";
 		}
 	}
 }

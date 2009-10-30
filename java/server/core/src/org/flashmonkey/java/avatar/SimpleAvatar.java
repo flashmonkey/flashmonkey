@@ -2,7 +2,7 @@ package org.flashmonkey.java.avatar;
 
 import org.flashmonkey.java.behaviour.NullBehaviour;
 import org.flashmonkey.java.core.objects.BasicState;
-import org.flashmonkey.java.input.SimpleInput;
+import org.flashmonkey.java.utils.input.SimpleInput;
 import org.flashmonkey.java.input.api.IInput;
 
 public class SimpleAvatar extends AbstractAvatar {

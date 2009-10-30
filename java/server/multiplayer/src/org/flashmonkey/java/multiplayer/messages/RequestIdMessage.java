@@ -1,12 +1,12 @@
 package org.flashmonkey.java.multiplayer.messages;
 
+import org.flashmonkey.java.connection.messages.BaseMessage;
 import org.flashmonkey.java.connection.red5.service.api.IMultiplayerService;
-import org.flashmonkey.java.message.AbstractMessage;
 import org.red5.io.amf3.IDataInput;
 import org.red5.io.amf3.IDataOutput;
 
 
-public class RequestIdMessage extends AbstractMessage {
+public class RequestIdMessage extends BaseMessage {
 
 	private String id;
 	

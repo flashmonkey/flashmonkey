@@ -1,8 +1,11 @@
 package org.flashmonkey.flash.connection.messages
 {
+	import flash.utils.IDataInput;
+	import flash.utils.IDataOutput;
+	
 	public class RequestIdMessage extends BaseMessage
 	{			
-		private var _uniqueId:String;
+		private var _uniqueId:String = "-1";
 		
 		override public function get aliasName():String
 		{
@@ -24,6 +27,21 @@ package org.flashmonkey.flash.connection.messages
 		override public function read():* 
 		{
 			return _uniqueId;
+		}
+		
+		override public function readExternal(input:IDataInput):void
+		{
+			super.readExternal(input);
+			
+			_uniqueId = input.readUTF();
+		}
+	
+		//@Override
+		override public function writeExternal(output:IDataOutput):void 
+		{
+			super.writeExternal(output);
+			
+			output.writeUTF(_uniqueId);
 		}
 	}
 }

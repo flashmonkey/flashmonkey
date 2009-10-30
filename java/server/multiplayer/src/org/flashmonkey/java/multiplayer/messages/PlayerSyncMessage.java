@@ -2,9 +2,9 @@ package org.flashmonkey.java.multiplayer.messages;
 
 import org.flashmonkey.java.api.message.IPlayerSyncMessage;
 import org.flashmonkey.java.avatar.api.IAvatar;
+import org.flashmonkey.java.connection.messages.AbstractMessage;
 import org.flashmonkey.java.connection.red5.service.api.IMultiplayerService;
 import org.flashmonkey.java.input.api.IInput;
-import org.flashmonkey.java.message.AbstractMessage;
 import org.red5.io.amf3.IDataInput;
 import org.red5.io.amf3.IDataOutput;
 

@@ -40,7 +40,7 @@
     <classEntry path="org.flashmonkey.flash.utils.input.BasicKeyboardInput"/>
     <classEntry path="org.flashmonkey.flash.utils.input.IUserInput"/>
     <classEntry path="org.flashmonkey.flash.utils.input.IUserInputListener"/>
-    <classEntry path="org.flashmonkey.flash.utils.input.Input"/>
+    <classEntry path="org.flashmonkey.flash.utils.input.SimpleInput"/>
     <classEntry path="org.flashmonkey.flash.utils.input.KeyboardAndMouseInput"/>
     <classEntry path="org.flashmonkey.flash.utils.input.KeyboardInput"/>
     <classEntry path="org.flashmonkey.flash.utils.input.events.UserInputEvent"/>

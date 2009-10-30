@@ -43,69 +43,69 @@ package org.flashmonkey.flash.utils.input
 		{			
 			// Handle Forward Key Press - mapped to 'w' key.
 			var forwardKeyUpCommand : KeyUpCommand = new KeyUpCommand(this );
-			forwardKeyUpCommand.property = Input.MOVE_FORWARD;
+			forwardKeyUpCommand.property = SimpleInput.MOVE_FORWARD;
 			
 			var forwardKeyDownCommand : KeyDownCommand = new KeyDownCommand(this );
-			forwardKeyDownCommand.property = Input.MOVE_FORWARD;
+			forwardKeyDownCommand.property = SimpleInput.MOVE_FORWARD;
 			
 			_keyUpCommands[KeyDefinitions.W] = forwardKeyUpCommand;
 			_keyDownCommands[KeyDefinitions.W] = forwardKeyDownCommand;
 			
 			// Handle Back Key Press - mapped to 's' key.
 			var backKeyUpCommand : KeyUpCommand = new KeyUpCommand(this );
-			backKeyUpCommand.property = Input.MOVE_BACKWARD;
+			backKeyUpCommand.property = SimpleInput.MOVE_BACKWARD;
 			
 			var backKeyDownCommand : KeyDownCommand = new KeyDownCommand(this );
-			backKeyDownCommand.property = Input.MOVE_BACKWARD;
+			backKeyDownCommand.property = SimpleInput.MOVE_BACKWARD;
 			
 			_keyUpCommands[KeyDefinitions.S] = backKeyUpCommand;
 			_keyDownCommands[KeyDefinitions.S] = backKeyDownCommand;
 			
 			// Handle Right Key Press - mapped to 'd' key.
 			var rightKeyUpCommand : KeyUpCommand = new KeyUpCommand(this );
-			rightKeyUpCommand.property = Input.MOVE_RIGHT;
+			rightKeyUpCommand.property = SimpleInput.MOVE_RIGHT;
 			
 			var rightKeyDownCommand : KeyDownCommand = new KeyDownCommand(this );
-			rightKeyDownCommand.property = Input.MOVE_RIGHT;
+			rightKeyDownCommand.property = SimpleInput.MOVE_RIGHT;
 			
 			_keyUpCommands[KeyDefinitions.D] = rightKeyUpCommand;
 			_keyDownCommands[KeyDefinitions.D] = rightKeyDownCommand;
 			
 			// Handle Left Key Press - mapped to 'a' key.
 			var leftKeyUpCommand : KeyUpCommand = new KeyUpCommand(this );
-			leftKeyUpCommand.property = Input.MOVE_LEFT;
+			leftKeyUpCommand.property = SimpleInput.MOVE_LEFT;
 			
 			var leftKeyDownCommand : KeyDownCommand = new KeyDownCommand(this );
-			leftKeyDownCommand.property = Input.MOVE_LEFT;
+			leftKeyDownCommand.property = SimpleInput.MOVE_LEFT;
 			
 			_keyUpCommands[KeyDefinitions.A] = leftKeyUpCommand;
 			_keyDownCommands[KeyDefinitions.A] = leftKeyDownCommand;
 			
 			// Handle Right Arrow Key Press - mapped to '->' key.
 			var turnRightKeyUpCommand : KeyUpCommand = new KeyUpCommand(this );
-			turnRightKeyUpCommand.property = Input.YAW_POSITIVE;
+			turnRightKeyUpCommand.property = SimpleInput.YAW_POSITIVE;
 			
 			var turnRightKeyDownCommand : KeyDownCommand = new KeyDownCommand(this );
-			turnRightKeyDownCommand.property = Input.YAW_POSITIVE;
+			turnRightKeyDownCommand.property = SimpleInput.YAW_POSITIVE;
 			
 			_keyUpCommands[KeyDefinitions.RIGHT_ARROW] = turnRightKeyUpCommand;
 			_keyDownCommands[KeyDefinitions.RIGHT_ARROW] = turnRightKeyDownCommand;
 			
 			// Handle Left Arrow Key Press - mapped to '<-' key.
 			var turnLeftKeyUpCommand : KeyUpCommand = new KeyUpCommand(this );
-			turnLeftKeyUpCommand.property = Input.YAW_NEGATIVE;
+			turnLeftKeyUpCommand.property = SimpleInput.YAW_NEGATIVE;
 			
 			var turnLeftKeyDownCommand : KeyDownCommand = new KeyDownCommand(this );
-			turnLeftKeyDownCommand.property = Input.YAW_NEGATIVE;
+			turnLeftKeyDownCommand.property = SimpleInput.YAW_NEGATIVE;
 			
 			_keyUpCommands[KeyDefinitions.LEFT_ARROW] = turnLeftKeyUpCommand;
 			_keyDownCommands[KeyDefinitions.LEFT_ARROW] = turnLeftKeyDownCommand;
 			
 			var fireDownCommand : KeyDownCommand = new KeyDownCommand( this );
-			fireDownCommand.property = Input.FIRE;
+			fireDownCommand.property = SimpleInput.FIRE;
 			
 			var fireUpCommand : KeyUpCommand = new KeyUpCommand( this );
-			fireUpCommand.property = Input.FIRE;
+			fireUpCommand.property = SimpleInput.FIRE;
 			
 			_keyUpCommands[KeyDefinitions.SPACEBAR] = fireUpCommand;			_keyDownCommands[KeyDefinitions.SPACEBAR] = fireDownCommand;
 		}

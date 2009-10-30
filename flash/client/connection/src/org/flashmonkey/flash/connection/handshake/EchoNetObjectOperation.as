@@ -1,9 +1,9 @@
 package org.flashmonkey.flash.connection.handshake
 {
-	import org.flashmonkey.flash.api.connection.INetConnection;
-	
 	import flash.net.Responder;
 	
+	import org.flashmonkey.flash.api.connection.INetConnection;
+	import org.flashmonkey.flash.utils.NetObject;
 	import org.springextensions.actionscript.mvcs.service.operation.AbstractOperation;
 
 	public class EchoNetObjectOperation extends AbstractOperation
@@ -12,20 +12,25 @@ package org.flashmonkey.flash.connection.handshake
 		
 		private var _command:String;
 		
-		private var _object:*;
+		private var _object:NetObject;
 		
-		public function EchoNetObjectOperation(connection:INetConnection, command:String, object:*)
+		private var _another:int;
+		
+		public function EchoNetObjectOperation(connection:INetConnection, command:String, object:NetObject, i:int)
 		{
 			super(this);
 			
 			_connection = connection;
 			_command = command;
 			_object = object;
+			_another = i;
+			
+			trace("setting object == " + _object);
 		}
 		
 		override public function execute():void
 		{
-			trace("echoing " + _connection + " to server");
+			trace("echoing " + _object + " " + _another + " to server");
 			_connection.call(_command, new Responder(dispatchResult, dispatchError), _object);
 		}
 		

@@ -1,10 +1,11 @@
-package org.flashmonkey.java.connection.red5.service;
+package org.flashmonkey.java.service;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 import org.flashmonkey.java.avatar.api.IAvatar;
+import org.flashmonkey.java.connection.red5.service.AbstractService;
 import org.flashmonkey.java.connection.red5.service.api.IMultiplayerService;
 import org.flashmonkey.java.message.api.IMessage;
 import org.flashmonkey.java.player.api.IPlayer;
@@ -110,7 +111,7 @@ public abstract class AbstractMultiplayerService extends AbstractService impleme
 	}
 	 
 	public void sendMessage(IMessage message) {
-		
+		message.write(this);
 	}
 	
 	public Map<String, IPlayer> getPlayers() {

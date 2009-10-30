@@ -35,9 +35,9 @@ package org.flashmonkey.flash.utils.input
 		/**
 		 * The state of the user's input in the current timestep.
 		 */
-		private var _current : IInput = new Input();
+		private var _current : IInput = new SimpleInput();
 		
-		private var _previous : IInput = new Input();
+		private var _previous : IInput = new SimpleInput();
 
 		public function get input():IInput
 		{

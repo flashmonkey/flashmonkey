@@ -112,7 +112,7 @@ public abstract class BasePaperworldService extends AbstractService {
 
 	public Object receiveMessage(IMessage message) {
 		
-		return null;
+		return new Object();
 	}
 	
 	public Map<String, IPlayer> getPlayers() {

@@ -5,7 +5,7 @@ package org.flashmonkey.flash.multiplayer.messages
 	import org.flashmonkey.flash.api.multiplayer.messages.ISynchroniseCreateMessage;
 	import org.flashmonkey.flash.connection.messages.BaseMessage;
 	import org.flashmonkey.flash.core.objects.BasicState;
-	import org.flashmonkey.flash.utils.input.Input;
+	import org.flashmonkey.flash.utils.input.SimpleInput;
 	
 	import flash.utils.IDataInput;
 	import flash.utils.IDataOutput;
@@ -61,7 +61,7 @@ package org.flashmonkey.flash.multiplayer.messages
 		/**
 		 * @private
 		 */
-		private var _input:IInput = new Input();
+		private var _input:IInput = new SimpleInput();
 		
 		/**
 		 * The initial input state for the new object.

@@ -1,4 +1,4 @@
-package org.flashmonkey.java.message;
+package org.flashmonkey.java.connection.messages;
 
 import java.util.Map;
 

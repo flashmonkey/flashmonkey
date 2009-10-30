@@ -1,6 +1,8 @@
 package org.flashmonkey.flash.multiplayer.handshake
 {
 	import com.joeberkovitz.moccasin.service.AbstractOperation;
+	
+	import org.as3commons.reflect.ClassUtils;
 	import org.flashmonkey.flash.api.connection.IClient;
 	import org.flashmonkey.flash.api.connection.INetConnection;
 	import org.flashmonkey.flash.connection.handshake.ConnectToServerOperation;
@@ -9,9 +11,7 @@ package org.flashmonkey.flash.multiplayer.handshake
 	import org.flashmonkey.flash.core.objects.BasicState;
 	import org.flashmonkey.flash.multiplayer.messages.PlayerSyncMessage;
 	import org.flashmonkey.flash.multiplayer.messages.ServerSyncMessage;
-	import org.flashmonkey.flash.utils.input.Input;
-	
-	import org.as3commons.reflect.ClassUtils;
+	import org.flashmonkey.flash.utils.input.SimpleInput;
 	import org.springextensions.actionscript.mvcs.service.operation.AsyncOperationSequence;
 	
 	/**
@@ -27,7 +27,7 @@ package org.flashmonkey.flash.multiplayer.handshake
 	 */
 	public class Handshake extends AbstractOperation
 	{
-		private var classesToRegister:Array = [/*Input, */BasicState, BaseMessage, PlayerSyncMessage, ServerSyncMessage];
+		private var classesToRegister:Array = [SimpleInput, BasicState, BaseMessage, PlayerSyncMessage, ServerSyncMessage];
 		
 		private var _client:IClient;
 		
@@ -55,7 +55,8 @@ package org.flashmonkey.flash.multiplayer.handshake
 			// Add an operation for each of the classes that need to be registered with the server.
 			for (var i:int = 0; i < classesToRegister.length; i++)
 			{
-				opSequence.addOperation(new EchoNetObjectOperation(connection, "multiplayer.echo", ClassUtils.newInstance(classesToRegister[i] as Class)));
+				trace("registering: " + classesToRegister[i] + " " + ClassUtils.newInstance(classesToRegister[i] as Class));
+				opSequence.addOperation(new EchoNetObjectOperation(connection, "multiplayer.echo", ClassUtils.newInstance(classesToRegister[i] as Class), i));
 			}
 			
 			// Add the listeners to the operation sequence and execute the sequence.

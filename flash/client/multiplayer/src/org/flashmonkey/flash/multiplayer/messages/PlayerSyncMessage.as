@@ -3,7 +3,7 @@ package org.flashmonkey.flash.multiplayer.messages
 	import org.flashmonkey.flash.api.IInput;
 	import org.flashmonkey.flash.api.multiplayer.messages.IPlayerSyncMessage;
 	import org.flashmonkey.flash.connection.messages.BaseMessage;
-	import org.flashmonkey.flash.utils.input.Input;
+	import org.flashmonkey.flash.utils.input.SimpleInput;
 	
 	import flash.utils.IDataInput;
 	import flash.utils.IDataOutput;
@@ -52,7 +52,7 @@ package org.flashmonkey.flash.multiplayer.messages
 			
 			_objectId = objectId || "";
 			_time = time;
-			_input = input || new Input();
+			_input = input || new SimpleInput();
 		}		
 		
 		/**
@@ -77,6 +77,11 @@ package org.flashmonkey.flash.multiplayer.messages
 			objectId = input.readUTF();
 			time = input.readInt();
 			this.input = input.readObject();
+		}
+		
+		override public function toString():String 
+		{
+			return "PlayerSyncMessage[" + senderId + "]";
 		}
 	}
 }

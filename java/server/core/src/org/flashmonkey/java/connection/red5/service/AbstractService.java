@@ -66,4 +66,7 @@ public abstract class AbstractService implements IService {
 
 	}
 
+	public Object echo(Object o) {
+		return o;
+	}
 }

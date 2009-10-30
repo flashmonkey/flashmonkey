@@ -11,7 +11,7 @@
  */
 package org.flashmonkey.flash.ai.steering
 {
-	import org.flashmonkey.flash.utils.input.Input;		
+	import org.flashmonkey.flash.utils.input.SimpleInput;		
 
 	/**
 	 * The steering behaviour is the base class for all dynamic
@@ -26,7 +26,7 @@ package org.flashmonkey.flash.ai.steering
 		 */
 		public var character : Kinematic;
 		
-		public var input : Input;
+		public var input : SimpleInput;
 
 		/**
 		 * Works out the desired steering and writes it into the given

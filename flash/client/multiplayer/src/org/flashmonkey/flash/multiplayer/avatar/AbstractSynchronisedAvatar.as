@@ -35,7 +35,7 @@ package org.flashmonkey.flash.multiplayer.avatar
 	import org.flashmonkey.flash.core.objects.BasicState;
 	import org.flashmonkey.flash.multiplayer.inputhandlers.SimpleAvatarInputHandler25D;
 	import org.flashmonkey.flash.utils.input.IUserInput;
-	import org.flashmonkey.flash.utils.input.Input;
+	import org.flashmonkey.flash.utils.input.SimpleInput;
 	import org.flashmonkey.flash.utils.timer.ITimer;
 	import org.flashmonkey.flash.utils.timer.TimerManager;
 	import org.flashmonkey.flash.utils.timer.events.ITimerEvent;	
@@ -131,7 +131,7 @@ package org.flashmonkey.flash.multiplayer.avatar
 		/**
 		 * The current user input state for this object.
 		 */
-		protected var _input : IInput = new Input();
+		protected var _input : IInput = new SimpleInput();
 
 		public function get input() : IInput
 		{
