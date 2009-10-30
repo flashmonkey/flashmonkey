@@ -19,7 +19,9 @@
 		<!-- Create a jar file from the compiled classes and place it in the WEB-INF/lib directory -->
 		<jar jarfile="${HelloSpeechRecognition.jar}" basedir="${build.javac.dir}"/>
 		
-		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${sphinx4.jar}" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${sphinx4.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${TIDGITIS.model.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jsapi.jar}" overwrite="true" />
 		
 	</target>
 	

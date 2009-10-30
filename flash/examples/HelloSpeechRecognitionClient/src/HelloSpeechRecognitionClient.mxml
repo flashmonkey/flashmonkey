@@ -12,7 +12,6 @@
 	    import flash.events.StatusEvent;
 	
 		  private static const logger:ILogger = Log.getLogger("Main");
-		  
 	
 	      public var mic:Microphone;
 	      
@@ -22,9 +21,16 @@
 	      
 	      private var netStream:NetStream;
 	      
+	     // private var recorded:Boolean;
+	     
+	     private var _count:int = 0;
+	     
+	     private var _currentStream:String = "stream";
+	      
 	      private function onCreationComplete():void 
 	      {
 	      	connection = new NetConnection();
+	      	connection.client = this;
 	      	connection.addEventListener(NetStatusEvent.NET_STATUS, onNetStatus);
 	      	connection.connect("rtmp://localhost/HelloSpeechRecognition", "iamflashmonkey");
 	      }
@@ -32,6 +38,8 @@
 	      private function onNetStatus(e:NetStatusEvent):void 
 	      {
 	      	var code:String = e.info.code;
+	      	
+	      	outputText.text = code;
 	      	
 	      	switch (code) {
 	      		case "NetConnection.Connect.Success":
@@ -53,13 +61,14 @@
 	      public function createMic():void
 	      {
 	      	var deviceArray:Array = Microphone.names;
-			logger.info("Available sound input devices:");
+			trace("Available sound input devices:");
 			for (var i:int = 0; i < deviceArray.length; i++)
 			{
-			    logger.info(" " + deviceArray[i]);
+			    output(" " + deviceArray[i]);
 			}
 
-	        mic = Microphone.getMicrophone();
+	        mic = Microphone.getMicrophone(0);
+	        output(mic);
 	        mic.gain = 60;
 			mic.rate = 11;
 			mic.setUseEchoSuppression(true);
@@ -77,51 +86,70 @@
 			micDetails += "Silence level: " + mic.silenceLevel + '\n';
 			micDetails += "Silence timeout: " + mic.silenceTimeout + '\n';
 			micDetails += "Echo suppression: " + mic.useEchoSuppression + '\n';
-			logger.info(micDetails);
+			trace(micDetails);
 
 	      }
-	
-	      private function active(event:ActivityEvent):void
+	      
+	      public function setClientID(id:String):void 
 	      {
-	        logger.info(' active ');
+	      	
+	      }
+	
+	      private function active(event:Event):void
+	      {
+	        trace(' active ');
 	      }
 	
 	      private function status(event:StatusEvent):void
 	      {
-	        logger.info("status: level=" + event.level + ", code=" + event.code);
+	        trace("status: level=" + event.level + ", code=" + event.code);
 	      }
 	
 	      private function activity(event:ActivityEvent):void
 	      {
-	        logger.info("activating=" + event.activating + ", activityLevel=" + mic.activityLevel);
+	        output("activating=" + event.activating + ", activityLevel=" + mic.activityLevel);
 			
 			if (event.activating)
 			{
-				netStream.publish("speech", "record");
-	        	addEventListener(Event.ENTER_FRAME, showMicLevel);
+				//if (!recorded)
+				//{
+					//recorded = true;
+					
+					netStream.attachAudio(mic);
+					_currentStream = "speech" + _count++;
+					netStream.publish(_currentStream, "record");
+	        		addEventListener(Event.ENTER_FRAME, showMicLevel);
+	   			//}
 	        	
 	  		}
 	  		else
 	  		{
 	  			netStream.pause();
-	  			connection.call("interpretSpeech", new Responder(onSpeechResult, onSpeechFault), "speech");
+	  			connection.call("interpretSpeech", new Responder(onSpeechResult, onSpeechFault), _currentStream);
 	  			removeEventListener(Event.ENTER_FRAME, showMicLevel);
 	  		}
 	      }
 	      
 	      public function onSpeechResult(word:String):void 
 	      {
-	      	outputText.text = word;
+	      	output(word);
 	      }
 	      
 	      public function onSpeechFault(o:Object):void 
 	      {
 	      	
 	      }
+	      
+	      private function output(msg:Object):void 
+	      {
+	      	var s:String = outputText.text;
+	      	
+	      	outputText.text = String(msg) + "\n" + s;
+	      }
 	
 	      private function showMicLevel(event:Event):void
 	      {
-	        logger.info(mic.gain+" "+mic.activityLevel+" "+mic.silenceLevel+" "+mic.rate);
+	        trace(mic.gain+" "+mic.activityLevel+" "+mic.silenceLevel+" "+mic.rate);
 	        level.graphics.clear();
 	        level.graphics.beginFill(0xccccff, 1);
 	        level.graphics.drawRect(0, 0, (mic.activityLevel * 30), 100);
@@ -131,6 +159,6 @@
 	    ]]>
 	</mx:Script>
 	<mx:Canvas width="300" height="50" id="level"/>
-	<mx:Text x="95" y="83" width="187" id="outputText"/>
+	<mx:Text x="95" y="83" width="362" id="outputText" height="346"/>
 
 </mx:Application>
