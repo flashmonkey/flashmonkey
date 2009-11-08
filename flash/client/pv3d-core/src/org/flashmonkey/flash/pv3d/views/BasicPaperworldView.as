@@ -6,10 +6,10 @@ package org.flashmonkey.flash.pv3d.views
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.LoggerFactory;
 	import org.papervision3d.objects.DisplayObject3D;
-	import org.papervision3d.view.BasicView;
+	import org.papervision3d.view.AbstractView;
 	import org.papervision3d.view.layer.ViewportLayer;
 
-	public class BasicPaperworldView extends BasicView
+	public class BasicPaperworldView extends AbstractView
 	{
 		private static var logger:ILogger = LoggerFactory.getLogger("Paperworld(PV3D)");
 		
@@ -30,7 +30,37 @@ package org.flashmonkey.flash.pv3d.views
 		{
 			super();
 			
+			init();
+			
 			layers = new Dictionary();
+		}
+		
+		protected function init():void
+		{
+			createScene();
+			createViewport();
+			createRenderer();
+			createCamera();
+		}
+		
+		protected function createScene():void 
+		{
+			
+		}
+		
+		protected function createViewport():void 
+		{
+			
+		}
+		
+		protected function createRenderer():void 
+		{
+			
+		}
+		
+		protected function createCamera():void 
+		{
+			
 		}
 		
 		public function createLayer(name:String, parent:String = null, do3d:DisplayObject3D = null):ViewportLayer

@@ -2,6 +2,8 @@ package org.flashmonkey.flash.multiplayer.handshake
 {
 	import com.joeberkovitz.moccasin.service.AbstractOperation;
 	
+	import flash.events.Event;
+	
 	import org.as3commons.reflect.ClassUtils;
 	import org.flashmonkey.flash.api.connection.IClient;
 	import org.flashmonkey.flash.api.connection.INetConnection;
@@ -64,6 +66,13 @@ package org.flashmonkey.flash.multiplayer.handshake
 			opSequence.addErrorListener(handleError);
 			opSequence.execute();
 		}
+		
+		override protected function handleComplete(e:Event):void
+        {
+            trace("Handshake Complete");
+            
+            super.handleComplete(e);
+        }
 		
 		public function setClientID(id:String):void 
 		{

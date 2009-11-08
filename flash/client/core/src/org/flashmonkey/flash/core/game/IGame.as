@@ -1,11 +1,17 @@
 package org.flashmonkey.flash.core.game
 {
-	import org.flashmonkey.flash.api.IAvatar;
+	import flash.events.Event;
 	
 	public interface IGame
 	{
-		function addAvatar(avatar:IAvatar):void;
+		function start():void;
 		
-		function removeAvatar(avatar:IAvatar):void;
+		function update(e:Event = null):void;
+		
+		function render(e:Event = null):void;
+		
+		function finish():void;
+		
+		function cleanup():void;
 	}
 }

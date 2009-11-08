@@ -109,6 +109,18 @@ package org.flashmonkey.flash.connection.client
 			
 			this.connection = connection;
 			this.sharedObject = sharedObject;
+			
+			init();
+		}
+		
+		protected function init():void 
+		{
+			_handshake = createHandshake();
+		}
+		
+		protected function createHandshake():IOperation 
+		{
+			return new BasicHandshake(this);	
 		}
 		
 		/**
@@ -118,11 +130,6 @@ package org.flashmonkey.flash.connection.client
 		public function connect():IOperation 
 		{
 			trace("BasicClient connecting " + connection.rtmpURI);
-			
-			if (!_handshake)
-			{
-				_handshake = new BasicHandshake(this);
-			}
 			
 			_handshake.addEventListener(Event.COMPLETE, onConnectionEstablished);
 			

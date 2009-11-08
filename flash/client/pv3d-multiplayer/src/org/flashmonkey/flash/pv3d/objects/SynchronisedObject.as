@@ -22,7 +22,7 @@
 package org.flashmonkey.flash.pv3d.objects 
 {
 	import org.flashmonkey.flash.api.IInput;
-	import org.flashmonkey.flash.api.IPaperworldObject;
+	//import org.flashmonkey.flash.api.IPaperworldObject;
 	import org.flashmonkey.flash.api.IState;
 	
 	import org.as3commons.logging.ILogger;
@@ -32,7 +32,7 @@ package org.flashmonkey.flash.pv3d.objects
 	/**
 	 * @author Trevor Burton [worldofpaper@googlemail.com]
 	 */
-	public class SynchronisedObject implements IPaperworldObject
+	public class SynchronisedObject /*implements IPaperworldObject*/
 	{
 		private var logger : ILogger = LoggerFactory.getLogger( "Paperworld(PV3D)" );
 

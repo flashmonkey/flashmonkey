@@ -1,7 +1,8 @@
-<project name="HelloPaperworldFlash" default="build">
+<project name="HelloWorldMultiplayerClient" default="build">
     <import file="build-imports.xml"/>
 
     <path id="flex.lib.path">
+		<pathelement location="${flash.core.swc}"/>
 		<pathelement location="${flash.connection.swc}"/>
 		<pathelement location="${flash.multiplayer.swc}"/>
 		<pathelement location="${flash.pv3d.core.swc}"/>

@@ -3,6 +3,7 @@
 
     <path id="flex.lib.path">
 		<pathelement location="${papervision.swc}"/>
+		<pathelement location="${flash.core.swc}"/>
 		<pathelement location="${flash.multiplayer.swc}"/>
 	</path>
 

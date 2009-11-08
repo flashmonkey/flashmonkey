@@ -1,7 +1,7 @@
 package org.flashmonkey.flash.pv3d.objects 
 {
 	import org.flashmonkey.flash.api.IInput;
-	import org.flashmonkey.flash.api.IPaperworldObject;
+	//import org.flashmonkey.flash.api.IPaperworldObject;
 	import org.flashmonkey.flash.api.IState;
 	
 	import org.papervision3d.objects.DisplayObject3D;	
@@ -9,7 +9,7 @@ package org.flashmonkey.flash.pv3d.objects
 	/**
 	 * @author Trevor
 	 */
-	public class SynchronisablePhysicsObject implements IPaperworldObject
+	public class SynchronisablePhysicsObject /*implements IPaperworldObject*/
 	{
 		private var _displayObject : *;
 		

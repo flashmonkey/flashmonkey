@@ -111,7 +111,7 @@ public abstract class BasePaperworldService extends AbstractService {
 	}
 
 	public Object receiveMessage(IMessage message) {
-		
+		message.read(this);
 		return new Object();
 	}
 	

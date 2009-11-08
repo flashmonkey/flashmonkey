@@ -25,13 +25,14 @@ package org.flashmonkey.flash.utils.clock
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
 	import flash.utils.getTimer;
-
-	import org.flashmonkey.flash.utils.clock.events.ClockEvent;		
+	
+	import org.flashmonkey.flash.utils.clock.events.ClockEvent;
+	import org.flashmonkey.flash.utils.timer.ITimer;		
 
 	/**
 	 * @author Trevor Burton [worldofpaper@googlemail.com]
 	 */
-	public class Clock extends EventDispatcher 
+	public class Clock extends EventDispatcher implements ITimer
 	{
 		private static var _instance : Clock;
 
@@ -147,6 +148,11 @@ package org.flashmonkey.flash.utils.clock
 		{
 			addEventListener( ClockEvent.TIMESTEP, listener.onTick );
 			addEventListener( ClockEvent.RENDER, listener.onTick );
+		}
+		
+		public function destroy():void 
+		{
+			
 		}
 	}
 }

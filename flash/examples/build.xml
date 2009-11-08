@@ -2,8 +2,8 @@
     <import file="build-imports.xml"/>
 	
 	<filelist id="flash.examples.filelist" dir=".">
-		<file name="HelloPaperworld"/>
-        <file name="HelloSpeechRecognitionClient"/>
+		<file name="HelloWorldMultiplayerClient"/>
+        	<file name="HelloSpeechRecognitionClient"/>
 	</filelist>
 
     <!-- targets -->	

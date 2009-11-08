@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>paperworld_flash_multiplayer</name>
+	<name>flashmonkey_flash_multiplayer</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -15,4 +15,21 @@
 		<nature>com.adobe.flexbuilder.project.flexlibnature</nature>
 		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>[source path] ai-src</name>
+			<type>2</type>
+			<locationURI>DOCUMENTS/flash/client/ai/src</locationURI>
+		</link>
+		<link>
+			<name>[source path] connection-src</name>
+			<type>2</type>
+			<locationURI>DOCUMENTS/flash/client/connection/src</locationURI>
+		</link>
+		<link>
+			<name>[source path] core-src</name>
+			<type>2</type>
+			<locationURI>DOCUMENTS/flash/client/core/src</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
