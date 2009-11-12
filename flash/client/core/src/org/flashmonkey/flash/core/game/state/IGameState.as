@@ -1,7 +1,7 @@
 package org.flashmonkey.flash.core.game.state
 {
-	import org.flashmonkey.flash.api.connection.IClient;
-	
+	import org.flashmonkey.flash.core.game.display.IDisplay;
+		
 	public interface IGameState
 	{			
 		/**
@@ -71,15 +71,9 @@ package org.flashmonkey.flash.core.game.state
 		 */
 		function get parent():IGameState;
 		
-		function attachChild(child:IGameState):void;
+		function get display():IDisplay;
 		
-		function detachChild(child:IGameState):void;
-		
-		function get children():Array;
-		
-		function getChild(name:String):IGameState;
-		
-		function set client(value:IClient):void;
+		function set display(value:IDisplay):void;
 
 	}
 }

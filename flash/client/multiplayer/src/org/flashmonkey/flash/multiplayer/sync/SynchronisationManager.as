@@ -77,6 +77,8 @@ package org.flashmonkey.flash.multiplayer.sync
 		 */
 		public function register(avatar:ISynchronisedAvatar):void 
 		{
+			trace("Registering: " + avatar);
+			
 			// Create the message.
 			var message:IMessage = new RequestIdMessage();
 			

@@ -15,8 +15,10 @@
     <classEntry path="org.flashmonkey.flash.core.action.ActionSequence"/>
     <classEntry path="org.flashmonkey.flash.core.game.state.GameStateManager"/>
     <classEntry path="org.flashmonkey.flash.utils.keys.KeyDownCommand"/>
+    <classEntry path="org.flashmonkey.flash.core.game.state.GameState"/>
     <classEntry path="org.flashmonkey.flash.utils.timer.SimpleIntervalTimer"/>
     <classEntry path="org.flashmonkey.flash.utils.keys.KeyUpCommand"/>
+    <classEntry path="org.flashmonkey.flash.core.game.state.GameStateNode"/>
     <classEntry path="org.flashmonkey.flash.utils.patterns.iterator.IIterator"/>
     <classEntry path="org.flashmonkey.flash.utils.library.ILibraryManager"/>
     <classEntry path="org.flashmonkey.flash.core.avatar.AbstractAvatar"/>

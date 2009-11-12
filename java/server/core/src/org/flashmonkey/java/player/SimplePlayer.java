@@ -9,10 +9,8 @@ import org.red5.server.api.service.ServiceUtils;
 
 public class SimplePlayer extends AbstractPlayer {
 
-	protected IConnection connection;
-	
 	public SimplePlayer(IConnection connection, String name) {
-		this.connection = connection;
+		super(connection);
 		this.name = name;
 	}
 	
@@ -29,6 +27,7 @@ public class SimplePlayer extends AbstractPlayer {
 
 	//@Override
 	public String getId() {
+		System.out.println("connection " + connection);
 		return connection.getClient().getId();
 	}
 

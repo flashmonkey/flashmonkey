@@ -1,135 +1,39 @@
 package org.flashmonkey.flash.core.game.state
 {
-	import org.flashmonkey.flash.api.connection.IClient;
-	
-	public class BasicGameState implements IGameState
+	import org.flashmonkey.flash.core.game.display.IDisplay;
+		
+	public class BasicGameState extends GameState
 	{
-		/** The name of this GameState. */
-		protected var _name:String;
+		protected var _display:IDisplay;
 		
-		public function get name():String
+		public override function get display():IDisplay
 		{
-			return _name;
+			return _display;
 		}
 		
-		public function set name(value:String):void
+		public override function set display(value:IDisplay):void 
 		{
-			_name = value;
-		}
-		
-		/** Flags whether or not this GameState should be processed. */
-		protected var _active:Boolean; 
-		
-		public function set active(value:Boolean):void
-		{
-			_active = value;
-		}
-		
-		public function get active():Boolean
-		{
-			return _active;
-		}
-		
-		/** GameState's parent, or null if it has none (is the root node). */
-		protected var _parent:IGameState;
-		
-		public function get parent():IGameState
-		{
-			return _parent;
-		}
-		
-		public function set parent(value:IGameState):void
-		{
-			_parent = parent;
-		}
-		
-		protected var _children:Array = [];
-		
-		public function get children():Array
-		{
-			return _children;
-		}
-		
-		protected var _client:IClient;
-		
-		public function set client(value:IClient):void 
-		{
-			_client = value;
+			_display = value;
 		}
 		
 		public function BasicGameState(name:String, active:Boolean = false)
 		{
-			_name = name;
-			_active = active;
+			super(name, active);
 		}
 
-		public function update(tpf:Number):void
+		public override function update(tpf:Number):void
 		{
-			for each (var child:IGameState in _children)
-			{
-				if (child.active)
-				{
-					child.update(tpf);
-				}
-			}
-		}
-		
-		public function render(tpf:Number):void
-		{
-			for each (var child:IGameState in _children)
-			{
-				if (child.active)
-				{
-					child.render(tpf);
-				}
-			}
-		}
-		
-		public function cleanup():void
-		{
-			for each (var child:IGameState in _children)
-			{
-				if (child.active)
-				{
-					child.cleanup();
-				}
-			}
-		}
-		
-		public function attachChild(child:IGameState):void
-		{
-			child.parent = this;
-			_children.push(child);
-		}
-		
-		public function detachChild(child:IGameState):void
-		{
-			child.parent = null;
 			
-			for (var i:int = 0; i < _children.length; i++)
-			{
-				if (_children[i] == child)
-				{
-					_children.splice(i, 0);
-					break;
-				}
-			}
 		}
 		
-		public function getChild(name:String):IGameState
+		public override function render(tpf:Number):void
 		{
-			for each (var child:IGameState in _children)
-			{
-				if (child.name == name)
-				{
-					return child;
-				}
-			}
-			
-			return null;
+			_display.render(tpf);
 		}
 		
-		
-		
+		public override function cleanup():void
+		{
+			
+		}
 	}
 }

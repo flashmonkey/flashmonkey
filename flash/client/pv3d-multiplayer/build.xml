@@ -5,6 +5,7 @@
 		<pathelement location="${papervision.swc}"/>
 		<pathelement location="${flash.core.swc}"/>
 		<pathelement location="${flash.multiplayer.swc}"/>
+    	<pathelement location="${flash.pv3d.core.swc}"/>
 	</path>
 
     <!-- targets -->

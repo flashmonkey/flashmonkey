@@ -27,8 +27,9 @@ public class SynchroniseCreateMessage extends BroadcastMessage implements
 	
 	public void read(IMultiplayerService service) {		
 		IPlayer player = service.getPlayer(getPlayerId());
-
+		
 		IAvatar avatar = player.getScopeObject();
+		
 		avatar.setId(getObjectId());
 
 		service.registerAvatar(avatar);

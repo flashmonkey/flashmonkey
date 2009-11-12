@@ -21,18 +21,13 @@ package org.red5.core;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 
 import org.red5.server.adapter.ApplicationAdapter;
 import org.red5.server.api.IConnection;
 import org.red5.server.api.IScope;
 import org.red5.server.api.service.ServiceUtils;
-import org.red5.server.api.stream.IBroadcastStream;
 import org.red5.server.api.stream.IStreamAwareScopeHandler;
 
 import edu.cmu.sphinx.decoder.ResultListener;

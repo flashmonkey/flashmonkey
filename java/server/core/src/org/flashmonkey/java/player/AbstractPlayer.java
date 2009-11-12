@@ -7,6 +7,7 @@ import java.util.List;
 import org.flashmonkey.java.avatar.api.IAvatar;
 import org.flashmonkey.java.message.api.IMessage;
 import org.flashmonkey.java.player.api.IPlayer;
+import org.red5.server.api.IConnection;
 
 public abstract class AbstractPlayer implements IPlayer {
 
@@ -16,8 +17,10 @@ public abstract class AbstractPlayer implements IPlayer {
 	
 	protected IAvatar scopeObject;	
 	
-	public AbstractPlayer() {
-		
+	protected IConnection connection;
+	
+	public AbstractPlayer(IConnection connection) {
+		this.connection = connection;
 	}
 	
 	public abstract void performScopeQuery(List<IAvatar> avatars);
@@ -46,6 +49,18 @@ public abstract class AbstractPlayer implements IPlayer {
 
 	public void setScopeObject(IAvatar scopeObject) {
 		this.scopeObject = scopeObject;
+	}
+	
+	public IConnection getConnection() {
+		return connection;
+	}
+	
+	public void setConnection(IConnection connection) {
+		this.connection = connection;
+	}
+	
+	public List<IAvatar> getAvatars() {
+		return avatars;
 	}
 	
 	public abstract String getId();

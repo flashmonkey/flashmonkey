@@ -7,12 +7,22 @@ package org.flashmonkey.flash.core.game.task
 	
 	public class TaskQueueManager
 	{
+		public static const UPDATE:String = "update";
+		public static const RENDER:String = "render";
+		
 		private static var $instance:TaskQueueManager;
 		
 		private var $queues:Dictionary = new Dictionary();
 		
 		public function TaskQueueManager()
 		{
+			init();
+		}
+		
+		protected function init():void 
+		{
+			addQueue(UPDATE);
+			addQueue(RENDER);
 		}
 		
 		public static function get instance():TaskQueueManager

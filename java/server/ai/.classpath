@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FLASHMONKEY_JAVA_BIN"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/FLASHMONKEY_JAVA_LIB"/>
 	<classpathentry kind="var" path="RED5_JAR"/>
+	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/lib/jme.jar"/>
+	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/dist/server/flashmonkey-core.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -6,21 +6,21 @@ package {
 	import flash.events.NetStatusEvent;
 	
 	import org.flashmonkey.flash.api.connection.IClient;
-	import org.flashmonkey.flash.api.multiplayer.ISynchronisedAvatar;
 	import org.flashmonkey.flash.connection.Red5Connection;
-	import org.flashmonkey.flash.core.game.IGame;
 	import org.flashmonkey.flash.core.game.AbstractGame;
+	import org.flashmonkey.flash.core.game.IGame;
+	import org.flashmonkey.flash.core.game.state.GameStateManager;
 	import org.flashmonkey.flash.core.game.state.IGameState;
-	import org.flashmonkey.flash.multiplayer.avatar.LocalAvatar;
-	import org.flashmonkey.flash.multiplayer.messages.ServerSyncMessage;
+	import org.flashmonkey.flash.game.state.IMultiplayerGameState;
 	import org.flashmonkey.flash.multiplayer.client.MultiplayerClient;
 	import org.flashmonkey.flash.pv3d.game.state.PV3DMultiplayerGameState;
-	import org.flashmonkey.flash.core.game.state.GameStateManager;
 	import org.papervision3d.objects.primitives.Sphere;
 
 	public class HelloWorldMultiplayerClient extends Sprite
 	{		
 		private var game:IGame;
+		
+		private var state:IGameState;
 		
 		public function HelloWorldMultiplayerClient()
 		{
@@ -34,11 +34,13 @@ package {
 			
 			var client:IClient = new MultiplayerClient(connection);
 			
-			var state:IGameState = new PV3DMultiplayerGameState("Multiplayer Demo", true);
-			
-			state.client = client;
+			state = new PV3DMultiplayerGameState("Multiplayer Demo", true);
+			PV3DMultiplayerGameState(state).client = client;
+			state.display.target = this;
 			
 			GameStateManager.instance.attachChild(state);
+			
+			game.start();
 			
 			/*client = new BasicClient(connection);
 			client.handshake = new Handshake(client);
@@ -78,6 +80,10 @@ package {
 			//localAvatar.object = syncObject;
 			
 			//syncManager.register(localAvatar);
+			
+			var localObj:Sphere = new Sphere();
+			
+			IMultiplayerGameState(state).addSynchronisedObject(localObj);
 		}
 		
 		private function onResponse(response:Object):void 

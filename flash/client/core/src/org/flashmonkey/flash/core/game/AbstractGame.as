@@ -11,10 +11,7 @@ package org.flashmonkey.flash.core.game
 	import org.flashmonkey.flash.utils.timer.ITimer;
 
 	public class AbstractGame implements IGame
-	{
-		private const UPDATE:String = "update";
-		private const RENDER:String = "render";
-		
+	{	
 		protected var _gameStates:IGameState;
 		
 		protected var _timer:ITimer;
@@ -42,13 +39,14 @@ package org.flashmonkey.flash.core.game
 		
 		public function start():void 
 		{
+			trace("Starting the Game");
 			_timer.addEventListener(ClockEvent.RENDER, render);
 			_timer.start();
 		}
 		
 		public function update(e:Event = null):void
 		{
-			TaskQueueManager.instance.getQueue(UPDATE).execute();
+			TaskQueueManager.instance.getQueue(TaskQueueManager.UPDATE).execute();
 			
 			var tpf:Number = ClockEvent(e).time;
 			
@@ -57,7 +55,7 @@ package org.flashmonkey.flash.core.game
 		
 		public function render(e:Event = null):void
 		{
-			TaskQueueManager.instance.getQueue(RENDER).execute();
+			TaskQueueManager.instance.getQueue(TaskQueueManager.RENDER).execute();
 			
 			var tpf:Number = ClockEvent(e).time;
 			

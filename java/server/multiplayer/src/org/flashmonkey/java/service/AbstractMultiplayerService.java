@@ -4,11 +4,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import org.flashmonkey.java.avatar.api.IAvatar;
 import org.flashmonkey.java.connection.red5.service.AbstractService;
 import org.flashmonkey.java.connection.red5.service.api.IMultiplayerService;
-import org.flashmonkey.java.message.api.IMessage;
 import org.flashmonkey.java.player.api.IPlayer;
+import org.flashmonkey.java.avatar.api.IAvatar;
 import org.red5.server.adapter.MultiThreadedApplicationAdapter;
 import org.red5.server.api.IClient;
 import org.red5.server.api.IConnection;
@@ -16,6 +15,7 @@ import org.red5.server.api.IScope;
 import org.red5.server.api.ScopeUtils;
 import org.red5.server.api.so.ISharedObject;
 import org.red5.server.api.so.ISharedObjectService;
+import org.red5.server.messaging.IMessage;
 
 public abstract class AbstractMultiplayerService extends AbstractService implements IMultiplayerService {
 
@@ -107,11 +107,11 @@ public abstract class AbstractMultiplayerService extends AbstractService impleme
 	}
 
 	public void receiveMessage(IMessage message) {
-		message.read(this);
+		//message.read(this);
 	}
 	 
 	public void sendMessage(IMessage message) {
-		message.write(this);
+		//message.write(this);
 	}
 	
 	public Map<String, IPlayer> getPlayers() {
@@ -128,7 +128,11 @@ public abstract class AbstractMultiplayerService extends AbstractService impleme
     }
 	
 	public String getNextId(String id) {
-		int currentId = idMap.get(id);
+		int currentId = 0;
+		if (idMap.containsKey(id)) {
+			currentId = idMap.get(id);
+		}
+		
 		idMap.put(id, currentId + 1);
 		
 		return id + "_" + currentId;

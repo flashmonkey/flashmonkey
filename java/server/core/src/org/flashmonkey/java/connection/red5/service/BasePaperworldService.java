@@ -5,6 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 import org.flashmonkey.java.avatar.api.IAvatar;
+import org.flashmonkey.java.connection.red5.service.api.IMultiplayerService;
 import org.flashmonkey.java.message.api.IMessage;
 import org.flashmonkey.java.player.api.IPlayer;
 import org.red5.server.adapter.MultiThreadedApplicationAdapter;
@@ -15,7 +16,7 @@ import org.red5.server.api.ScopeUtils;
 import org.red5.server.api.so.ISharedObject;
 import org.red5.server.api.so.ISharedObjectService;
 
-public abstract class BasePaperworldService extends AbstractService {
+public abstract class BasePaperworldService extends AbstractService implements IMultiplayerService {
 	protected MultiThreadedApplicationAdapter application;
 	
 	/**
@@ -47,7 +48,7 @@ public abstract class BasePaperworldService extends AbstractService {
 	//@Override
 	public boolean appConnect(IConnection connection, Object[] args) {
 		System.out.println("user " + args[0].toString() + " with password " + args[1].toString() + " joining");
-		return true;
+		return false;
 	}
 
 	//@Override
@@ -63,7 +64,16 @@ public abstract class BasePaperworldService extends AbstractService {
 
 	//@Override
 	public void appLeave(IClient client, IScope scope) {
-
+		IPlayer player = getPlayerByClient(client);
+		boolean p = players.remove(player.getId(), player);
+		
+		if (p) {
+			for (IAvatar avatar : player.getAvatars()) {
+				avatars.remove(avatar);
+			}
+			
+			idMap.remove(player.getId());
+		}
 	}
 
 	//@Override
@@ -110,13 +120,32 @@ public abstract class BasePaperworldService extends AbstractService {
 
 	}
 
-	public Object receiveMessage(IMessage message) {
+	public void receiveMessage(IMessage message) {
 		message.read(this);
-		return new Object();
+		//return new Object();
+	}
+	
+	public void sendMessage(IMessage message) {
+		message.write(this);
 	}
 	
 	public Map<String, IPlayer> getPlayers() {
 		return players;
+	}
+	
+	public IPlayer getPlayerByClient(IClient client) {
+		for (String key : players.keySet()) {
+			IPlayer player = players.get(key);
+			
+			for (IConnection connection : client.getConnections()) {
+				System.out.println("comparing " + player.getConnection() + " to " + connection);
+				if (player.getConnection().equals(connection)) {
+					return player;
+				}
+			}
+		}
+		
+		return null;
 	}
 	
 	public ISharedObject getSharedObject(String name, boolean persistent) {
@@ -129,7 +158,13 @@ public abstract class BasePaperworldService extends AbstractService {
     }
 	
 	public String getNextId(String id) {
-		int currentId = idMap.get(id);
+		System.out.println("id: " + idMap + " " + id);
+		int currentId = 0;
+		
+		if (idMap.containsKey(id)) {
+			currentId = idMap.get(id);
+		} 
+		
 		idMap.put(id, currentId + 1);
 		
 		return id + "_" + currentId;

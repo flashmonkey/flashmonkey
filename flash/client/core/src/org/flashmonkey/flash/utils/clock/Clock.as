@@ -91,6 +91,7 @@ package org.flashmonkey.flash.utils.clock
 		 */
 		public function start() : void 
 		{			
+			trace("Starting the clock");
 			_absoluteTime = getTimer( );
 			
 			_timer = new Timer( _renderTimestep );

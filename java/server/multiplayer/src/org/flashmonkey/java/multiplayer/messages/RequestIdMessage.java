@@ -31,6 +31,7 @@ public class RequestIdMessage extends BaseMessage {
 	
 	//@Override
 	public void write(IMultiplayerService service) {
+		System.out.println("player " + service.getPlayer(senderId));
 		service.getPlayer(senderId).sendMessage(this);
 	}
 	

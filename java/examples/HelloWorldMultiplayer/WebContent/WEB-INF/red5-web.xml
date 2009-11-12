@@ -37,6 +37,7 @@
  
 	<bean id="multiplayer.service" class="org.flashmonkey.java.adaptor.jmonkey.JMService">
 		<constructor-arg value="MultiplayerTestScene"/>
+		<property name="application"><ref bean="web.handler"></ref></property>
 	</bean>
 	
 </beans>

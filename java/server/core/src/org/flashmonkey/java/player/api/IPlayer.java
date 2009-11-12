@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.flashmonkey.java.avatar.api.IAvatar;
 import org.flashmonkey.java.message.api.IMessage;
+import org.red5.server.api.IConnection;
 
 public interface IPlayer {
 
@@ -17,14 +18,16 @@ public interface IPlayer {
 	
 	public void removeAvatar(IAvatar avatar);
 	
+	public List<IAvatar> getAvatars();
+	
 	public IAvatar getScopeObject();	
 	public void setScopeObject(IAvatar avatar);
 	
 	public void performScopeQuery(List<IAvatar> avatars);
 	
-	//public IConnection getConnection();
+	public IConnection getConnection();
 	
-	//public void setConnection(IConnection connection);
+	public void setConnection(IConnection connection);
 	
 	public boolean sendMessage(IMessage message);
 }
