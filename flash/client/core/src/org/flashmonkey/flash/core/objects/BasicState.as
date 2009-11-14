@@ -11,7 +11,7 @@ package org.flashmonkey.flash.core.objects
 	
 	public class BasicState extends NetObject implements IState, IRegisteredClass
 	{	
-		private var _position:Vector3f = new Vector3f();
+		private var _position:Vector3f = new Vector3f(-1, -1, -1);
 		
 		public function get position():Vector3f
 		{			
@@ -106,6 +106,8 @@ package org.flashmonkey.flash.core.objects
 		
 		override public function writeExternal(output:IDataOutput):void
 		{
+			trace(position.x + " " + position.y + " " + position.z);
+			
 			output.writeFloat(_position.x);
 			output.writeFloat(_position.y);
 			output.writeFloat(_position.z);
@@ -129,6 +131,8 @@ package org.flashmonkey.flash.core.objects
 			oy = input.readFloat();
 			oz = input.readFloat();
 			ow = input.readFloat();
+			
+			trace(position.x + " " + position.y + " " + position.z);
 		}
 	}
 }

@@ -3,6 +3,7 @@
   <includeClasses>
     <classEntry path="org.flashmonkey.flash.pv3d.objects.SynchronisedObject"/>
     <classEntry path="org.flashmonkey.flash.pv3d.game.PV3DDisplay"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.SphereAvatarFactory"/>
     <classEntry path="org.flashmonkey.flash.pv3d.views.ChequerBoardView"/>
     <classEntry path="org.flashmonkey.flash.pv3d.game.state.PV3DGameState"/>
     <classEntry path="org.flashmonkey.flash.pv3d.objects.SynchronisablePhysicsObject"/>

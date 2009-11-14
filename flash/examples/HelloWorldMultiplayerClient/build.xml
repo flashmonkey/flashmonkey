@@ -7,6 +7,7 @@
 		<pathelement location="${flash.multiplayer.swc}"/>
 		<pathelement location="${flash.pv3d.core.swc}"/>
 		<pathelement location="${flash.pv3d.multiplayer.swc}"/>
+    	<pathelement location="${pushbuttonengine.swc}"/>
 	</path>
 
     <!-- targets -->

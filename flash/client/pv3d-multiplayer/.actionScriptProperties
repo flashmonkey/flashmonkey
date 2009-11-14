@@ -3,9 +3,9 @@
   <compiler additionalCompilerArguments="" copyDependentFiles="false" enableModuleDebug="true" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="false" htmlHistoryManagement="false" htmlPlayerVersion="9.0.124" htmlPlayerVersionCheck="true" outputFolderPath="bin" sourceFolderPath="src" strict="true" useApolloConfig="false" verifyDigests="true" warn="true">
     <compilerSourcePath>
       <compilerSourcePathEntry kind="1" linkType="1" path="${DOCUMENTS}/flash/client/multiplayer/src"/>
-      <compilerSourcePathEntry kind="1" linkType="1" path="${DOCUMENTS}/flash/client/pv3d-core/src"/>
       <compilerSourcePathEntry kind="1" linkType="1" path="${DOCUMENTS}/flash/client/core/src"/>
       <compilerSourcePathEntry kind="1" linkType="1" path="${DOCUMENTS}/flash/client/connection/src"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="${DOCUMENTS}/flash/client/pv3d-core/src"/>
     </compilerSourcePath>
     <libraryPath defaultLinkType="1">
       <libraryPathEntry kind="4" path=""/>

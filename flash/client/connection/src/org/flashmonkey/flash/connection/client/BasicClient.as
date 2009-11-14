@@ -14,6 +14,7 @@ package org.flashmonkey.flash.connection.client
 	import org.flashmonkey.flash.api.connection.messages.IMessage;
 	import org.flashmonkey.flash.api.connection.messages.IPlayerMessage;
 	import org.flashmonkey.flash.connection.handshake.BasicHandshake;
+	import org.flashmonkey.flash.connection.messages.BatchMessage;
 	import org.flashmonkey.flash.connection.messages.SendMessageOperation;
 	import org.flashmonkey.flash.utils.IProcessor;
 
@@ -210,7 +211,17 @@ package org.flashmonkey.flash.connection.client
 				// If the object is of type IMessage then process it.
 				if (message)
 				{
-					receiveMessage(message);
+					if (message is BatchMessage)
+					{
+						for each (var m:IMessage in BatchMessage(message).messages)
+						{
+							receiveMessage(m);
+						}
+					}
+					else
+					{
+						receiveMessage(message);
+					}
 				}
 			}
 		}

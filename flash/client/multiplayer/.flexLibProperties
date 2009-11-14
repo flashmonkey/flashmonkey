@@ -6,12 +6,14 @@
     <classEntry path="org.flashmonkey.flash.utils.SyncObject"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.avatar.RemoteAvatar"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.handshake.Handshake"/>
+    <classEntry path="org.flashmonkey.flash.multiplayer.avatar.UpdateAvatarOperation"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.avatar.LocalAvatar"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.messages.PlayerSyncMessage"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.factory.RemoteAndLocalAvatarFactory"/>
     <classEntry path="org.flashmonkey.flash.utils.CircularBuffer"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.sync.SynchronisationManager"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.inputhandlers.PhysicsInputHandler2D"/>
+    <classEntry path="org.flashmonkey.flash.multiplayer.sync.SendPlayerInputOperation"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.data.SyncData"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.api.IAvatarFactory"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.messages.ServerSyncMessage"/>

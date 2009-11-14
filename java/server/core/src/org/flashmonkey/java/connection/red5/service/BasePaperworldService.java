@@ -1,5 +1,7 @@
 package org.flashmonkey.java.connection.red5.service;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -12,6 +14,7 @@ import org.red5.server.adapter.MultiThreadedApplicationAdapter;
 import org.red5.server.api.IClient;
 import org.red5.server.api.IConnection;
 import org.red5.server.api.IScope;
+import org.red5.server.api.Red5;
 import org.red5.server.api.ScopeUtils;
 import org.red5.server.api.so.ISharedObject;
 import org.red5.server.api.so.ISharedObjectService;
@@ -69,11 +72,13 @@ public abstract class BasePaperworldService extends AbstractService implements I
 		
 		if (p) {
 			for (IAvatar avatar : player.getAvatars()) {
-				avatars.remove(avatar);
+				avatars.remove(avatar.getId(), avatar);
 			}
 			
 			idMap.remove(player.getId());
 		}
+		
+		player.destroy();
 	}
 
 	//@Override
@@ -120,8 +125,9 @@ public abstract class BasePaperworldService extends AbstractService implements I
 
 	}
 
-	public void receiveMessage(IMessage message) {
-		message.read(this);
+	public Object receiveMessage(IMessage message) {
+		System.out.println("Receiving message " + message + " " + Red5.getConnectionLocal().getEncoding());
+		return message.read(this);
 		//return new Object();
 	}
 	
@@ -136,9 +142,7 @@ public abstract class BasePaperworldService extends AbstractService implements I
 	public IPlayer getPlayerByClient(IClient client) {
 		for (String key : players.keySet()) {
 			IPlayer player = players.get(key);
-			
 			for (IConnection connection : client.getConnections()) {
-				System.out.println("comparing " + player.getConnection() + " to " + connection);
 				if (player.getConnection().equals(connection)) {
 					return player;
 				}
@@ -158,7 +162,7 @@ public abstract class BasePaperworldService extends AbstractService implements I
     }
 	
 	public String getNextId(String id) {
-		System.out.println("id: " + idMap + " " + id);
+		
 		int currentId = 0;
 		
 		if (idMap.containsKey(id)) {
@@ -172,6 +176,10 @@ public abstract class BasePaperworldService extends AbstractService implements I
 	
 	public void registerAvatar(IAvatar avatar) {
 		
+	}
+	
+	public Collection<IAvatar> getAvatars() {
+		return avatars.values();
 	}
 
 }

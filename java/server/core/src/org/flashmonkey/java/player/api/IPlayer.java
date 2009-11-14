@@ -4,9 +4,10 @@ import java.util.List;
 
 import org.flashmonkey.java.avatar.api.IAvatar;
 import org.flashmonkey.java.message.api.IMessage;
+import org.flashmonkey.java.message.api.IMessageQueue;
 import org.red5.server.api.IConnection;
 
-public interface IPlayer {
+public interface IPlayer extends IMessageQueue {
 
 	public String getId();
 	
@@ -29,5 +30,9 @@ public interface IPlayer {
 	
 	public void setConnection(IConnection connection);
 	
-	public boolean sendMessage(IMessage message);
+	//public boolean sendMessage(IMessage message);
+	
+	public void createSyncMessage();
+	
+	public void destroy();
 }

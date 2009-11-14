@@ -28,20 +28,5 @@ package org.flashmonkey.flash.connection.messages
 		{
 			return _uniqueId;
 		}
-		
-		override public function readExternal(input:IDataInput):void
-		{
-			super.readExternal(input);
-			
-			_uniqueId = input.readUTF();
-		}
-	
-		//@Override
-		override public function writeExternal(output:IDataOutput):void 
-		{
-			super.writeExternal(output);
-			
-			output.writeUTF(_uniqueId);
-		}
 	}
 }

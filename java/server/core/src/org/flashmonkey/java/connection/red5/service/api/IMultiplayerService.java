@@ -1,5 +1,6 @@
 package org.flashmonkey.java.connection.red5.service.api;
 
+import java.util.Collection;
 import java.util.Map;
 
 import org.flashmonkey.java.avatar.api.IAvatar;
@@ -14,7 +15,7 @@ public interface IMultiplayerService extends IService {
 	
 	public String getNextId(String id);
 	
-	public void receiveMessage(IMessage message);
+	public Object receiveMessage(IMessage message);
 	
 	public Map<String, IPlayer> getPlayers();
 	
@@ -24,6 +25,8 @@ public interface IMultiplayerService extends IService {
 	public void setAvatarFactory(IAvatarFactory factory);
 	
 	public IAvatar getAvatar(String objectId);
+	
+	public Collection<IAvatar> getAvatars();
 	
 	public void registerAvatar(IAvatar avatar);
 	

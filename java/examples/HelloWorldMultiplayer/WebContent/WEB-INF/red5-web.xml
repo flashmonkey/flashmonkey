@@ -35,7 +35,9 @@
 	    class="org.red5.core.Application" 
 		singleton="true" />
  
-	<bean id="multiplayer.service" class="org.flashmonkey.java.adaptor.jmonkey.JMService">
+	<bean 
+		id="multiplayer.service" class="org.flashmonkey.java.adaptor.jmonkey.JMService"
+		init-method="init">
 		<constructor-arg value="MultiplayerTestScene"/>
 		<property name="application"><ref bean="web.handler"></ref></property>
 	</bean>

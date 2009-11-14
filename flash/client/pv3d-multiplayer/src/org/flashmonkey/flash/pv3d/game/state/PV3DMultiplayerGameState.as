@@ -1,13 +1,11 @@
 package org.flashmonkey.flash.pv3d.game.state
 {
-	import org.flashmonkey.flash.api.IPaperworldObject;
 	import org.flashmonkey.flash.api.connection.IClient;
 	import org.flashmonkey.flash.api.multiplayer.ISynchronisedAvatar;
 	import org.flashmonkey.flash.api.multiplayer.ISynchronisedScene;
 	import org.flashmonkey.flash.game.state.IMultiplayerGameState;
-	import org.flashmonkey.flash.multiplayer.avatar.LocalAvatar;
 	import org.flashmonkey.flash.multiplayer.sync.SynchronisationManager;
-	import org.flashmonkey.flash.pv3d.objects.PaperworldObject;
+	import org.flashmonkey.flash.pv3d.SphereAvatarFactory;
 	import org.flashmonkey.flash.pv3d.scenes.SynchronisedScene;
 	import org.papervision3d.objects.DisplayObject3D;
 	import org.papervision3d.scenes.Scene3D;
@@ -49,6 +47,7 @@ package org.flashmonkey.flash.pv3d.game.state
 			
 			_syncManager = new SynchronisationManager();
 			_syncManager.scene = _syncScene;
+			_syncManager.avatarFactory = new SphereAvatarFactory();
 		}
 		
 		protected function createSynchronisedScene():ISynchronisedScene
@@ -63,11 +62,13 @@ package org.flashmonkey.flash.pv3d.game.state
 			if (o is DisplayObject3D)
 			{
 				trace("Adding a display object 3d");
-				var localAvatar:ISynchronisedAvatar = new LocalAvatar();
+				/*var localAvatar:ISynchronisedAvatar = new LocalAvatar();
 				var syncObject:IPaperworldObject = new PaperworldObject();
 				syncObject.displayObject = o;
 				
-				localAvatar.object = syncObject;
+				localAvatar.object = syncObject;*/
+				
+				var localAvatar:ISynchronisedAvatar = _syncManager.avatarFactory.getAvatar("local");
 				
 				_syncManager.register(localAvatar);
 			}

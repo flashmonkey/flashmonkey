@@ -57,7 +57,7 @@ package org.flashmonkey.flash.multiplayer.avatar
 
 		override public function update(e:Event = null) : void
 		{	
-			//trace("STATE: " + state);
+			//trace("_behaviour: " + _behaviour);
 			//
 								
 			_behaviour.apply( this );
@@ -84,8 +84,15 @@ package org.flashmonkey.flash.multiplayer.avatar
 			{
             	smooth( );
    			}*/
-			trace("synchronising local avatar " + state.position.x);// + " " + state.py + " " + state.pz);
+			//trace("synchronising local avatar " + state.position.x);// + " " + state.py + " " + state.pz);
+			
+			
+			
 			snap(state);
+			
+			
+			
+			
 			//_history.correction( this, time, state, input );	
             	
 			//super.synchronise( time, input, state );

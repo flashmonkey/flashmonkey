@@ -10,9 +10,11 @@ package org.flashmonkey.flash.multiplayer.handshake
 	import org.flashmonkey.flash.connection.handshake.ConnectToServerOperation;
 	import org.flashmonkey.flash.connection.handshake.EchoNetObjectOperation;
 	import org.flashmonkey.flash.connection.messages.BaseMessage;
+	import org.flashmonkey.flash.connection.messages.BatchMessage;
 	import org.flashmonkey.flash.core.objects.BasicState;
 	import org.flashmonkey.flash.multiplayer.messages.PlayerSyncMessage;
 	import org.flashmonkey.flash.multiplayer.messages.ServerSyncMessage;
+	import org.flashmonkey.flash.multiplayer.messages.SynchroniseCreateMessage;
 	import org.flashmonkey.flash.utils.input.SimpleInput;
 	import org.springextensions.actionscript.mvcs.service.operation.AsyncOperationSequence;
 	
@@ -29,7 +31,13 @@ package org.flashmonkey.flash.multiplayer.handshake
 	 */
 	public class Handshake extends AbstractOperation
 	{
-		private var classesToRegister:Array = [SimpleInput, BasicState, BaseMessage, PlayerSyncMessage, ServerSyncMessage];
+		private var classesToRegister:Array = [SimpleInput, 
+											   BasicState, 
+											   BaseMessage, 
+											   PlayerSyncMessage, 
+											   ServerSyncMessage, 
+											   SynchroniseCreateMessage, 
+											   BatchMessage];
 		
 		private var _client:IClient;
 		

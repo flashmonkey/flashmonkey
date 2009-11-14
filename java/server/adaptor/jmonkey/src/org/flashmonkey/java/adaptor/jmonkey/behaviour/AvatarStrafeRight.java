@@ -21,12 +21,14 @@ public class AvatarStrafeRight extends AbstractAvatarBehaviour {
 	
 	//@Override
 	public void update(int time, IInput input, BasicState state) {
-		Vector3f loc = new Vector3f(state.px, state.py, state.pz);
-		Quaternion orientation = new Quaternion(state.ox, state.oy, state.oz, state.ow);
-        loc.addLocal(orientation.getRotationColumn(0, tempVa)
-                .multLocal(-speed));
-        state.px = loc.x;
-        state.py = loc.y;
-        state.pz = loc.z;
+		if (input.getMoveRight()) {
+			Vector3f loc = new Vector3f(state.px, state.py, state.pz);
+			Quaternion orientation = new Quaternion(state.ox, state.oy, state.oz, state.ow);
+	        loc.addLocal(orientation.getRotationColumn(0, tempVa)
+	                .multLocal(speed));
+	        state.px = loc.x;
+	        state.py = loc.y;
+	        state.pz = loc.z;
+		}
 	}
 }

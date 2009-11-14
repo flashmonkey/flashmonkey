@@ -6,6 +6,7 @@
 		<pathelement location="${red5.jar}" />
 		<pathelement location="${slf4j.jar}" />
 		<pathelement location="${spring.core.jar}" />
+    	<pathelement location="${jme.jar}"/>
 	</path>
 
     <!-- targets -->

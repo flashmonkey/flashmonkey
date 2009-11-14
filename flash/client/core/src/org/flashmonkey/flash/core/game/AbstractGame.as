@@ -6,6 +6,7 @@ package org.flashmonkey.flash.core.game
 	import org.flashmonkey.flash.core.game.state.GameStateManager;
 	import org.flashmonkey.flash.core.game.state.IGameState;
 	import org.flashmonkey.flash.core.game.task.TaskQueueManager;
+	import org.flashmonkey.flash.utils.AsyncOperationSequence;
 	import org.flashmonkey.flash.utils.clock.Clock;
 	import org.flashmonkey.flash.utils.clock.events.ClockEvent;
 	import org.flashmonkey.flash.utils.timer.ITimer;
@@ -39,8 +40,8 @@ package org.flashmonkey.flash.core.game
 		
 		public function start():void 
 		{
-			trace("Starting the Game");
 			_timer.addEventListener(ClockEvent.RENDER, render);
+			_timer.addEventListener(ClockEvent.TIMESTEP, update);
 			_timer.start();
 		}
 		

@@ -2,7 +2,7 @@ package org.flashmonkey.flash.core.game.task
 {
 	import flash.utils.Dictionary;
 	
-	import org.springextensions.actionscript.mvcs.service.operation.AsyncOperationSequence;
+	import org.flashmonkey.flash.utils.AsyncOperationSequence;
 	import org.springextensions.actionscript.mvcs.service.operation.IOperation;
 	
 	public class TaskQueueManager
@@ -21,28 +21,50 @@ package org.flashmonkey.flash.core.game.task
 		
 		protected function init():void 
 		{
-			addQueue(UPDATE);
-			addQueue(RENDER);
+			createQueue(UPDATE);
+			createQueue(RENDER);
 		}
 		
 		public static function get instance():TaskQueueManager
 		{
 			return $instance = ($instance == null) ? new TaskQueueManager() : $instance;
 		}
+		
+		public function createQueue(name:String):void 
+		{
+			$queues[name] = new AsyncOperationSequence(true);
+		}
 
-		public function addQueue(name:String, queue:IOperation = null):void 
+		/*public function addQueue(name:String, queue:IOperation = null):void 
 		{
 			if (!queue)
 			{
+				trace("Creating new Queue " + name);
 				queue = new AsyncOperationSequence();
 			}
 			
 			$queues[name] = queue;
+		}*/
+		
+		public function getQueue(name:String):AsyncOperationSequence 
+		{
+			return AsyncOperationSequence($queues[name]);
 		}
 		
-		public function getQueue(name:String):IOperation 
+		public function addToQueue(queueName:String, operation:IOperation, create:Boolean = true):void
 		{
-			return $queues[name] as IOperation;
+			trace("Adding " + operation + " to " + queueName + " queue");
+			var queue:AsyncOperationSequence = getQueue(queueName);
+			
+			if (queue)
+			{
+				queue.addOperation(operation);
+			}/*
+			else if (create)
+			{
+				addQueue(queueName);
+				addToQueue(queueName, operation);
+			}*/
 		}
 	}
 }

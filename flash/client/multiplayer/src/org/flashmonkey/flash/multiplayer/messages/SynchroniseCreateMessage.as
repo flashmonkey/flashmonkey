@@ -19,7 +19,7 @@ package org.flashmonkey.flash.multiplayer.messages
 		/**
 		 * @private
 		 */
-		private var _playerId:String;
+		private var _playerId:String = "@";
 		
 		/**
 		 * The id of the player who owns this object.
@@ -40,7 +40,7 @@ package org.flashmonkey.flash.multiplayer.messages
 		/**
 		 * @private
 		 */
-		private var _objectId:String;
+		private var _objectId:String = "@";
 		
 		/**
 		 * The id of the object to be created.

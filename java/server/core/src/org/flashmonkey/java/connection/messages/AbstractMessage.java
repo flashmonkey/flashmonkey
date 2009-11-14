@@ -14,7 +14,7 @@ public abstract class AbstractMessage extends NetObject implements IMessage {
 		
 	}
 	
-	public abstract void read(IMultiplayerService service);
+	public abstract Object read(IMultiplayerService service);
 	
 	public void write(IMultiplayerService service) {
 		

@@ -1,12 +1,12 @@
 package org.flashmonkey.flash.connection.messages
 {
 	import com.joeberkovitz.moccasin.service.AbstractOperation;
-	import org.flashmonkey.flash.api.connection.INetConnection;
-	import org.flashmonkey.flash.api.connection.messages.IMessage;
 	
+	import flash.events.ErrorEvent;
 	import flash.events.Event;
 	
-	import mx.rpc.events.FaultEvent;
+	import org.flashmonkey.flash.api.connection.INetConnection;
+	import org.flashmonkey.flash.api.connection.messages.IMessage;
 
 	public class SendMessageOperation extends AbstractOperation
 	{
@@ -25,13 +25,14 @@ package org.flashmonkey.flash.connection.messages
 		override public function execute():void 
 		{
 			_message.addEventListener(Event.COMPLETE, handleComplete);
-			_message.addEventListener(FaultEvent.FAULT, handleError);
+			_message.addEventListener(ErrorEvent.ERROR, handleError);
 			
 			_message.write(_connection);			
 		}
 		
 		override public function get result():*
 		{
+			trace("AND RETURNING: " + _message.read());
 			return _message.read();
 		}
 		

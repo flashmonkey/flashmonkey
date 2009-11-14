@@ -11,5 +11,6 @@
 	<property name="spring-as-resources.swc" location="${flash.lib.dir}/springactionscript_resourceloading.swc"/>
 	<property name="moccasin.swc" location="${flash.lib.dir}/moccasin-core.swc"/>
 	<property name="papervision.swc" location="${flash.lib.dir}/Papervision3D.swc"/>
+    <property name="pushbuttonengine.swc" location="${flash.lib.dir}/PBEngine.swc"/>
 
 </project>

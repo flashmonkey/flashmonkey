@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/dist/server/flashmonkey-core.jar"/>
 	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/lib/slf4j-api-1.5.6.jar"/>
 	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/lib/spring-core-2.5.6.jar"/>
+	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/lib/jme.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

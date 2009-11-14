@@ -1,6 +1,12 @@
 package org.flashmonkey.flash.multiplayer.sync
 {
 	import com.joeberkovitz.moccasin.service.IOperation;
+	
+	import flash.events.Event;
+	import flash.utils.Dictionary;
+	
+	import org.as3commons.logging.ILogger;
+	import org.as3commons.logging.LoggerFactory;
 	import org.flashmonkey.flash.api.IInput;
 	import org.flashmonkey.flash.api.connection.IClient;
 	import org.flashmonkey.flash.api.connection.messages.IMessage;
@@ -9,20 +15,13 @@ package org.flashmonkey.flash.multiplayer.sync
 	import org.flashmonkey.flash.api.multiplayer.ISynchronisedScene;
 	import org.flashmonkey.flash.api.multiplayer.messages.IServerSyncMessage;
 	import org.flashmonkey.flash.connection.messages.RequestIdMessage;
-	import org.flashmonkey.flash.multiplayer.messages.BatchedInputMessage;
+	import org.flashmonkey.flash.core.game.task.TaskQueueManager;
+	import org.flashmonkey.flash.multiplayer.api.IAvatarFactory;
 	import org.flashmonkey.flash.multiplayer.messages.PlayerSyncMessage;
 	import org.flashmonkey.flash.multiplayer.messages.ServerSyncMessage;
 	import org.flashmonkey.flash.multiplayer.messages.SynchroniseCreateMessage;
 	import org.flashmonkey.flash.utils.AbstractProcessor;
 	import org.flashmonkey.flash.utils.timer.ITimer;
-	import org.flashmonkey.flash.utils.timer.TimerManager;
-	import org.flashmonkey.flash.utils.timer.events.ITimerEvent;
-	
-	import flash.events.Event;
-	import flash.utils.Dictionary;
-	
-	import org.as3commons.logging.ILogger;
-	import org.as3commons.logging.LoggerFactory;
 	
 	public class SynchronisationManager extends AbstractProcessor implements ISyncManager	
 	{		
@@ -32,6 +31,11 @@ package org.flashmonkey.flash.multiplayer.sync
 		
 		private var _client:IClient;
 		
+		public function get client():IClient
+		{
+			return _client;
+		}
+		
 		private var _scene:ISynchronisedScene;
 		
 		public function set scene(value:ISynchronisedScene):void 
@@ -39,7 +43,29 @@ package org.flashmonkey.flash.multiplayer.sync
 			_scene = value;
 		}
 		
+		private var _avatarFactory:IAvatarFactory;
+		
+		public function set avatarFactory(value:IAvatarFactory) :void
+		{
+			_avatarFactory = value;
+		}
+		
+		public function get avatarFactory():IAvatarFactory
+		{
+			return _avatarFactory;
+		}
+		
 		private var _batchedMoves:Array = [];
+		
+		public function get batchedMoves():Array
+		{
+			return _batchedMoves;
+		}
+		
+		public function set batchedMoves(value:Array):void 
+		{
+			_batchedMoves = value;
+		}
 		
 		private var _waitingForId:Dictionary = new Dictionary();
 		
@@ -62,9 +88,11 @@ package org.flashmonkey.flash.multiplayer.sync
 		{
 			super([SynchroniseCreateMessage, ServerSyncMessage]);
 			
-			_sendInputTimer = TimerManager.instance.startAccurateIntervalTimer(200, 10000, SEND_INPUT_TIMER);
-			_sendInputTimer.addEventListener(ITimerEvent.TICK, _onSendInputTimerTick);
-			_sendInputTimer.start();
+			TaskQueueManager.instance.addToQueue(TaskQueueManager.UPDATE, new SendPlayerInputOperation(this));
+			
+			//_sendInputTimer = TimerManager.instance.startAccurateIntervalTimer(200, 10000, SEND_INPUT_TIMER);
+			//_sendInputTimer.addEventListener(ITimerEvent.TICK, _onSendInputTimerTick);
+			//_sendInputTimer.start();
 		}
 		
 		/**
@@ -109,7 +137,7 @@ package org.flashmonkey.flash.multiplayer.sync
 			// Get the message from the completed operation.
 			var operation:IOperation = IOperation(event.target);
 			var id:String = operation.result as String;
-
+			trace("ID RECEIVED: " + id);
 			// Set the id on the avatar that it was requested for.
 			var avatar:ISynchronisedAvatar = ISynchronisedAvatar(_waitingForId[operation]);
 			avatar.id = id;
@@ -162,18 +190,26 @@ package org.flashmonkey.flash.multiplayer.sync
 			// we need to create an avatar that represents them.
 			if (object is SynchroniseCreateMessage)
 			{
+				trace("CREATE REMOTE AVATAR");
+
+				var remoteAvatar:ISynchronisedAvatar = _avatarFactory.getAvatar("remote");
 				
+				_avatars[SynchroniseCreateMessage(object).objectId] = remoteAvatar;
 			}
 			else if (object is ServerSyncMessage)
 			{
 				var message:IServerSyncMessage = IServerSyncMessage(object);
+				//log.debug("syncing :: " + message.objectId);
 				var avatar:ISynchronisedAvatar = ISynchronisedAvatar(_avatars[message.objectId]);
-				log.debug("STATE: " + message.state.position.z);// + " " + message.state.py + " " + message.state.pz);
-				avatar.synchronise(message.time, message.input, message.state);
+				//log.debug("STATE: " + message.state.position.z);// + " " + message.state.py + " " + message.state.pz);
+				if (avatar)
+				{
+					avatar.synchronise(message.time, message.input, message.state);
+				}
 			}
 		}
 		
-		private function _onSendInputTimerTick(e:ITimerEvent):void 
+		/*private function _onSendInputTimerTick(e:ITimerEvent):void 
 		{
 			// We only need to send input to the server if there's input to send.
 			if (_batchedMoves.length > 0)
@@ -189,6 +225,6 @@ package org.flashmonkey.flash.multiplayer.sync
 				// Send the batch to the server.
 				_client.sendToServer(batchMessage).execute();
 			}
-		}
+		}*/
 	}
 }

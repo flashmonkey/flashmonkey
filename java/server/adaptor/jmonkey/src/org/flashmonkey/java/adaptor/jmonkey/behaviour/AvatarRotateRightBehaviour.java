@@ -1,10 +1,12 @@
 package org.flashmonkey.java.adaptor.jmonkey.behaviour;
 
+import org.flashmonkey.java.core.objects.BasicState;
 import org.flashmonkey.java.input.api.IInput;
 import org.flashmonkey.java.state.api.IState;
 
 import com.jme.input.action.InputActionEvent;
 import com.jme.math.Matrix3f;
+import com.jme.math.Quaternion;
 import com.jme.math.Vector3f;
 
 public class AvatarRotateRightBehaviour extends AbstractAvatarBehaviour {
@@ -50,18 +52,25 @@ public class AvatarRotateRightBehaviour extends AbstractAvatarBehaviour {
      * 
      * @see com.jme.input.action.KeyInputAction#performAction(InputActionEvent)
      */
-    public void update(int time, IInput input, IState state) {
-    	incr.loadIdentity();
-        if (lockAxis == null) {
-            state.getOrientation().getRotationColumn(1, tempVa);
-            tempVa.normalizeLocal();
-            incr.fromAngleNormalAxis(-speed, tempVa);
-        } else {
-            incr.fromAngleNormalAxis(-speed, lockAxis);
-        }
-        state.getOrientation().fromRotationMatrix(
-                incr.mult(state.getOrientation().toRotationMatrix(tempMa),
-                        tempMb));
-        state.getOrientation().normalize();
+    public void update(int time, IInput input, BasicState state) {
+    	if (input.getYawPositive()) {
+    		Quaternion orientation = new Quaternion(state.ox, state.oy, state.oz, state.ow);
+	    	incr.loadIdentity();
+	        if (lockAxis == null) {
+	            orientation.getRotationColumn(1, tempVa);
+	            tempVa.normalizeLocal();
+	            incr.fromAngleNormalAxis(-speed, tempVa);
+	        } else {
+	            incr.fromAngleNormalAxis(-speed, lockAxis);
+	        }
+	        orientation.fromRotationMatrix(
+	                incr.mult(orientation.toRotationMatrix(tempMa),
+	                        tempMb));
+	        orientation.normalize();
+	        state.ox = orientation.x;
+	        state.oy = orientation.y;
+	        state.oz = orientation.z;
+	        state.ow = orientation.w;
+    	}
     }
 }

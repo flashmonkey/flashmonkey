@@ -6,6 +6,7 @@
         <pathelement location="${spring-as.swc}"/>
 		<pathelement location="${spring-as-resources.swc}"/>
 		<pathelement location="${moccasin.swc}"/>
+    	<pathelement location="${pushbuttonengine.swc}"/>
 	</path>
 
     <!-- targets -->

@@ -5,7 +5,7 @@ import org.red5.io.amf3.IExternalizable;
 
 public interface IMessage extends IExternalizable {
 
-	public void read(IMultiplayerService service);
+	public Object read(IMultiplayerService service);
 	
 	public void write(IMultiplayerService service);
 	

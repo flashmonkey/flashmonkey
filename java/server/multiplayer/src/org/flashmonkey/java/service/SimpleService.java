@@ -1,11 +1,13 @@
 package org.flashmonkey.java.service;
 
-import org.flashmonkey.java.api.message.IServerSyncMessage;
+import java.util.List;
+
+import org.flashmonkey.java.connection.messages.BatchMessage;
 import org.flashmonkey.java.avatar.api.IAvatar;
 import org.flashmonkey.java.avatar.factory.SimpleAvatarFactory;
 import org.flashmonkey.java.avatar.factory.api.IAvatarFactory;
 import org.flashmonkey.java.connection.red5.service.BasePaperworldService;
-import org.flashmonkey.java.multiplayer.messages.ServerSyncMessage;
+import org.flashmonkey.java.message.api.IMessage;
 import org.flashmonkey.java.player.SimplePlayer;
 import org.flashmonkey.java.player.api.IPlayer;
 import org.red5.server.api.IConnection;
@@ -70,13 +72,15 @@ public class SimpleService extends BasePaperworldService {
 				IAvatar avatar = avatars.get(key);
 				try {
 					IPlayer player = avatar.getOwner();
-					String id = player.getId();
 
-					IServerSyncMessage syncMessage = new ServerSyncMessage(id,
-							avatar.getId(), avatar.getTime(), avatar.getInput(), avatar
-									.getState());
+					player.createSyncMessage();
+					List<IMessage> messages = player.getMessages();
 
-					so.setAttribute(id, syncMessage);
+					BatchMessage batchMessage = new BatchMessage(messages);
+					player.clearMessages();
+
+					so.setAttribute(player.getId(), batchMessage);
+					//so.sendMessage("receivedMessage", new ArrayListbatchMessage);
 				} catch (Exception e) {
 
 				}
@@ -84,13 +88,13 @@ public class SimpleService extends BasePaperworldService {
 
 			so.endUpdate();
 		}
-
 	}
 	
 	private class UpdateAvatarsJob implements IScheduledJob {
 
 		public void execute(ISchedulingService service) throws CloneNotSupportedException {
 			for (String key : avatars.keySet()) {
+				//System.out.println("avatar " + avatars.get(key));
 				avatars.get(key).update();
 			}
 		}		

@@ -21,6 +21,8 @@
  * -------------------------------------------------------------------------------------- */
 package org.flashmonkey.flash.utils.input 
 {
+	import com.pblabs.engine.PBE;
+	
 	import flash.display.Stage;
 	import flash.events.MouseEvent;	
 
@@ -48,6 +50,10 @@ package org.flashmonkey.flash.utils.input
 		public function KeyboardAndMouseInput()
 		{
 			super( );
+			
+			target = PBE.mainStage;
+			
+			trace("Creating new keyboard and mouse input: " + _target);
 		}
 		
 		/**

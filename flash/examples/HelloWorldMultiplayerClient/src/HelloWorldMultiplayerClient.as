@@ -1,9 +1,14 @@
 package {
 	import com.joeberkovitz.moccasin.service.IOperation;
+	import com.pblabs.engine.PBE;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.NetStatusEvent;
+	import flash.net.NetConnection;
+	import flash.net.ObjectEncoding;
+	import flash.net.SharedObject;
+	import flash.utils.ByteArray;
 	
 	import org.flashmonkey.flash.api.connection.IClient;
 	import org.flashmonkey.flash.connection.Red5Connection;
@@ -25,6 +30,12 @@ package {
 		public function HelloWorldMultiplayerClient()
 		{
 			trace("Creation Completed");
+			
+			NetConnection.defaultObjectEncoding = ObjectEncoding.AMF3;
+			ByteArray.defaultObjectEncoding = ObjectEncoding.AMF3;
+			SharedObject.defaultObjectEncoding = ObjectEncoding.AMF3;
+			
+			PBE.startup(this);
 				
 			var connection:Red5Connection = new Red5Connection();
 			connection.connectionArgs = ["this","that"];

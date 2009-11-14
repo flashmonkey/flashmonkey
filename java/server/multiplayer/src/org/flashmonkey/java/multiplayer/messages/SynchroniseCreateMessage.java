@@ -25,19 +25,31 @@ public class SynchroniseCreateMessage extends BroadcastMessage implements
 		
 	}
 	
-	public void read(IMultiplayerService service) {		
+	public Object read(IMultiplayerService service) {		
 		IPlayer player = service.getPlayer(getPlayerId());
 		
 		IAvatar avatar = player.getScopeObject();
-		
+		System.out.println("Object id for avatar " + getObjectId());
 		avatar.setId(getObjectId());
+		
+		// Get all the currently registered avatars.
+		// We need to let the new player know about them.
+		for (IAvatar currentAvatar : service.getAvatars()) {
+			ISynchroniseCreateMessage syncCreateMessage = new SynchroniseCreateMessage();
+			syncCreateMessage.setPlayerId(avatar.getOwner().getId());
+			syncCreateMessage.setObjectId(avatar.getId());
+			syncCreateMessage.setInput(avatar.getInput());
+			syncCreateMessage.setState(avatar.getState());
+			
+			player.addMessage(syncCreateMessage);
+		}
 
 		service.registerAvatar(avatar);
 
 		setInput(avatar.getInput());
 		setState(avatar.getState());
 		
-		super.read(service);
+		return super.read(service);
 	}
 	
 	public String getPlayerId() {

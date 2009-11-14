@@ -5,7 +5,7 @@ package org.flashmonkey.flash.pv3d.objects
 	import org.flashmonkey.flash.api.IState;
 	import org.flashmonkey.flash.core.action.Action;
 	import org.flashmonkey.flash.pv3d.behaviours.BasePV3DBehaviour;
-	import org.papervision3d.core.math.Matrix3D;
+	
 	import org.papervision3d.objects.DisplayObject3D;
 
 	public class PaperworldObject implements IPaperworldObject
@@ -41,18 +41,7 @@ package org.flashmonkey.flash.pv3d.objects
 
 		public function synchronise(time : int, input : IInput, state : IState) : void
 		{
-			var m:Matrix3D = Matrix3D.quaternion2matrix(state.orientation.x, state.orientation.y, state.orientation.z, state.orientation.w, _displayObject.transform);
-
-			m.n14 = state.position.x;
-			m.n24 = state.position.y;
-			m.n34 = state.position.z;
 			
-			_displayObject.transform = m;
-			//_displayObject.x = state.position.x;
-			//_displayObject.y = state.position.y;
-			//_displayObject.z = state.position.z;
-			//trace(state.orientation.x + " " + state.orientation.y + " " + state.orientation.z + " " + state.orientation.w);
-						//_displayObject.updateTransform();
 		}
 		
 	}

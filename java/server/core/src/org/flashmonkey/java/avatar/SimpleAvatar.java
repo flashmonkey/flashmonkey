@@ -20,10 +20,11 @@ public class SimpleAvatar extends AbstractAvatar {
 	
 	//@Override
 	public void updateUserInput(int time, IInput input) {
-		if (time > this.time) {
+		System.out.println(time + " " + this.time);
+		//if (time > this.time) {
 			this.time = time;
 			this.input = input;
-		}
+		//}
 	}	
 	
 	//@Override 

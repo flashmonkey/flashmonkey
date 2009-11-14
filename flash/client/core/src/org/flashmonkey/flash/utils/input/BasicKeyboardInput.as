@@ -21,11 +21,11 @@
  * -------------------------------------------------------------------------------------- */
 package org.flashmonkey.flash.utils.input 
 {
+	import flash.display.Stage;
+	
 	import org.flashmonkey.flash.utils.keys.KeyDefinitions;
 	import org.flashmonkey.flash.utils.keys.KeyDownCommand;
-	import org.flashmonkey.flash.utils.keys.KeyUpCommand;
-	
-	import flash.display.Stage;	
+	import org.flashmonkey.flash.utils.keys.KeyUpCommand;	
 
 	/**
 	 * @author Trevor Burton [worldofpaper@googlemail.com]
@@ -50,6 +50,9 @@ package org.flashmonkey.flash.utils.input
 			
 			_keyUpCommands[KeyDefinitions.W] = forwardKeyUpCommand;
 			_keyDownCommands[KeyDefinitions.W] = forwardKeyDownCommand;
+
+			_keyUpCommands[KeyDefinitions.UP_ARROW] = forwardKeyUpCommand;
+			_keyUpCommands[KeyDefinitions.DOWN_ARROW] = forwardKeyDownCommand;
 			
 			// Handle Back Key Press - mapped to 's' key.
 			var backKeyUpCommand : KeyUpCommand = new KeyUpCommand(this );

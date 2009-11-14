@@ -1,15 +1,16 @@
 package org.flashmonkey.flash.connection
 {
-	import org.flashmonkey.flash.api.connection.INetConnection;
-	import org.flashmonkey.flash.api.connection.ISharedObject;
-	import org.flashmonkey.flash.connection.events.Red5Event;
-	
 	import flash.events.AsyncErrorEvent;
 	import flash.events.EventDispatcher;
 	import flash.events.NetStatusEvent;
 	import flash.events.SyncEvent;
 	import flash.net.NetConnection;
+	import flash.net.ObjectEncoding;
 	import flash.net.SharedObject;
+	
+	import org.flashmonkey.flash.api.connection.INetConnection;
+	import org.flashmonkey.flash.api.connection.ISharedObject;
+	import org.flashmonkey.flash.connection.events.Red5Event;
 
 	public class RemoteSharedObject extends EventDispatcher implements ISharedObject
 	{

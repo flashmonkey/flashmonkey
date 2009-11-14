@@ -21,11 +21,12 @@
  * -------------------------------------------------------------------------------------- */
 package org.flashmonkey.flash.utils.input 
 {
-	import org.flashmonkey.flash.api.IInput;
-	import org.flashmonkey.flash.utils.input.events.UserInputEvent;
-	
 	import flash.display.Stage;
-	import flash.events.EventDispatcher;	
+	import flash.events.EventDispatcher;
+	
+	import org.flashmonkey.flash.api.IInput;
+	import org.flashmonkey.flash.core.game.task.TaskQueueManager;
+	import org.flashmonkey.flash.utils.input.events.UserInputEvent;	
 
 	/**
 	 * @author Trevor Burton [worldofpaper@googlemail.com]
@@ -61,6 +62,8 @@ package org.flashmonkey.flash.utils.input
 		public function AbstractUserInput()
 		{
 			super( this );
+			
+			TaskQueueManager.instance.addToQueue(TaskQueueManager.UPDATE, new UpdateInputListenersOperation(this));
 		}
 
 		public function updateListeners() : void

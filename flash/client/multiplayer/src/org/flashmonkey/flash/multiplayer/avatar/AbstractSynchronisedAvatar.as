@@ -32,6 +32,7 @@ package org.flashmonkey.flash.multiplayer.avatar
 	import org.flashmonkey.flash.api.IState;
 	import org.flashmonkey.flash.api.multiplayer.ISyncManager;
 	import org.flashmonkey.flash.api.multiplayer.ISynchronisedAvatar;
+	import org.flashmonkey.flash.core.game.task.TaskQueueManager;
 	import org.flashmonkey.flash.core.objects.BasicState;
 	import org.flashmonkey.flash.multiplayer.inputhandlers.SimpleAvatarInputHandler25D;
 	import org.flashmonkey.flash.utils.input.IUserInput;
@@ -158,7 +159,7 @@ package org.flashmonkey.flash.multiplayer.avatar
 		 */
 		public function get state() : IState
 		{
-			return _current.clone();	
+			return _current;//.clone();	
 		}
 
 		/**
@@ -209,6 +210,8 @@ package org.flashmonkey.flash.multiplayer.avatar
 
 		public function update(e:Event = null) : void
 		{	
+			//trace("UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE UPDATE ");
+			
 			_time++;		
 			
 			_tightness += (defaultTightness - _tightness) * 0.01;
@@ -252,7 +255,7 @@ package org.flashmonkey.flash.multiplayer.avatar
 			
 			output = new SteeringOutput( );
 			
-			trace("TimerManager registering update");
+			/*trace("TimerManager registering update");
 			var timer:ITimer = TimerManager.instance.getTimerByName(AVATAR_UPDATE_TIMER);
 			
 			if (!timer)
@@ -260,7 +263,9 @@ package org.flashmonkey.flash.multiplayer.avatar
 				timer = TimerManager.instance.startSimpleIntervalTimer(100, 10000, AVATAR_UPDATE_TIMER);
 			}
 			trace("TIMER: " + timer);
-			timer.addEventListener(ITimerEvent.TICK, update);
+			timer.addEventListener(ITimerEvent.TICK, update);*/
+			
+			TaskQueueManager.instance.addToQueue(TaskQueueManager.UPDATE, new UpdateAvatarOperation(this));
 		}
 
 		/**

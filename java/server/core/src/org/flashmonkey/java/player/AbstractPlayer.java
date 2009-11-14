@@ -13,6 +13,8 @@ public abstract class AbstractPlayer implements IPlayer {
 
 	protected List<IAvatar> avatars = Collections.synchronizedList(new ArrayList<IAvatar>());
 	
+	protected List<IMessage> messages = Collections.synchronizedList(new ArrayList<IMessage>());
+	
 	protected String name;
 	
 	protected IAvatar scopeObject;	
@@ -24,8 +26,6 @@ public abstract class AbstractPlayer implements IPlayer {
 	}
 	
 	public abstract void performScopeQuery(List<IAvatar> avatars);
-
-	public abstract boolean sendMessage(IMessage message);
 	
 	public void addAvatar(IAvatar avatar) {
 		avatars.add(avatar);
@@ -48,6 +48,9 @@ public abstract class AbstractPlayer implements IPlayer {
 	}
 
 	public void setScopeObject(IAvatar scopeObject) {
+		if (!avatars.contains(scopeObject)) {
+			avatars.add(scopeObject);
+		}
 		this.scopeObject = scopeObject;
 	}
 	
@@ -64,5 +67,30 @@ public abstract class AbstractPlayer implements IPlayer {
 	}
 	
 	public abstract String getId();
+	
+	public abstract void createSyncMessage();
+	
+	////////////////////////////////////////
+	// IMessageQueue Implementation
+	////////////////////////////////////////
+	
+	public void addMessage(IMessage message) {
+		messages.add(message);
+	}
+	
+	public List<IMessage> getMessages() {
+		List<IMessage> copy = new ArrayList<IMessage>();
+		copy.addAll(messages);
+		return copy;
+	}
+	
+	public void clearMessages() {
+		messages.clear();
+	}
+	
+	public void destroy() {
+		avatars.clear();
+		messages.clear();
+	}
 
 }

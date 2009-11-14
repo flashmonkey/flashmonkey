@@ -21,12 +21,14 @@ public class AvatarBackwardBehaviour extends AbstractAvatarBehaviour {
     
 	//@Override
 	public void update(int time, IInput input, BasicState state) {
-		Vector3f loc = new Vector3f(state.px, state.py, state.pz);
-		Quaternion orientation = new Quaternion(state.ox, state.oy, state.oz, state.ow);
-        loc.subtractLocal(orientation.getRotationColumn(2, tempVa)
-                .multLocal(speed));
-        state.px = loc.x;
-        state.py = loc.y;
-        state.pz = loc.z;
+		if (input.getMoveBackward()) {
+			Vector3f loc = new Vector3f(state.px, state.py, state.pz);
+			Quaternion orientation = new Quaternion(state.ox, state.oy, state.oz, state.ow);
+	        loc.subtractLocal(orientation.getRotationColumn(2, tempVa)
+	                .multLocal(speed));
+	        state.px = loc.x;
+	        state.py = loc.y;
+	        state.pz = loc.z;
+		}
 	}
 }

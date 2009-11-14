@@ -21,11 +21,12 @@
  * -------------------------------------------------------------------------------------- */
 package org.flashmonkey.flash.utils.input 
 {
-	import org.flashmonkey.flash.utils.patterns.command.ICommand;
-	
 	import flash.display.Stage;
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
+	
+	import org.flashmonkey.flash.utils.keys.KeyDefinitions;
+	import org.flashmonkey.flash.utils.patterns.command.ICommand;
 	
 	/**
 	 * @author Trevor Burton [worldofpaper@googlemail.com]

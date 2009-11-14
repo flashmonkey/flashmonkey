@@ -71,8 +71,11 @@ public class PlayerSyncMessage extends AbstractMessage implements IPlayerSyncMes
 	}
 
 	//@Override
-	public void read(IMultiplayerService service) {
+	public Object read(IMultiplayerService service) {
+		System.out.println("RIGHT " + input.getYawPositive() + " " + input.getYawNegative());
 		IAvatar avatar = service.getAvatar(getObjectId());
 		avatar.updateUserInput(getTime(), getInput());
+		
+		return null;
 	}
 }

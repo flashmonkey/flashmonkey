@@ -16,6 +16,7 @@ public class JMService extends SimpleService {
 	
 	public JMService(String gameName) {
 		scene = new JMScene(gameName);
+		factory = new JMAvatarFactory();
 	}
 	
 	@Override

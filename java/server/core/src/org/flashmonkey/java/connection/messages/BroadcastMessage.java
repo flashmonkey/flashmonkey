@@ -8,17 +8,18 @@ import org.flashmonkey.java.player.api.IPlayer;
 public class BroadcastMessage extends AbstractMessage {
 
 	//@Override
-	public void read(IMultiplayerService service) {
+	public Object read(IMultiplayerService service) {
 		Map<String, IPlayer> players = service.getPlayers();
 
 		for (String key : players.keySet()) {
 			IPlayer player = players.get(key);
 
 			if (!player.getId().equals(getSenderId())) {
-				player.sendMessage(this);
+				player.addMessage(this);
 			}
 		}
 
+		return null;
 	}
 	
 	//@Override 

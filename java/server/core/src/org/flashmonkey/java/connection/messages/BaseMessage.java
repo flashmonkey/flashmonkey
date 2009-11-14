@@ -30,11 +30,12 @@ public class BaseMessage extends NetObject implements IMessage {
 		
 	}
 	
-	public void read(IMultiplayerService service) {
-		
+	public Object read(IMultiplayerService service) {
+		return null;
 	}
 
 	public void readExternal(IDataInput input) {
+		System.out.println("Writing Base Message");
 		senderId = input.readUTF();
 	}
 
