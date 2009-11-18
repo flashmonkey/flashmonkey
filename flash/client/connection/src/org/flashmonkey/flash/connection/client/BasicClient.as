@@ -8,11 +8,13 @@ package org.flashmonkey.flash.connection.client
 	import flash.net.SharedObject;
 	
 	import org.flashmonkey.flash.api.connection.IClient;
+	import org.flashmonkey.flash.api.connection.IHandshake;
 	import org.flashmonkey.flash.api.connection.INetConnection;
 	import org.flashmonkey.flash.api.connection.ISharedObject;
 	import org.flashmonkey.flash.api.connection.messages.IGroupMessage;
 	import org.flashmonkey.flash.api.connection.messages.IMessage;
 	import org.flashmonkey.flash.api.connection.messages.IPlayerMessage;
+	import org.flashmonkey.flash.connection.Red5Connection;
 	import org.flashmonkey.flash.connection.handshake.BasicHandshake;
 	import org.flashmonkey.flash.connection.messages.BatchMessage;
 	import org.flashmonkey.flash.connection.messages.SendMessageOperation;
@@ -25,6 +27,13 @@ package org.flashmonkey.flash.connection.client
 	 */
 	public class BasicClient extends EventDispatcher implements IClient
 	{
+		private var _defaultService:String;
+		
+		public function set defaultService(value:String):void 
+		{
+			_defaultService = value;
+		}
+		
 		/**
 		 * @private
 		 */
@@ -95,9 +104,14 @@ package org.flashmonkey.flash.connection.client
 			}
 		}
 		
-		private var _handshake:IOperation;
+		private var _handshake:IHandshake;
 		
-		public function set handshake(value:IOperation):void 
+		public function get handshake():IHandshake
+		{
+			return _handshake;
+		}
+		
+		public function set handshake(value:IHandshake):void 
 		{
 			_handshake = value;
 		}
@@ -108,8 +122,11 @@ package org.flashmonkey.flash.connection.client
 		{
 			super(this);
 			
-			this.connection = connection;
-			this.sharedObject = sharedObject;
+			if (connection)
+				this.connection = connection;
+				
+			if (sharedObject)
+				this.sharedObject = sharedObject;
 			
 			init();
 		}
@@ -119,7 +136,7 @@ package org.flashmonkey.flash.connection.client
 			_handshake = createHandshake();
 		}
 		
-		protected function createHandshake():IOperation 
+		protected function createHandshake():IHandshake 
 		{
 			return new BasicHandshake(this);	
 		}
@@ -128,8 +145,20 @@ package org.flashmonkey.flash.connection.client
 		 * Begins the quick handshake procedure - extend the handshake class to 
 		 * implement a custom handshake for your game.
 		 */
-		public function connect():IOperation 
+		public function connect(uri:String = null, connectionArgs:Array = null):IOperation 
 		{
+			if (uri != null)
+			{
+				trace("creating connection");
+				connection = new Red5Connection();
+				connection.rtmpURI = uri;
+			}
+			
+			if (connectionArgs != null)
+			{
+				connection.connectionArgs = connectionArgs;
+			}
+			
 			trace("BasicClient connecting " + connection.rtmpURI);
 			
 			_handshake.addEventListener(Event.COMPLETE, onConnectionEstablished);
@@ -165,6 +194,7 @@ package org.flashmonkey.flash.connection.client
 		private function _sendMessage(message:IMessage):IOperation 
 		{
 			message.senderId = _id;
+			message.service = _defaultService;
 
 			return new SendMessageOperation(message, connection);
 		}

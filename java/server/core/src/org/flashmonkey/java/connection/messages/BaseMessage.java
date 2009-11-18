@@ -8,7 +8,9 @@ import org.red5.io.amf3.IDataOutput;
 
 public class BaseMessage extends NetObject implements IMessage {
 
-	protected String senderId;
+	protected String senderId = "-1";
+	
+	protected IMultiplayerService service;
 	
 	public BaseMessage() {
 		
@@ -26,20 +28,27 @@ public class BaseMessage extends NetObject implements IMessage {
 		this.senderId = senderId;
 	}
 	
-	public void write(IMultiplayerService service) {
+	public void write() {
 		
 	}
 	
-	public Object read(IMultiplayerService service) {
+	public Object read() {
 		return null;
+	}
+	
+	public void setService(Object service) {
+		if (service instanceof IMultiplayerService) {
+			this.service = (IMultiplayerService)service;
+		}
 	}
 
 	public void readExternal(IDataInput input) {
-		System.out.println("Writing Base Message");
+		System.out.println("Reading Base Message");
 		senderId = input.readUTF();
 	}
 
 	public void writeExternal(IDataOutput output) {
+		System.out.println("Writing external");
 		output.writeUTF(senderId);
 	}
 

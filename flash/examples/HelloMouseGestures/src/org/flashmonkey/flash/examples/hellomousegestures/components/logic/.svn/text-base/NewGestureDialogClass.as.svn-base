@@ -1,0 +1,109 @@
+package com.gesturelib.flash.demos.simplegesturedemo.components.logic
+{
+	import com.gesturelib.flash.GestureEvent;
+	import com.gesturelib.flash.GestureListener;
+	import com.gesturelib.flash.GestureMediator;
+	import com.gesturelib.flash.demos.simplegesturedemo.events.AcceptGestureEvent;
+	
+	import mx.containers.Canvas;
+	import mx.containers.Panel;
+	import mx.controls.Alert;
+	import mx.controls.Button;
+	import mx.controls.Label;
+	import mx.controls.TextInput;
+	import mx.events.FlexEvent;
+	import mx.managers.PopUpManager;
+
+	public class NewGestureDialogClass extends Panel implements GestureListener
+	{
+		private static const BEFORE_DRAWING:int = 0;
+		private static const AFTER_DRAWING:int = 1;
+		
+		public var cancelButton:Button;
+		
+		public var yesButton:Button;
+		
+		public var noButton:Button;
+		
+		public var textOutput:Label;
+		
+		public var gestureNameLabel:Label;
+		
+		public var gestureNameInput:TextInput;
+		
+		public var mediator:GestureMediator;
+		
+		public var canvas:Canvas;
+		
+		public function NewGestureDialogClass()
+		{
+			super();
+			
+			addEventListener(FlexEvent.CREATION_COMPLETE, onCreationComplete);
+		}
+		
+		private function onCreationComplete(e:FlexEvent):void 
+		{
+			setState(BEFORE_DRAWING);
+			
+			mediator = new GestureMediator(canvas);
+			mediator.addListener(this);
+		}
+		
+		protected function onYesClick():void 
+		{
+			if (gestureNameInput.text.length < 1)
+			{
+				Alert.show("Please set a name for your new gesture");
+			}
+			else
+			{
+				dispatchEvent(new AcceptGestureEvent(AcceptGestureEvent.GESTURE_ACCEPTED, gestureNameInput.text, mediator.vectors, mediator.smoothedPath));
+			
+				PopUpManager.removePopUp(this);
+			}
+		}
+		
+		protected function onNoClick():void
+		{
+			setState(BEFORE_DRAWING);
+		}
+		
+		protected function onCancelButtonClick():void
+		{
+			PopUpManager.removePopUp(this);
+		}
+		
+		private function setState(state:int):void
+		{
+			var active:Boolean = state == BEFORE_DRAWING;
+			
+			cancelButton.visible = active;
+			yesButton.visible = noButton.visible = gestureNameLabel.visible = gestureNameInput.visible = !active;
+			
+			if (active)
+			{
+				textOutput.text = "Draw a new gesture below";
+			}
+			else
+			{
+				textOutput.text = "Do you want to accept this gesture?";
+			}
+			
+			//canvas.graphics.clear();
+		}
+		
+		public function onGestureStart(e:GestureEvent):void
+		{			
+			canvas.graphics.clear();
+		}
+		
+		public function onGestureComplete(e:GestureEvent):void
+		{				
+			mediator.draw(canvas.graphics);
+			
+			setState(AFTER_DRAWING);
+		}
+		
+	}
+}

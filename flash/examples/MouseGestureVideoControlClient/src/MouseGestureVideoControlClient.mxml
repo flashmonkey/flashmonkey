@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute"
+	creationComplete="onCreationComplete()">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.joeberkovitz.moccasin.service.IOperation;
+			import org.flashmonkey.flash.connection.client.BasicClient;
+			import org.flashmonkey.flash.api.connection.IClient;
+			
+			private var _client:IClient;
+			
+			private function onCreationComplete():void 
+			{
+				_client = new BasicClient();
+				var connectionOp:IOperation = _client.connect("rtmp://localhost/MouseGestureVideoControl", ["flashmonkey", "password"]);
+				connectionOp.addEventListener(Event.COMPLETE, onConnectionEstablished);
+				connectionOp.execute();
+			}
+			
+			private function onConnectionEstablished(e:Event):void 
+			{
+				trace("ConnectionEstablished");
+			}
+		]]>
+	</mx:Script>
+
+</mx:Application>

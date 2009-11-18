@@ -3,7 +3,9 @@
 	
 	<filelist id="flash.examples.filelist" dir=".">
 		<file name="HelloWorldMultiplayerClient"/>
-        	<file name="HelloSpeechRecognitionClient"/>
+        <file name="HelloSpeechRecognitionClient"/>
+        <file name="MouseGestureVideoControlClient"/>
+        <file name="HelloMouseGestures"/>
 	</filelist>
 
     <!-- targets -->	

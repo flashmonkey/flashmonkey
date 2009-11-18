@@ -1,7 +1,6 @@
 package org.flashmonkey.flash.multiplayer.client
 {
-	import com.joeberkovitz.moccasin.service.IOperation;
-	
+	import org.flashmonkey.flash.api.connection.IHandshake;
 	import org.flashmonkey.flash.api.connection.INetConnection;
 	import org.flashmonkey.flash.api.connection.ISharedObject;
 	import org.flashmonkey.flash.connection.RemoteSharedObject;
@@ -22,7 +21,7 @@ package org.flashmonkey.flash.multiplayer.client
 			sharedObject = new RemoteSharedObject("avatars", connection);
 		}
 		
-		override protected function createHandshake():IOperation 
+		override protected function createHandshake():IHandshake 
 		{
 			return new Handshake(this);	
 		}

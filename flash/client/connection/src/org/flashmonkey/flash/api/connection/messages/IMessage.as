@@ -22,6 +22,8 @@ package org.flashmonkey.flash.api.connection.messages
 		 * @private
 		 */
 		function set senderId(value:String):void;
+		
+		function set service(value:String):void;
 				
 		/**
 		 * Writes this messages into the connection.

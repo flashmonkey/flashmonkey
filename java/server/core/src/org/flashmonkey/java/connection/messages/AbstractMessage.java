@@ -1,6 +1,5 @@
 package org.flashmonkey.java.connection.messages;
 
-import org.flashmonkey.java.connection.red5.service.api.IMultiplayerService;
 import org.flashmonkey.java.core.net.NetObject;
 import org.flashmonkey.java.message.api.IMessage;
 import org.red5.io.amf3.IDataInput;
@@ -14,11 +13,13 @@ public abstract class AbstractMessage extends NetObject implements IMessage {
 		
 	}
 	
-	public abstract Object read(IMultiplayerService service);
+	public abstract Object read();
 	
-	public void write(IMultiplayerService service) {
+	public void write() {
 		
 	}
+	
+	public abstract void setService(Object service);
 	
 	public AbstractMessage(String senderId) {
 		this.senderId = senderId;

@@ -5,9 +5,8 @@ import java.util.Map;
 import org.flashmonkey.java.connection.red5.service.api.IMultiplayerService;
 import org.flashmonkey.java.player.api.IPlayer;
 
-public class BroadcastMessage extends AbstractMessage {
-
-	//@Override
+public class BroadcastMessage extends BaseMessage {
+	
 	public Object read(IMultiplayerService service) {
 		Map<String, IPlayer> players = service.getPlayers();
 

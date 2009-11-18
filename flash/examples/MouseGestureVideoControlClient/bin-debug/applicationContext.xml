@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objects>
+	<object id="client" class="jedai.net.ClientManager">
+		<property name="username" value="user"/>
+		<property name="password" value="pass"/>
+	</object>
+	
+	<object id="connection" class="jedai.net.rpc.Red5Connection">
+		<constructor-arg value="default"/>
+		<constructor-arg value="true"/>
+		<property name="rtmpURI" value="rtmp://localhost/MouseGestureVideoControl"/>
+		<property name="connectionArgs">
+	      <array>
+	        <ref>client</ref>
+	      </array>
+    	</property>
+	</object>
+	
+	<!-- 
+	 <object id="streamer" class="com.infrared5.asmf.media.rtp.Red5NetStream">
+       <constructor-arg>baseRTMPCon</constructor-arg>
+       <property name="connection">
+            <ref>connection"</ref>
+        </property>
+        <property name="extensions">
+            <array>
+                <bean class="com.infrared5.amf.media.extensions.QualityOptimizer" />
+            </array>
+        </property>
+     </object>
+      -->
+</objects>

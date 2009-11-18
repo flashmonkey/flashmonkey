@@ -25,7 +25,8 @@ public class SynchroniseCreateMessage extends BroadcastMessage implements
 		
 	}
 	
-	public Object read(IMultiplayerService service) {		
+	@Override
+	public Object read() {		
 		IPlayer player = service.getPlayer(getPlayerId());
 		
 		IAvatar avatar = player.getScopeObject();
@@ -84,7 +85,7 @@ public class SynchroniseCreateMessage extends BroadcastMessage implements
 		this.state = state;
 	}
 	
-	//@Override
+	@Override
 	public void readExternal(IDataInput input) {
 		super.readExternal(input);
 		
@@ -95,7 +96,7 @@ public class SynchroniseCreateMessage extends BroadcastMessage implements
 		state = (BasicState) input.readObject();
 	}
 
-	//@Override
+	@Override
 	public void writeExternal(IDataOutput output) {
 		super.writeExternal(output);
 		

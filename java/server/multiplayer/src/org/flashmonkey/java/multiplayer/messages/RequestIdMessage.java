@@ -14,8 +14,8 @@ public class RequestIdMessage extends BaseMessage {
 		super(senderId);
 	}
 	
-	//@Override
-	public Object read(IMultiplayerService service) {
+	@Override
+	public Object read() {
 		return service.getNextId(getSenderId());
 	}
 }

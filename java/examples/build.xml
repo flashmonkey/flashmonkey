@@ -5,6 +5,7 @@
 		<file name="HelloWorldMultiplayer"/>
 		<file name="MultiplayerVideo"/>
         <file name="HelloSpeechRecognition"/>
+        <file name="MouseGestureVideoControl"/>
 	</filelist>
 
     <!-- targets -->	

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Main 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:glib="org.flashmonkey.flash.examples.hellomousegestures.components.logic.*"
+	xmlns="org.flashmonkey.flash.examples.hellomousegestures.*">
+	
+	<mx:Script>
+		<![CDATA[
+			[Bindable]
+            [Embed(source="assets/ANTI_CLOCKWISE_SQUARE.gif")]
+            public var AntiClockwiseSquare:Class;
+            
+            [Bindable]
+            [Embed(source="assets/CLOCKWISE_SQUARE.gif")]
+            public var ClockwiseSquare:Class;
+            
+            [Bindable]
+            [Embed(source="assets/DOWN.gif")]
+            public var Down:Class;
+            
+            [Bindable]
+            [Embed(source="assets/LEFT.gif")]
+            public var Left:Class;
+            
+            [Bindable]
+            [Embed(source="assets/LEFT_ARROW.gif")]
+            public var LeftArrow:Class;
+            
+            [Bindable]
+            [Embed(source="assets/RIGHT.gif")]
+            public var Right:Class;
+            
+            [Bindable]
+            [Embed(source="assets/RIGHT_ARROW.gif")]
+            public var RightArrow:Class;
+            
+            [Bindable]
+            [Embed(source="assets/SOUTH_EAST.gif")]
+            public var SouthEast:Class;
+            
+            [Bindable]
+            [Embed(source="assets/SOUTH_WEST.gif")]
+            public var SouthWest:Class;
+            
+            [Bindable]
+            [Embed(source="assets/UP.gif")]
+            public var Up:Class;
+            
+            [Bindable]
+            [Embed(source="assets/ZORRO.gif")]
+            public var Zorro:Class;
+		]]>
+	</mx:Script>
+	
+	<mx:Array id="gestureListProvider">
+        <glib:GestureEntry label="Anti-Clockwise Square"
+                thumbnailImage="{AntiClockwiseSquare}"
+                fullImage="Anti-Clockwise Square" />
+        <glib:GestureEntry label="Clockwise Square"
+                thumbnailImage="{ClockwiseSquare}"
+                fullImage="Clockwise Square" />
+        <glib:GestureEntry label="Down"
+                thumbnailImage="{Down}"
+                fullImage="Down" />
+        <glib:GestureEntry label="Left"
+                thumbnailImage="{Left}"
+                fullImage="Left" />
+        <glib:GestureEntry label="Left Arrow"
+                thumbnailImage="{LeftArrow}"
+                fullImage="Left Arrow" />
+        <glib:GestureEntry label="Right"
+                thumbnailImage="{Right}"
+                fullImage="Right" />
+        <glib:GestureEntry label="Right Arrow"
+                thumbnailImage="{RightArrow}"
+                fullImage="Right Arrow" />
+        <glib:GestureEntry label="South East"
+                thumbnailImage="{SouthEast}"
+                fullImage="South East" />
+        <glib:GestureEntry label="South West"
+                thumbnailImage="{SouthWest}"
+                fullImage="South West" />
+        <glib:GestureEntry label="Up"
+                thumbnailImage="{Up}"
+                fullImage="Up" />
+        <glib:GestureEntry label="Zorro"
+                thumbnailImage="{Zorro}"
+                fullImage="Zorro" />
+    </mx:Array>
+    
+	<mx:Canvas width="100%" height="100%" id="drawingCanvas"/>
+                
+		<mx:ControlBar width="100%">
+			<mx:Button x="10" y="46" label="Learn New Gesture" id="newGestureButton" click="onNewGestureClick()"/>
+		</mx:ControlBar>
+
+       <mx:ControlBar horizontalAlign="center" width="100%">
+            <mx:HorizontalList id="horizontalList"
+            		liveScrolling="true"
+                    labelField="label"
+                    iconField="thumbnailImage"
+                    dataProvider="{gestureListProvider}"
+                    itemRenderer="org.flashmonkey.flash.examples.hellomousegestures.components.CustomItemRenderer"
+                    columnCount="4"
+                    columnWidth="131"
+                    rowCount="1"
+                    rowHeight="136"
+                    horizontalScrollPolicy="on" />
+       </mx:ControlBar>
+       
+</Main>

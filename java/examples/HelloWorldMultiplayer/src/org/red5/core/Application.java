@@ -61,6 +61,10 @@ public class Application extends ApplicationAdapter implements IStreamAwareScope
 				new Object[] { uid });
 		return true;
 	}
+    
+    public Object echo(Object o) {
+    	return o;
+    }
 
 	/** {@inheritDoc} */
     @Override

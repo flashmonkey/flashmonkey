@@ -23,13 +23,13 @@ package org.flashmonkey.flash.connection.messages
 		 * Not all NetObjects need to be event dispatchers, so any that
 		 * are need to use this composition method.
 		 */
-		private var _eventDispatcher:IEventDispatcher = new EventDispatcher();
+		//private var _eventDispatcher:IEventDispatcher = new EventDispatcher();
 		
 		/**
 		 * Holds the object returned as a response from the server 
 		 * the last time this message was successfully sent.
 		 */
-		private var _result:*;
+		protected var _result:*;
 		
 		/**
 		 * @private
@@ -55,7 +55,14 @@ package org.flashmonkey.flash.connection.messages
 		/**
 		 * @private
 		 */
-		private var _command:String = "multiplayer.receiveMessage";
+		private var _command:String = "receiveMessage";
+		
+		private var _service:String = "";
+		
+		public function set service(value:String):void 
+		{
+			_service = value;
+		}
 		
 		/**
 		 * The command invoked on the server when this message's write() method is called.
@@ -66,7 +73,16 @@ package org.flashmonkey.flash.connection.messages
 		 */
 		public function get command():String
 		{
-			return _command;
+			if (!_service)
+			{
+				return _command;
+			}
+			else if (_service.length == 0)
+			{
+				return _command;
+			}
+			
+			return _service + "." + _command;
 		}
 		
 		/**
@@ -150,7 +166,6 @@ package org.flashmonkey.flash.connection.messages
 		 */
 		override public function writeExternal(output:IDataOutput):void 
 		{
-			trace(senderId);
 			output.writeUTF(senderId);
 		}
 		
@@ -168,45 +183,45 @@ package org.flashmonkey.flash.connection.messages
 		
 		/**
 		 * @inheritDoc
-		 */
+		 *//*
 		public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void
 		{
 			_eventDispatcher.addEventListener(type, listener, useCapture, priority, useWeakReference);
-		}
+		}*/
 		
 		/**
 		 * @inheritDoc
-		 */
+		 *//*
 		public function dispatchEvent(event:Event):Boolean
 		{
 			return _eventDispatcher.dispatchEvent(event);
-		}
+		}*/
 		
 		/**
 		 * @inheritDoc
-		 */
+		 *//*
 		public function hasEventListener(type:String):Boolean
 		{
 			return _eventDispatcher.hasEventListener(type);
-		}
+		}*/
 		
 		/**
 		 * @inheritDoc
-		 */
+		 *//*
 		public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void
 		{
 			_eventDispatcher.removeEventListener(type, listener, useCapture);
-		}
+		}*/
 		
 		/**
 		 * @inheritDoc
-		 */
+		 *//*
 		public function willTrigger(type:String):Boolean
 		{
 			return _eventDispatcher.willTrigger(type);
-		}
+		}*/
 		
-		public function toString():String 
+		public override function toString():String 
 		{
 			return "BaseMessage[" + _senderId + "]";
 		}

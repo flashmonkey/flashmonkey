@@ -1,0 +1,16 @@
+<project name="MouseGestureVideoControlClient" default="build">
+    <import file="build-imports.xml"/>
+
+    <path id="flex.lib.path">
+		<pathelement location="${flash.core.swc}"/>
+		<pathelement location="${flash.connection.swc}"/>
+		<!--<pathelement location="${flash.multiplayer.swc}"/>
+		<pathelement location="${flash.pv3d.core.swc}"/>
+		<pathelement location="${flash.pv3d.multiplayer.swc}"/>
+    	<pathelement location="${pushbuttonengine.swc}"/>-->
+	</path>
+
+    <!-- targets -->
+    <target name="build" depends="init,flex-application" description="Build the example application"/>
+	
+</project>

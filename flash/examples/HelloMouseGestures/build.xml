@@ -1,0 +1,19 @@
+<project name="HelloMouseGestures" default="build">
+    <import file="build-imports.xml"/>
+
+	<property name="air.certificate" location="sitebuilder.p12"/>
+	<property name="air.certificate.type" value="pkcs12"/>
+	<property name="air.certificate.password" value="sitebuilder"/>
+	
+    <!-- This library doesn't depend on anything else. -->
+    <path id="flex.lib.path">
+		<pathelement location="${flash.connection.swc}"/>
+        <pathelement location="${sos.logging.swc}"/>
+    	<pathelement location="${flash.connection.swc}"/>
+	</path>
+
+    <!-- targets -->
+    <target name="build" depends="init,air-application" description="Build the example application"/>
+	<target name="dist" depends="stage,air-package" description="Create a distribution" />
+    	
+</project>

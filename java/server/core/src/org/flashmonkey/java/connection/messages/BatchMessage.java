@@ -3,7 +3,6 @@ package org.flashmonkey.java.connection.messages;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.flashmonkey.java.connection.red5.service.api.IMultiplayerService;
 import org.flashmonkey.java.message.api.IMessage;
 import org.red5.io.amf3.IDataInput;
 import org.red5.io.amf3.IDataOutput;
@@ -28,18 +27,27 @@ public class BatchMessage extends BaseMessage {
 		return messages;
 	}
 	
-	//@Override
-	public Object read(IMultiplayerService service) {
+	@Override
+	public Object read() {
 		for (IMessage message : messages) {
-			message.read(service);
+			message.read();
 		}
 
 		return null;
 	}
 	
-	//@Override 
-	public void write(IMultiplayerService service) {
+	@Override 
+	public void write() {
 		service.getPlayer(senderId).addMessage(this);
+	}
+	
+	@Override 
+	public void setService(Object service) {
+		super.setService(service);
+		
+		for (IMessage message : messages) {
+			message.setService(service);
+		}
 	}
 	
 	@Override

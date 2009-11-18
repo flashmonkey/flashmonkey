@@ -1,14 +1,7 @@
 package org.flashmonkey.flash.multiplayer.handshake
 {
-	import com.joeberkovitz.moccasin.service.AbstractOperation;
-	
-	import flash.events.Event;
-	
-	import org.as3commons.reflect.ClassUtils;
 	import org.flashmonkey.flash.api.connection.IClient;
-	import org.flashmonkey.flash.api.connection.INetConnection;
-	import org.flashmonkey.flash.connection.handshake.ConnectToServerOperation;
-	import org.flashmonkey.flash.connection.handshake.EchoNetObjectOperation;
+	import org.flashmonkey.flash.connection.handshake.BasicHandshake;
 	import org.flashmonkey.flash.connection.messages.BaseMessage;
 	import org.flashmonkey.flash.connection.messages.BatchMessage;
 	import org.flashmonkey.flash.core.objects.BasicState;
@@ -16,7 +9,6 @@ package org.flashmonkey.flash.multiplayer.handshake
 	import org.flashmonkey.flash.multiplayer.messages.ServerSyncMessage;
 	import org.flashmonkey.flash.multiplayer.messages.SynchroniseCreateMessage;
 	import org.flashmonkey.flash.utils.input.SimpleInput;
-	import org.springextensions.actionscript.mvcs.service.operation.AsyncOperationSequence;
 	
 	/**
 	 * The default handshake:
@@ -29,62 +21,19 @@ package org.flashmonkey.flash.multiplayer.handshake
 	 * an object is sent server->client before it's been sent client->server
 	 * it'll be received as an instance of [object Object] rather than [object NetObject].
 	 */
-	public class Handshake extends AbstractOperation
-	{
-		private var classesToRegister:Array = [SimpleInput, 
-											   BasicState, 
-											   BaseMessage, 
-											   PlayerSyncMessage, 
-											   ServerSyncMessage, 
-											   SynchroniseCreateMessage, 
-											   BatchMessage];
-		
-		private var _client:IClient;
-		
+	public class Handshake extends BasicHandshake
+	{	
 		public function Handshake(client:IClient)
 		{
-			_client = client;
-		}
-		
-		/**
-		 * Perform the actual handshaking.
-		 */
-		override public function execute():void 
-		{
-			// Grab the NetConnection we're using to connect
-			// and reset the client property to this object.
-			var connection:INetConnection = _client.connection;
-			connection.client = this;
+			super(client);
 			
-			// Create a operation sequence.
-			var opSequence:AsyncOperationSequence = new AsyncOperationSequence();
-			
-			// Add the connection operation.
-			opSequence.addOperation(new ConnectToServerOperation(connection, connection.connectionArgs[0], connection.connectionArgs[1]));
-			
-			// Add an operation for each of the classes that need to be registered with the server.
-			for (var i:int = 0; i < classesToRegister.length; i++)
-			{
-				trace("registering: " + classesToRegister[i] + " " + ClassUtils.newInstance(classesToRegister[i] as Class));
-				opSequence.addOperation(new EchoNetObjectOperation(connection, "multiplayer.echo", ClassUtils.newInstance(classesToRegister[i] as Class), i));
-			}
-			
-			// Add the listeners to the operation sequence and execute the sequence.
-			opSequence.addResultListener(handleComplete);
-			opSequence.addErrorListener(handleError);
-			opSequence.execute();
-		}
-		
-		override protected function handleComplete(e:Event):void
-        {
-            trace("Handshake Complete");
-            
-            super.handleComplete(e);
-        }
-		
-		public function setClientID(id:String):void 
-		{
-			_client.id = id;
+			classesToRegister = [SimpleInput, 
+								 BasicState, 
+								 BaseMessage, 
+								 PlayerSyncMessage, 
+								 ServerSyncMessage, 
+								 SynchroniseCreateMessage, 
+								 BatchMessage];
 		}
 	}
 }

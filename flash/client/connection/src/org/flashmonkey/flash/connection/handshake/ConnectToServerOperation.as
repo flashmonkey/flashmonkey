@@ -24,7 +24,7 @@ package org.flashmonkey.flash.connection.handshake
 		
 		override public function execute():void
 		{
-			trace("connecting to server");
+			trace("connecting to server " + _connection.rtmpURI + " " + _username + " " + _password);
 			_connection.addEventListener(Red5Event.CONNECTED, dispatchResult);
 			_connection.addEventListener(Red5Event.REJECTED, dispatchError);
 			_connection.connect(_connection.rtmpURI, _username, _password);

@@ -13,8 +13,11 @@ package org.flashmonkey.flash.api.connection
 		
 		function get rtmpURI():String;
 		
+		function set rtmpURI(value:String):void;
+		
 		function get connected():Boolean;
 		
 		function get connectionArgs():Array;
+		function set connectionArgs(value:Array):void;
 	}
 }

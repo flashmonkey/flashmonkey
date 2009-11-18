@@ -127,12 +127,14 @@ public abstract class BasePaperworldService extends AbstractService implements I
 
 	public Object receiveMessage(IMessage message) {
 		System.out.println("Receiving message " + message + " " + Red5.getConnectionLocal().getEncoding());
-		return message.read(this);
+		message.setService(this);
+		return message.read();
 		//return new Object();
 	}
 	
 	public void sendMessage(IMessage message) {
-		message.write(this);
+		message.setService(this);
+		message.write();
 	}
 	
 	public Map<String, IPlayer> getPlayers() {

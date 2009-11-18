@@ -17,11 +17,15 @@ package org.flashmonkey.flash.api.connection
 		
 		function set sharedObject(value:ISharedObject):void;
 		
-		function set handshake(value:IOperation):void;
+		function get handshake():IHandshake;
+		
+		function set handshake(value:IHandshake):void;
 		
 		function get id():String;
 		
 		function set id(value:String):void;
+		
+		function set defaultService(value:String):void;
 		
 		function sendToServer(message:IMessage):IOperation;
 		
@@ -29,6 +33,6 @@ package org.flashmonkey.flash.api.connection
 		
 		function sendToGroup(message:IGroupMessage):IOperation;
 		
-		function connect():IOperation;
+		function connect(uri:String = null, connectionArgs:Array = null):IOperation;
 	}
 }

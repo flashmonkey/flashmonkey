@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:local="*" 
+	layout="absolute"
+	menu="{nativeMenu}" 
+	creationComplete="onCreationComplete()"
+	applicationComplete="onApplicationComplete()">
+	<mx:Script>
+		<![CDATA[
+			import com.joeberkovitz.moccasin.service.IOperation;
+			import org.flashmonkey.flash.connection.client.BasicClient;
+			import org.flashmonkey.flash.api.connection.IClient;
+			import mx.events.FlexNativeMenuEvent;
+			
+			private var _client:IClient;
+		
+			private function onCreationComplete():void 
+			{
+				//stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+				trace("creation: " + stage);
+			}
+			
+			private function onApplicationComplete():void 
+			{
+				stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+				trace("application: " + stage);
+				
+				_client = new BasicClient();
+				var connectionOperation:IOperation = _client.connect("rtmp://localhost/HelloSpeechRecognition");
+				connectionOperation.addEventListener(Event.COMPLETE, onConnectionComplete);
+				connectionOperation.execute();
+			}
+			
+			private function onConnectionComplete(e:Event):void 
+			{
+				trace("Connection Complete");
+			}
+			
+			private function onKeyDown(e:KeyboardEvent):void 
+			{
+				trace(e.charCode + " " + e.keyCode + " " + e.keyLocation);
+			}
+			
+			public function handleMenuSelect(event:FlexNativeMenuEvent):void{
+            	
+            	//Logger.writeLine("Got a menu command: "+event.nativeMenuItem.data.name);
+            	nativeMenu.handleCommand(event.nativeMenuItem.data.name);
+            	
+            	
+            }
+		
+			[Bindable]
+            public var menuData:Array = [
+                {label: "File", name:"file", children:[
+                	{label:"New Site", name:"new", keyEquivalent:"n"/*, ctrlKey:true*/},
+                	{label:"Open Site", name:"open", keyEquivalent:"o", ctrlKey:true},
+                	{type:"separator"},
+                	{label:"Close Site", name:"close", keyEquivalent:"w", ctrlKey:true},
+                	{label:"Save", name:"save", keyEquivalent:"s", ctrlKey:true},
+                	{label:"Save As", name:"saveas", keyEquivalent:"s", ctrlKey:true, shiftKey:true},
+                	{type:"separator"},
+                	{label:"Preview", name:"preview", keyEquivalent:"p", ctrlKey:true},
+                	{label:"Publish", name:"publishSite"}, 
+                	{label:"Upload Site", name:"ftpSite"},    
+                	{type:"separator"},
+                	{label:"Save Template", name:"saveTemplate"},
+                	{label:"Load Template", name:"loadTemplate"},      
+                	{type:"seperator"},
+                	{label:"Import Components", name:"import"},
+                	{type:"separator"},
+                	{label:"E_xit", name:"exit", keyEquivalent:"q", ctrlKey:true}    
+                
+                ]},
+                {label: "Edit", name:"edit", children:[
+                	{label:"Undo", name:"undo", keyEquivalent:"z", ctrlKey:true},
+                	{label:"Redo", name:"redo", keyEquivalent:"y", ctrlKey:true},
+                	{type:"separator"},
+                	{label:"Select All", name:"selectall", keyEquivalent:"a", ctrlKey:true},
+                	{label:"Cut", name:"cut", keyEquivalent:"x", ctrlKey:true},
+                	{label:"Copy", name:"copy", keyEquivalent:"c", ctrlKey:true}, 
+                	{label:"Paste", name:"paste", keyEquivalent:"v", ctrlKey:true},    
+                	{type:"separator"},
+                	{label:"Delete", name:"delete"}, 
+                	{label:"Add Link...", name:"link"},
+                	{label:"Bring To Front", name:"bringToFront"}, 
+                	{label:"Send To Back", name:"sendToBack"}                	 
+                
+                ]},
+                {label: "Settings", name:"settings", children:[
+                	{label:"FTP Settings", name:"ftpSettings"},
+                ]},
+                {label: "Help", name:"help", children:[
+                	{label:"Contents", name:"helpcontents"},
+                	{label:"About Redline", name:"about"},
+                ]}
+                ];
+                
+                private function onClick():void 
+                {
+                	//var e:Event = new KeyboardEvent(
+                	var e:Event = new KeyboardEvent(KeyboardEvent.KEY_DOWN, false, false, 102, 70, 0, false, false, false, false); 
+                	dispatchEvent(e);
+                }
+		]]>
+	</mx:Script>
+	<local:SiteNativeMenu dataProvider="{menuData}" id="nativeMenu" itemClick="handleMenuSelect(event)" keyEquivalentModifiersFunction="{nativeMenu.keyEquivalentModifiers}" />
+	<mx:Button x="107" y="180" label="Button" id="button" click="onClick()"/>
+</mx:WindowedApplication>

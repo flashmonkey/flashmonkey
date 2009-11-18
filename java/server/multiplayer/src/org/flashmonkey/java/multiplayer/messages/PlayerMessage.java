@@ -14,17 +14,17 @@ public abstract class PlayerMessage extends BaseMessage implements IPlayerMessag
 		super(null);
 	}
 	
-	//@Override
-	public Object read(IMultiplayerService service) {
-		service.getPlayers().get(playerId).addMessage(this);
-		
-		return null;
-	}
-	
 	public PlayerMessage(String senderId, String playerId) {
 		super(senderId);
 		
 		this.playerId = playerId;
+	}
+	
+	@Override
+	public Object read() {
+		service.getPlayers().get(playerId).addMessage(this);
+		
+		return null;
 	}
 	
 	public String getPlayerId() {

@@ -7,5 +7,6 @@
     <import file="${java.examples.assets.dir}/HelloWorldMultiplayer/build-assets.xml"/>
 	<import file="${java.examples.assets.dir}/MultiplayerVideo/build-assets.xml"/>
     <import file="${java.examples.assets.dir}/HelloSpeechRecognition/build-assets.xml"/>
+    <import file="${java.examples.assets.dir}/MouseGestureVideoControl/build-assets.xml"/>
 	
 </project>

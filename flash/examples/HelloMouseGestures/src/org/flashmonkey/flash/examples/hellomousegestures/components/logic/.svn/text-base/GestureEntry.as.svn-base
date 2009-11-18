@@ -1,0 +1,14 @@
+package com.gesturelib.flash.demos.simplegesturedemo.components.logic
+{
+	public class GestureEntry
+	{
+		[Bindable]
+		public var label:String;
+
+		[Bindable]
+		public var thumbnailImage:*;
+		
+		[Bindable]
+		public var fullImage:String;
+	}
+}

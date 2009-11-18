@@ -98,7 +98,7 @@
     <component name="jsgfGrammar" type="edu.cmu.sphinx.jsapi.JSGFGrammar">
         <property name="dictionary" value="dictionary"/>
         <property name="grammarLocation"
-                  value="/private/var/root/Repository/xuggle_timestamp_fixes/dist/webapps/HelloSpeechRecognition/WEB-INF"/>
+                  value="/private/var/root/Repository/red5_server/dist/webapps/HelloSpeechRecognition/WEB-INF"/>
         <property name="grammarName" value="digits"/>
         <property name="logMath" value="logMath"/>
     </component>

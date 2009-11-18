@@ -1,0 +1,7 @@
+<project name="HelloMouseGestures.assets">
+    <dirname property="HelloMouseGestures.assets.dir" file="${ant.file.HelloMouseGestures.assets}"/>
+
+    <!-- Define SWC exported by this library. -->
+    <property name="HelloMouseGestures.swf" location="${HelloMouseGestures.assets.dir}/${build.mxmlc.dir}/${project.swf}"/>
+
+</project>

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
-	creationComplete="onCreationComplete();">
+	applicationComplete="onApplicationComplete();">
 
 	<mx:Script>
 	    <![CDATA[
+	    	import org.flashmonkey.flash.api.connection.messages.IMessage;
+	    	import com.joeberkovitz.moccasin.service.IOperation;
+	    	import org.flashmonkey.flash.connection.client.BasicClient;
+	    	import org.flashmonkey.flash.api.connection.IClient;
 	    	import mx.logging.Log;
 	    	import mx.logging.ILogger;
 	    import flash.media.Microphone;
@@ -17,58 +21,41 @@
 	      
 	      private var micActive:Boolean = false;
 	      
-	      private var connection:NetConnection;
-	      
 	      private var netStream:NetStream;
-	      
-	     // private var recorded:Boolean;
 	     
 	     private var _count:int = 0;
 	     
 	     private var _currentStream:String = "stream";
+	     
+	     private var _client:IClient;
 	      
-	      private function onCreationComplete():void 
-	      {
-	      	connection = new NetConnection();
-	      	connection.client = this;
-	      	connection.addEventListener(NetStatusEvent.NET_STATUS, onNetStatus);
-	      	connection.connect("rtmp://localhost/HelloSpeechRecognition", "iamflashmonkey");
-	      }
-	      
-	      private function onNetStatus(e:NetStatusEvent):void 
-	      {
-	      	var code:String = e.info.code;
-	      	
-	      	outputText.text = code;
-	      	
-	      	switch (code) {
-	      		case "NetConnection.Connect.Success":
-	      			createNetStream();
-	      			createMic();
-	      			break;
-	      		
-	      		default:
-	      			break;
-	      	}
-	      }
+	      private function onApplicationComplete():void 
+		  {
+			  _client = new BasicClient();
+			  _client.handshake.addClassToRegister(SpeechRecognitionMessage);
+			  var connectionOperation:IOperation = _client.connect("rtmp://localhost/HelloSpeechRecognition", ["flashmonkey", "password"]);
+			  connectionOperation.addEventListener(Event.COMPLETE, onConnectionComplete);
+			  connectionOperation.execute();
+		 }
+		
+		  private function onConnectionComplete(e:Event):void 
+		  {
+			  createNetStream();
+	      	  createMic();
+		  }
 	      
 	      public function createNetStream():void 
 	      {
-	      	netStream = new NetStream(connection);
+	      	netStream = new NetStream(NetConnection(_client.connection));
 	      	netStream.attachAudio(mic);
 	      }
 	
 	      public function createMic():void
 	      {
 	      	var deviceArray:Array = Microphone.names;
-			trace("Available sound input devices:");
-			for (var i:int = 0; i < deviceArray.length; i++)
-			{
-			    output(" " + deviceArray[i]);
-			}
 
 	        mic = Microphone.getMicrophone(0);
-	        output(mic);
+
 	        mic.gain = 60;
 			mic.rate = 11;
 			mic.setUseEchoSuppression(true);
@@ -76,8 +63,6 @@
 			mic.setSilenceLevel(5, 1000);
 
 	        mic.addEventListener(ActivityEvent.ACTIVITY, activity);
-	        mic.addEventListener(StatusEvent.STATUS, status);
-	        mic.addEventListener(Event.ACTIVATE, active);
 	        
 	        var micDetails:String = "Sound input device name: " + mic.name + '\n';
 			micDetails += "Gain: " + mic.gain + '\n';
@@ -86,8 +71,6 @@
 			micDetails += "Silence level: " + mic.silenceLevel + '\n';
 			micDetails += "Silence timeout: " + mic.silenceTimeout + '\n';
 			micDetails += "Echo suppression: " + mic.useEchoSuppression + '\n';
-			trace(micDetails);
-
 	      }
 	      
 	      public function setClientID(id:String):void 
@@ -95,44 +78,32 @@
 	      	
 	      }
 	
-	      private function active(event:Event):void
-	      {
-	        trace(' active ');
-	      }
-	
-	      private function status(event:StatusEvent):void
-	      {
-	        trace("status: level=" + event.level + ", code=" + event.code);
-	      }
-	
 	      private function activity(event:ActivityEvent):void
 	      {
-	        output("activating=" + event.activating + ", activityLevel=" + mic.activityLevel);
-			
 			if (event.activating)
 			{
-				//if (!recorded)
-				//{
-					//recorded = true;
-					
-					netStream.attachAudio(mic);
-					_currentStream = "speech" + _count++;
-					netStream.publish(_currentStream, "record");
-	        		addEventListener(Event.ENTER_FRAME, showMicLevel);
-	   			//}
+				netStream.attachAudio(mic);
+				_currentStream = "speech" + _count++;
+				netStream.publish(_currentStream, "record");
+	        	addEventListener(Event.ENTER_FRAME, showMicLevel);
 	        	
 	  		}
 	  		else
 	  		{
 	  			netStream.pause();
-	  			connection.call("interpretSpeech", new Responder(onSpeechResult, onSpeechFault), _currentStream);
+
+	  			var message:IMessage = new SpeechRecognitionMessage(_currentStream);
+	  			message.addEventListener(Event.COMPLETE, onSpeechRecognitionComplete);
+	  			message.write(_client.connection);
 	  			removeEventListener(Event.ENTER_FRAME, showMicLevel);
 	  		}
 	      }
 	      
-	      public function onSpeechResult(word:String):void 
+	      public function onSpeechRecognitionComplete(e:Event):void 
 	      {
-	      	output(word);
+	      	var message:SpeechRecognitionMessage = SpeechRecognitionMessage(e.target);
+
+	      	output(message.bestResult);
 	      }
 	      
 	      public function onSpeechFault(o:Object):void 
@@ -149,7 +120,6 @@
 	
 	      private function showMicLevel(event:Event):void
 	      {
-	        trace(mic.gain+" "+mic.activityLevel+" "+mic.silenceLevel+" "+mic.rate);
 	        level.graphics.clear();
 	        level.graphics.beginFill(0xccccff, 1);
 	        level.graphics.drawRect(0, 0, (mic.activityLevel * 30), 100);
@@ -158,6 +128,8 @@
 	
 	    ]]>
 	</mx:Script>
+
+	<mx:MenuBar/>
 	<mx:Canvas width="300" height="50" id="level"/>
 	<mx:Text x="95" y="83" width="362" id="outputText" height="346"/>
 

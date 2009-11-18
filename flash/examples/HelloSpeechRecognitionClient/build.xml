@@ -5,6 +5,7 @@
     <path id="flex.lib.path">
 		<pathelement location="${flash.connection.swc}"/>
         <pathelement location="${sos.logging.swc}"/>
+    	<pathelement location="${flash.connection.swc}"/>
 	</path>
 
     <!-- targets -->

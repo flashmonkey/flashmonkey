@@ -44,6 +44,7 @@ package {
 			var game:IGame = new AbstractGame();
 			
 			var client:IClient = new MultiplayerClient(connection);
+			client.defaultService = "multiplayer";
 			
 			state = new PV3DMultiplayerGameState("Multiplayer Demo", true);
 			PV3DMultiplayerGameState(state).client = client;

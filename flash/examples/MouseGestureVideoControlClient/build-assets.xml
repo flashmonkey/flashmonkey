@@ -1,0 +1,7 @@
+<project name="MouseGestureVideoControlClient.assets">
+    <dirname property="MouseGestureVideoControlClient.assets.dir" file="${ant.file.MouseGestureVideoControlClient.assets}"/>
+
+    <!-- Define SWC exported by this library. -->
+    <property name="MouseGestureVideoControlClient.swf" location="${MouseGestureVideoControlClient.assets.dir}/${build.mxmlc.dir}/${project.swf}"/>
+
+</project>

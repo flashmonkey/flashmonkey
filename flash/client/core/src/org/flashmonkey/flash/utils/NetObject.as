@@ -1,5 +1,6 @@
 package org.flashmonkey.flash.utils
 {
+	import flash.events.EventDispatcher;
 	import flash.net.registerClassAlias;
 	import flash.utils.IDataInput;
 	import flash.utils.IDataOutput;
@@ -8,7 +9,7 @@ package org.flashmonkey.flash.utils
 	import org.as3commons.reflect.ClassUtils;
 	import org.springextensions.actionscript.utils.StringUtils;
 
-	public class NetObject implements IExternalizable, IRegisteredClass
+	public class NetObject extends EventDispatcher implements IExternalizable, IRegisteredClass
 	{
 		private static var _registeredClasses:Array = [];
 		

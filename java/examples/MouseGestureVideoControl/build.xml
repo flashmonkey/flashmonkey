@@ -1,0 +1,59 @@
+<project name="MouseGestureVideoControl" default="build">
+    <import file="build-imports.xml"/>
+
+    <path id="javac.lib.path">
+		<pathelement location="${jedai.jar}" />
+		<pathelement location="${red5.jar}" />
+    	<pathelement location="${java.core.jar}"/>
+	</path>
+
+    <!-- targets -->
+    <target name="build" depends="init,java-classes" description="Build the library"/>
+	
+	<target name="stage" depends="build" description="stage the application">
+		
+		<!-- Copy the 'WebContent' directory into the staging directory -->
+		<copy todir="${build.stage.dir}">
+			<fileset dir="WebContent" />
+		</copy>
+			
+		<!-- Create a jar file from the compiled classes and place it in the WEB-INF/lib directory -->
+		<jar jarfile="${MouseGestureVideoControl.jar}" basedir="${build.javac.dir}"/>
+			<echo>Building jar file into ${MouseGestureVideoControl.jar}</echo>
+		<!-- Copy over any required libraries into the WEB-INF/lib directory -->
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${java.core.jar}" overwrite="true" />
+		<!-- <copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${java.core.jar}" overwrite="true" />
+        <copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${java.multiplayer.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${java.jmonkey.adaptor.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jme.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jme.gamestates.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jme.audio.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${lwjgl.jar}" overwrite="true" />-->
+
+	</target>
+	
+	<target name="dist" depends="stage">
+		<!--war destfile="${build.dist.dir}/${project.war}" basedir="${build.stage.dir}" /-->
+
+		<mkdir dir="${build.dist.dir}/${ant.project.name}" />
+		<delete dir="${build.dist.dir}/${ant.project.name}" />
+		<mkdir dir="${build.dist.dir}/${ant.project.name}" />
+		
+		<copy todir="${build.dist.dir}/${ant.project.name}">
+			<fileset dir="${build.stage.dir}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="deploy" depends="dist" description="Deploy the application">
+        <!--copy todir="${red5.webapps.dir}" file="${build.dist.dir}/${project.war}"/-->
+		<delete dir="${red5.webapps.dir}/${ant.project.name}" />
+		<copy todir="${red5.webapps.dir}" overwrite="true">
+			<fileset dir="${build.dist.dir}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+    </target>
+	
+</project>

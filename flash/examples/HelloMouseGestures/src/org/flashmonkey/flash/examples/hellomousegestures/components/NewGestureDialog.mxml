@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NewGestureDialogClass 
+	xmlns="org.flashmonkey.flash.examples.hellomousegestures.components.logic.*" 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	width="400" height="300" title="Accept Gesture">
+	<mx:Label width="380" textAlign="center" id="textOutput"/>
+	<mx:Canvas width="100%" height="227">
+		<mx:Button x="137" y="201" label="No" id="noButton" enabled="true" click="onNoClick()"/>
+		<mx:Button x="195" y="201" label="Yes" id="yesButton" enabled="true" click="onYesClick()"/>
+		<mx:Button x="157" y="201" label="Cancel" id="cancelButton" click="onCancelButtonClick()"/>
+		<mx:TextInput x="161" y="171" id="gestureNameInput"/>
+		<mx:Label x="73" y="173" text="Gesture Name" id="gestureNameLabel"/>
+		<mx:Canvas id="canvas" width="100%" height="163" borderStyle="solid"/>
+	</mx:Canvas>
+	
+</NewGestureDialogClass>

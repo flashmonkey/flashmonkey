@@ -30,8 +30,13 @@ package org.flashmonkey.flash.connection.handshake
 		
 		override public function execute():void
 		{
-			trace("echoing " + _object + " " + _another + " to server");
-			_connection.call(_command, new Responder(dispatchResult, dispatchError), _object);
+			trace("echoing " + _object + " " + _another + " to server on " + _connection);
+			_connection.call(_command, new Responder(resultReceived, dispatchError), _object);
+		}
+		
+		public function resultReceived(o:Object):void 
+		{
+			dispatchResult(this);
 		}
 		
 	}
