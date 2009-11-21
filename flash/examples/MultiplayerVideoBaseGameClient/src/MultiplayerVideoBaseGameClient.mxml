@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute"
+	creationComplete="onCreationComplete()">
+	
+	<mx:Script>
+		<![CDATA[
+			import com.joeberkovitz.moccasin.service.IOperation;
+			import org.flashmonkey.flash.connection.client.BasicClient;
+			
+			private var _client:BasicClient;
+			
+			private function onCreationComplete():void 
+			{
+				_client = new BasicClient();
+				var connection:IOperation = _client.connect("rtmp://localhost/MultiplayerVideoBaseGame", ["flashmonkey","password"]);
+				connection.addEventListener(Event.COMPLETE, onConnectionEstablished);
+				connection.execute();
+			}
+			
+			private function onConnectionEstablished(e:Event):void 
+			{
+				trace("connection established");
+				
+				var camera:Camera = Camera.getCamera();
+				
+				trace(Camera.names);
+				
+				trace(camera.name);
+				
+				var netStream:NetStream = new NetStream(NetConnection(_client.connection));
+				netStream.attachCamera(Camera.getCamera());
+				trace("Publishing stream");
+				netStream.publish("publishStream", "record");
+			}
+			
+		]]>
+	</mx:Script>
+
+</mx:Application>

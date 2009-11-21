@@ -101,11 +101,14 @@ public class VideoTranscoderDemo
     	//game.takeScreenShot("webapps/MultiplayerVideo/img/img" + (counter++));
     
     	//game.takeScreenShot("webapps/MultiplayerVideo/img/Img" + (counter++));
-    	
-    	BufferedImage img = convertToType(screenContents, BufferedImage.TYPE_3BYTE_BGR);
-    	IConverter converter = ConverterFactory.createConverter(img, picture.getPixelType());
-       	picture = converter.toPicture(img, timeStamp);
-        timeStamp += 333000;
+    	//long ts = picture.getTimeStamp();
+    	//System.out.println(ts + " :: " + timeStamp);
+    	//BufferedImage img = convertToType(screenContents, BufferedImage.TYPE_3BYTE_BGR);
+    	//IConverter converter = ConverterFactory.createConverter(img, picture.getPixelType());
+       //	picture = converter.toPicture(img, timeStamp);
+        //timeStamp += 333000;
+        
+        
 
      /* final boolean doGrayscale = true;
       if (doGrayscale && picture.isComplete() && picture.getPixelType() == IPixelFormat.Type.YUV420P)

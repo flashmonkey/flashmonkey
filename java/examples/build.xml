@@ -4,6 +4,7 @@
 	<filelist id="java.examples.filelist" dir=".">
 		<file name="HelloWorldMultiplayer"/>
 		<file name="MultiplayerVideo"/>
+		<file name="MultiplayerVideoBaseGame"/>
         <file name="HelloSpeechRecognition"/>
         <file name="MouseGestureVideoControl"/>
 	</filelist>

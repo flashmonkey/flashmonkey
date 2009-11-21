@@ -2,6 +2,9 @@
 	
 	<!-- Define library jar files shared by the java projects. -->		
 	<property name="jme.jar" location="${java.lib.dir}/jme.jar"/>
+	<property name="jme.test.jar" location="${java.lib.dir}/jmetest.jar" />
+	<property name="jme.terrain.jar" location="${java.lib.dir}/jme-terrain.jar" />
+	<property name="jme.effects.jar" location="${java.lib.dir}/jme-effects.jar" />
     <property name="slf4j.jar" location="${java.lib.dir}/slf4j-api-1.5.6.jar" />
     <property name="spring.core.jar" location="${java.lib.dir}/spring-core-2.5.6.jar" />
 	<property name="red5.jar" location="${red5.dir}/red5.jar"/>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre6"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipsewtp.jst.server.generic.red5.runtimeClasspathProvider/Red5 Server Runtime"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/lib/jmetest.jar"/>
+	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/lib/jme.jar"/>
+	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/lib/xuggle-xuggler.jar"/>
+	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/lib/xuggle-xuggler-red5.jar"/>
+	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/lib/spring-core-2.5.6.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

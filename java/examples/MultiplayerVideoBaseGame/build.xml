@@ -1,0 +1,72 @@
+<project name="MultiplayerVideoBaseGame" default="build">
+    <import file="build-imports.xml"/>
+
+    <!-- This library doesn't depend on anything else. -->
+    <path id="javac.lib.path">
+		<pathelement location="${jme.jar}" />
+		<pathelement location="${jme.gamestates.jar}" />
+		<pathelement location="${xuggle.jar}" />
+		<pathelement location="${xuggle.red5.jar}" />
+		<pathelement location="${red5.jar}" />
+    	<pathelement location="${java.jmonkey-adaptor.jar}" />
+		<pathelement location="${spring.core.jar}" />
+    	<pathelement location="${jme.test.jar}"/>
+    	<pathelement location="${jme.terrain.jar}"/>
+	</path>
+
+    <!-- targets -->
+    <target name="build" depends="init,java-classes" description="Build the library"/>
+	
+	<target name="stage" depends="build" description="stage the application">
+		
+		<!-- Copy the 'WebContent' directory into the staging directory -->
+		<copy todir="${build.stage.dir}">
+			<fileset dir="WebContent" />
+		</copy>
+			
+		<!-- Create a jar file from the compiled classes and place it in the WEB-INF/lib directory -->
+		<jar jarfile="${MultiplayerVideoBaseGame.jar}" basedir="${build.javac.dir}"/>
+		
+		<!-- Copy over any required libraries into the WEB-INF/lib directory -->
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${java.core.jar}" overwrite="true" />
+        <copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${java.multiplayer.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${java.jmonkey.adaptor.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jme.gamestates.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jme.test.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jme.terrain.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jme.effects.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jme.jar}" overwrite="true" />
+        <copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${xuggle.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${xuggle.red5.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${lwjgl.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jme.audio.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${lwjgl.util.jar}" overwrite="true" />
+		<copy todir="${build.stage.dir}/${webapp.lib.dir}" file="${jetm.jar}" overwrite="true" />
+		
+	</target>
+	
+	<target name="dist" depends="stage">
+		<!--war destfile="${build.dist.dir}/${project.war}" basedir="${build.stage.dir}" /-->
+
+		<mkdir dir="${build.dist.dir}/${ant.project.name}" />
+		<delete dir="${build.dist.dir}/${ant.project.name}" />
+		<mkdir dir="${build.dist.dir}/${ant.project.name}" />
+		
+		<copy todir="${build.dist.dir}/${ant.project.name}">
+			<fileset dir="${build.stage.dir}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="deploy" depends="dist" description="Deploy the application">
+        <!--copy todir="${red5.webapps.dir}" file="${build.dist.dir}/${project.war}"/-->
+		<delete dir="${red5.webapps.dir}/${ant.project.name}" />
+		<copy todir="${red5.webapps.dir}" overwrite="true">
+			<fileset dir="${build.dist.dir}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+    </target>
+	
+</project>

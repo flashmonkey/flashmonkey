@@ -1,0 +1,7 @@
+<project name="MultiplayerVideoBaseGame.assets">
+    <dirname property="MultiplayerVideoBaseGame.assets.dir" file="${ant.file.MultiplayerVideoBaseGame.assets}"/>
+
+    <!-- Define JAR exported by this library. -->
+    <property name="MultiplayerVideoBaseGame.jar" location="${MultiplayerVideoBaseGame.assets.dir}/${webcontent.lib.dir}/${ant.project.name}.jar"/>
+
+</project>
