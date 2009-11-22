@@ -1,0 +1,7 @@
+<project name="MultiplayerVideoBaseGameClient.assets">
+    <dirname property="MultiplayerVideoBaseGameClient.assets.dir" file="${ant.file.MultiplayerVideoBaseGameClient.assets}"/>
+
+    <!-- Define SWC exported by this library. -->
+    <property name="MultiplayerVideoBaseGameClient.swf" location="${MultiplayerVideoBaseGameClient.assets.dir}/${build.mxmlc.dir}/${project.swf}"/>
+
+</project>

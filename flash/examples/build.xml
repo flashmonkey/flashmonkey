@@ -5,8 +5,9 @@
 		<file name="HelloWorldMultiplayerClient"/>
         <file name="HelloSpeechRecognitionClient"/>
         <file name="MouseGestureVideoControlClient"/>
-        <file name="HelloMouseGestures"/>
+       <!--<file name="HelloMouseGestures"/>-->
         <file name="MultiplayerAnimated"/>
+        <file name="MultiplayerVideoBaseGameClient"/>
 	</filelist>
 
     <!-- targets -->	
