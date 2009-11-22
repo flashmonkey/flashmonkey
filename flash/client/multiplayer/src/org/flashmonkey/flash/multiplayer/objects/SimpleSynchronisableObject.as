@@ -1,7 +1,7 @@
 package org.flashmonkey.flash.multiplayer.objects 
 {
 	import org.flashmonkey.flash.api.IInput;
-	import org.flashmonkey.flash.api.IPaperworldObject;
+	import org.flashmonkey.flash.api.ISynchronisedObject;
 	import org.flashmonkey.flash.api.IState;
 	
 	import flash.display.Sprite;
@@ -12,7 +12,7 @@ package org.flashmonkey.flash.multiplayer.objects
 	/**
 	 * @author Trevor
 	 */
-	public class SimpleSynchronisableObject implements IPaperworldObject 
+	public class SimpleSynchronisableObject implements ISynchronisedObject 
 	{
 		private static var logger:ILogger = LoggerFactory.getLogger("Paperworld");
 

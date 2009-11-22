@@ -6,6 +6,7 @@
         <file name="HelloSpeechRecognitionClient"/>
         <file name="MouseGestureVideoControlClient"/>
         <file name="HelloMouseGestures"/>
+        <file name="MultiplayerAnimated"/>
 	</filelist>
 
     <!-- targets -->	

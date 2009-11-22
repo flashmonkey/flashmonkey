@@ -5,6 +5,7 @@ package org.flashmonkey.flash.pv3d.game
 	import org.flashmonkey.flash.core.game.display.IDisplay;
 	import org.papervision3d.cameras.Camera3D;
 	import org.papervision3d.core.render.AbstractRenderEngine;
+	import org.papervision3d.objects.DisplayObject3D;
 	import org.papervision3d.render.BasicRenderEngine;
 	import org.papervision3d.scenes.Scene3D;
 	import org.papervision3d.view.Viewport3D;
@@ -40,6 +41,7 @@ package org.flashmonkey.flash.pv3d.game
 			_viewport = createViewport();
 			_renderer = createRenderer();
 			_camera = createCamera();
+			_camera.z = -250;
 		}
 		
 		protected function createScene():Scene3D 
@@ -64,6 +66,10 @@ package org.flashmonkey.flash.pv3d.game
 		
 	 	public function render(tpf:Number):void
 		{
+			for each (var do3d:DisplayObject3D in _scene.children)
+			{
+				trace("do3d: " + do3d + " " + do3d.scale + " " + _camera.z + " " + _viewport.parent);
+			}
 			_renderer.renderScene(_scene, _camera, _viewport);
 		}
 		

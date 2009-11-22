@@ -1,5 +1,6 @@
 package org.flashmonkey.flash.core.game.state
 {
+	import org.flashmonkey.flash.api.IAvatarService;
 	import org.flashmonkey.flash.core.game.display.IDisplay;
 	
 	public class GameState implements IGameState
@@ -53,6 +54,11 @@ package org.flashmonkey.flash.core.game.state
 		public function set display(value:IDisplay):void 
 		{
 			throw new Error("display setter must be implemeted in any child classes");
+		}
+		
+		public function set avatarService(value:IAvatarService):void 
+		{
+			throw new Error("avatarService setter must be implemeted in any child classes");
 		}
 		
 		public function GameState(name:String, active:Boolean)

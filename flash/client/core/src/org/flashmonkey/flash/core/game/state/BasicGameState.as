@@ -1,5 +1,6 @@
 package org.flashmonkey.flash.core.game.state
 {
+	import org.flashmonkey.flash.api.IAvatarService;
 	import org.flashmonkey.flash.core.game.display.IDisplay;
 		
 	public class BasicGameState extends GameState
@@ -14,6 +15,13 @@ package org.flashmonkey.flash.core.game.state
 		public override function set display(value:IDisplay):void 
 		{
 			_display = value;
+		}
+		
+		protected var _avatarService:IAvatarService;
+		
+		public override function set avatarService(value:IAvatarService):void 
+		{
+			_avatarService = value;
 		}
 		
 		public function BasicGameState(name:String, active:Boolean = false)

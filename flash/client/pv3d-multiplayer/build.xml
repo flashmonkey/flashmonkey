@@ -6,6 +6,7 @@
 		<pathelement location="${flash.core.swc}"/>
 		<pathelement location="${flash.multiplayer.swc}"/>
     	<pathelement location="${flash.pv3d.core.swc}"/>
+    	<pathelement location="${moccasin.swc}"/>
 	</path>
 
     <!-- targets -->

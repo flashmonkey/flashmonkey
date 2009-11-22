@@ -3,7 +3,7 @@ package org.flashmonkey.flash.core.avatar
 	import org.flashmonkey.flash.api.IAvatar;
 	import org.flashmonkey.flash.api.IBehaviour;
 	import org.flashmonkey.flash.api.IInput;
-	import org.flashmonkey.flash.api.IPaperworldObject;
+	import org.flashmonkey.flash.api.ISynchronisedObject;
 	import org.flashmonkey.flash.api.IState;
 	import org.flashmonkey.flash.api.IUpdatable;
 	import org.flashmonkey.flash.core.objects.BasicState;
@@ -25,14 +25,14 @@ package org.flashmonkey.flash.core.avatar
 			_id = value;
 		}
 		
-		private var _object:IPaperworldObject;
+		private var _object:ISynchronisedObject;
 		
-		public function get object():IPaperworldObject
+		public function get object():ISynchronisedObject
 		{
 			return _object;
 		}
 		
-		public function set object(value:IPaperworldObject):void
+		public function set object(value:ISynchronisedObject):void
 		{
 			_object = value;
 		}

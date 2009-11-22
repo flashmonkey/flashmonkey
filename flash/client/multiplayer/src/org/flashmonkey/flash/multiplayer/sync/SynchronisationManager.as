@@ -7,6 +7,9 @@ package org.flashmonkey.flash.multiplayer.sync
 	
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.LoggerFactory;
+	import org.flashmonkey.flash.api.AvatarType;
+	import org.flashmonkey.flash.api.IAvatar;
+	import org.flashmonkey.flash.api.IAvatarService;
 	import org.flashmonkey.flash.api.IInput;
 	import org.flashmonkey.flash.api.connection.IClient;
 	import org.flashmonkey.flash.api.connection.messages.IMessage;
@@ -16,7 +19,6 @@ package org.flashmonkey.flash.multiplayer.sync
 	import org.flashmonkey.flash.api.multiplayer.messages.IServerSyncMessage;
 	import org.flashmonkey.flash.connection.messages.RequestIdMessage;
 	import org.flashmonkey.flash.core.game.task.TaskQueueManager;
-	import org.flashmonkey.flash.multiplayer.api.IAvatarFactory;
 	import org.flashmonkey.flash.multiplayer.messages.PlayerSyncMessage;
 	import org.flashmonkey.flash.multiplayer.messages.ServerSyncMessage;
 	import org.flashmonkey.flash.multiplayer.messages.SynchroniseCreateMessage;
@@ -43,16 +45,16 @@ package org.flashmonkey.flash.multiplayer.sync
 			_scene = value;
 		}
 		
-		private var _avatarFactory:IAvatarFactory;
+		private var _avatarService:IAvatarService;
 		
-		public function set avatarFactory(value:IAvatarFactory) :void
+		public function set avatarService(value:IAvatarService) :void
 		{
-			_avatarFactory = value;
+			_avatarService = value;
 		}
 		
-		public function get avatarFactory():IAvatarFactory
+		public function get avatarService():IAvatarService
 		{
-			return _avatarFactory;
+			return _avatarService;
 		}
 		
 		private var _batchedMoves:Array = [];
@@ -192,9 +194,14 @@ package org.flashmonkey.flash.multiplayer.sync
 			{
 				trace("CREATE REMOTE AVATAR");
 
-				var remoteAvatar:ISynchronisedAvatar = _avatarFactory.getAvatar("remote");
+				//var remoteAvatar:ISynchronisedAvatar = _avatarFactory.getAvatar("remote");
 				
-				_avatars[SynchroniseCreateMessage(object).objectId] = remoteAvatar;
+				//_avatars[SynchroniseCreateMessage(object).objectId] = remoteAvatar;
+				var id:String = SynchroniseCreateMessage(object).objectId;
+
+				var operation:IOperation = _avatarService.getAvatarAsync(AvatarType.REMOTE, null);
+				operation.addEventListener(Event.COMPLETE, onAvatarReady);
+				operation.execute();
 			}
 			else if (object is ServerSyncMessage)
 			{
@@ -207,6 +214,13 @@ package org.flashmonkey.flash.multiplayer.sync
 					avatar.synchronise(message.time, message.input, message.state);
 				}
 			}
+		}
+		
+		protected function onAvatarReady(e:Event):void 
+		{
+			var avatar:IAvatar = IOperation(e.target).result as IAvatar;
+			
+			_avatars[avatar.id] = avatar;
 		}
 		
 		/*private function _onSendInputTimerTick(e:ITimerEvent):void 

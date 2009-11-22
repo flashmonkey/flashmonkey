@@ -1,13 +1,13 @@
 package org.flashmonkey.flash.pv3d.game.state
 {
+	import org.flashmonkey.flash.api.IAvatarService;
 	import org.flashmonkey.flash.api.connection.IClient;
 	import org.flashmonkey.flash.api.multiplayer.ISynchronisedAvatar;
 	import org.flashmonkey.flash.api.multiplayer.ISynchronisedScene;
 	import org.flashmonkey.flash.game.state.IMultiplayerGameState;
 	import org.flashmonkey.flash.multiplayer.sync.SynchronisationManager;
-	import org.flashmonkey.flash.pv3d.SphereAvatarFactory;
 	import org.flashmonkey.flash.pv3d.scenes.SynchronisedScene;
-	import org.papervision3d.objects.DisplayObject3D;
+	import org.flashmonkey.flash.pv3d.service.PaperworldAvatarService;
 	import org.papervision3d.scenes.Scene3D;
 	
 	public class PV3DMultiplayerGameState extends PV3DGameState implements IMultiplayerGameState
@@ -17,6 +17,16 @@ package org.flashmonkey.flash.pv3d.game.state
 		protected var _syncManager:SynchronisationManager;
 		
 		protected var _client:IClient;
+		
+		public override function set avatarService(value:IAvatarService):void 
+		{
+			super.avatarService = value;
+			
+			if (_syncManager)
+			{
+				_syncManager.avatarService = _avatarService;
+			}
+		}
 		
 		public function set client(value:IClient):void
 		{
@@ -43,11 +53,10 @@ package org.flashmonkey.flash.pv3d.game.state
 		{
 			super.init();
 			
-			_syncScene = createSynchronisedScene();
+			avatarService = new PaperworldAvatarService();
 			
-			_syncManager = new SynchronisationManager();
-			_syncManager.scene = _syncScene;
-			_syncManager.avatarFactory = new SphereAvatarFactory();
+			_syncScene = createSynchronisedScene();
+			_syncManager = createSynchronisationManager();
 		}
 		
 		protected function createSynchronisedScene():ISynchronisedScene
@@ -55,24 +64,24 @@ package org.flashmonkey.flash.pv3d.game.state
 			return new SynchronisedScene(Scene3D(_display.scene));
 		}
 		
-		public function addSynchronisedObject(o:Object):void
+		protected function createSynchronisationManager():SynchronisationManager
+		{
+			var syncManager:SynchronisationManager = new SynchronisationManager();
+			syncManager.scene = _syncScene;
+			
+			if (_avatarService)
+			{
+				syncManager.avatarService = _avatarService;
+			}
+			
+			return syncManager;
+		}
+		
+		public function addSynchronisedObject(avatar:ISynchronisedAvatar):void
 		{
 			trace("Adding synchronised Object");
 			
-			if (o is DisplayObject3D)
-			{
-				trace("Adding a display object 3d");
-				/*var localAvatar:ISynchronisedAvatar = new LocalAvatar();
-				var syncObject:IPaperworldObject = new PaperworldObject();
-				syncObject.displayObject = o;
-				
-				localAvatar.object = syncObject;*/
-				
-				var localAvatar:ISynchronisedAvatar = _syncManager.avatarFactory.getAvatar("local");
-				
-				_syncManager.register(localAvatar);
-			}
+			_syncManager.register(avatar);
 		}
-		
 	}
 }

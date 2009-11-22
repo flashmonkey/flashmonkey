@@ -1,5 +1,6 @@
 package org.flashmonkey.flash.core.game.state
 {
+	import org.flashmonkey.flash.api.IAvatarService;
 	import org.flashmonkey.flash.core.game.display.IDisplay;
 		
 	public interface IGameState
@@ -74,6 +75,8 @@ package org.flashmonkey.flash.core.game.state
 		function get display():IDisplay;
 		
 		function set display(value:IDisplay):void;
+		
+		function set avatarService(value:IAvatarService):void;
 
 	}
 }

@@ -12,9 +12,9 @@ package org.flashmonkey.flash.api
 		 */
 		function set id(value : String) : void;
 		
-		function get object() : IPaperworldObject;
+		function get object() : ISynchronisedObject;
 
-		function set object(value : IPaperworldObject) : void;
+		function set object(value : ISynchronisedObject) : void;
 
 		function get time() : int;
 

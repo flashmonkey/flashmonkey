@@ -28,7 +28,7 @@ package org.flashmonkey.flash.multiplayer.avatar
 	import org.flashmonkey.flash.ai.steering.SteeringOutput;
 	import org.flashmonkey.flash.api.IBehaviour;
 	import org.flashmonkey.flash.api.IInput;
-	import org.flashmonkey.flash.api.IPaperworldObject;
+	import org.flashmonkey.flash.api.ISynchronisedObject;
 	import org.flashmonkey.flash.api.IState;
 	import org.flashmonkey.flash.api.multiplayer.ISyncManager;
 	import org.flashmonkey.flash.api.multiplayer.ISynchronisedAvatar;
@@ -82,14 +82,14 @@ package org.flashmonkey.flash.multiplayer.avatar
 			_next = value;
 		}
 
-		public var synchronisedObject : IPaperworldObject;
+		public var synchronisedObject : ISynchronisedObject;
 
-		public function get object() : IPaperworldObject
+		public function get object() : ISynchronisedObject
 		{
 			return synchronisedObject;
 		}	
 
-		public function set object(value : IPaperworldObject) : void
+		public function set object(value : ISynchronisedObject) : void
 		{
 			synchronisedObject = value;
 		}

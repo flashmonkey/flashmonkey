@@ -15,7 +15,6 @@
     <classEntry path="org.flashmonkey.flash.multiplayer.inputhandlers.PhysicsInputHandler2D"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.sync.SendPlayerInputOperation"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.data.SyncData"/>
-    <classEntry path="org.flashmonkey.flash.multiplayer.api.IAvatarFactory"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.messages.ServerSyncMessage"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.inputhandlers.AbstractInputHandler"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.avatar.PhysicsEnabledLocalAvatar"/>
@@ -32,7 +31,6 @@
     <classEntry path="org.flashmonkey.flash.api.multiplayer.messages.ISynchroniseCreateMessage"/>
     <classEntry path="org.flashmonkey.flash.api.multiplayer.ISynchronisedScene"/>
     <classEntry path="org.flashmonkey.flash.utils.History"/>
-    <classEntry path="org.flashmonkey.flash.multiplayer.factory.PranaContextAvatarFactory"/>
     <classEntry path="org.flashmonkey.flash.multiplayer.client.MultiplayerClient"/>
     <classEntry path="org.flashmonkey.flash.api.multiplayer.messages.IPlayerSyncMessage"/>
     <classEntry path="org.flashmonkey.flash.api.multiplayer.ISyncManager"/>

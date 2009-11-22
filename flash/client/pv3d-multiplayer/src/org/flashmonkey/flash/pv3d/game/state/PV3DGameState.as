@@ -1,9 +1,7 @@
 package org.flashmonkey.flash.pv3d.game.state
 {
-	import flash.display.DisplayObjectContainer;
-	
 	import org.flashmonkey.flash.core.game.state.BasicGameState;
-	import org.flashmonkey.flash.pv3d.game.PV3DDisplay;
+	import org.flashmonkey.flash.pv3d.game.NewPV3DDisplay;
 
 	public class PV3DGameState extends BasicGameState
 	{	
@@ -16,7 +14,7 @@ package org.flashmonkey.flash.pv3d.game.state
 		
 		protected function init():void 
 		{ 
-			_display = new PV3DDisplay();
+			_display = new NewPV3DDisplay();
 		}
 	}
 }

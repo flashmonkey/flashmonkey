@@ -21,7 +21,7 @@
  * -------------------------------------------------------------------------------------- */
 package org.flashmonkey.flash.pv3d.scenes 
 {
-	import org.flashmonkey.flash.api.IPaperworldObject;
+	import org.flashmonkey.flash.api.ISynchronisedObject;
 	import org.flashmonkey.flash.api.multiplayer.ISynchronisedAvatar;
 	import org.flashmonkey.flash.api.multiplayer.ISynchronisedScene;
 	
@@ -60,9 +60,9 @@ package org.flashmonkey.flash.pv3d.scenes
 		{			
 			trace(avatar);
 			trace(avatar.object);
-			logger.info( "adding " + IPaperworldObject( avatar.object ).displayObject );
+			logger.info( "adding " + ISynchronisedObject( avatar.object ).displayObject );
 			
-			var object:IPaperworldObject = IPaperworldObject( avatar.object );
+			var object:ISynchronisedObject = ISynchronisedObject( avatar.object );
 			
 			if (object && object.displayObject && object.displayObject is DisplayObject3D)
 			{
@@ -76,7 +76,7 @@ package org.flashmonkey.flash.pv3d.scenes
 
 		public function removeAvatar(avatar:ISynchronisedAvatar) : ISynchronisedAvatar
 		{
-			var object:IPaperworldObject = IPaperworldObject( avatar.object );
+			var object:ISynchronisedObject = ISynchronisedObject( avatar.object );
 			
 			if (object && object.displayObject && object.displayObject is DisplayObject3D)
 			{

@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties version="1">
   <includeClasses>
-    <classEntry path="org.flashmonkey.flash.pv3d.objects.SynchronisedObject"/>
-    <classEntry path="org.flashmonkey.flash.pv3d.game.PV3DDisplay"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.DAEDisplayObject3DOperation"/>
     <classEntry path="org.flashmonkey.flash.pv3d.SphereAvatarFactory"/>
     <classEntry path="org.flashmonkey.flash.pv3d.views.ChequerBoardView"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.BuildAvatarOperation"/>
     <classEntry path="org.flashmonkey.flash.pv3d.game.state.PV3DGameState"/>
     <classEntry path="org.flashmonkey.flash.pv3d.objects.SynchronisablePhysicsObject"/>
-    <classEntry path="org.flashmonkey.flash.pv3d.scenes.SynchronisedScene"/>
     <classEntry path="org.flashmonkey.flash.pv3d.game.state.PV3DMultiplayerGameState"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.DisplayObject3DOperation"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.objects.SynchronisedObject"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.game.PV3DDisplay"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.game.NewPV3DDisplay"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.SimpleDisplayObject3DOperation"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.SynchronisedObjectOperation"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.CreateDAEAvatarOperation"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.service.PaperworldAvatarService"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.AvatarOperation"/>
+    <classEntry path="org.flashmonkey.flash.pv3d.scenes.SynchronisedScene"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
