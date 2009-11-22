@@ -7,7 +7,7 @@ import org.flashmonkey.java.player.api.IPlayer;
 
 public class BroadcastMessage extends BaseMessage {
 	
-	public Object read(IMultiplayerService service) {
+	public Object read() {
 		Map<String, IPlayer> players = service.getPlayers();
 
 		for (String key : players.keySet()) {
@@ -22,7 +22,7 @@ public class BroadcastMessage extends BaseMessage {
 	}
 	
 	//@Override 
-	public void write(IMultiplayerService service) {
+	public void write() {
 		
 	}
 }

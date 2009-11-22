@@ -198,8 +198,11 @@ package org.flashmonkey.flash.multiplayer.sync
 				
 				//_avatars[SynchroniseCreateMessage(object).objectId] = remoteAvatar;
 				var id:String = SynchroniseCreateMessage(object).objectId;
-
-				var operation:IOperation = _avatarService.getAvatarAsync(AvatarType.REMOTE, null);
+				
+				//var properties:Object = {id: id};
+				var properties:Object = {displayObject: "ColouredCube"};
+				
+				var operation:IOperation = _avatarService.getAvatarAsync(AvatarType.REMOTE, properties);
 				operation.addEventListener(Event.COMPLETE, onAvatarReady);
 				operation.execute();
 			}
@@ -218,9 +221,11 @@ package org.flashmonkey.flash.multiplayer.sync
 		
 		protected function onAvatarReady(e:Event):void 
 		{
-			var avatar:IAvatar = IOperation(e.target).result as IAvatar;
+			var avatar:ISynchronisedAvatar = IOperation(e.target).result as ISynchronisedAvatar;
 			
 			_avatars[avatar.id] = avatar;
+			
+			_scene.addAvatar(avatar);
 		}
 		
 		/*private function _onSendInputTimerTick(e:ITimerEvent):void 

@@ -4,11 +4,11 @@
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipsewtp.jst.server.generic.red5.runtimeClasspathProvider/Red5 Server Runtime"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/dist/server/flashmonkey-ai.jar"/>
-	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/dist/server/flashmonkey-core.jar"/>
-	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/dist/server/flashmonkey-jmonkey.jar"/>
-	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/dist/server/flashmonkey-multiplayer.jar"/>
+	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/dist/server/flashmonkey-ai.jar"/>
+	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/dist/server/flashmonkey-core.jar"/>
+	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/dist/server/flashmonkey-jmonkey.jar"/>
+	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/dist/server/flashmonkey-multiplayer.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/lib/sphinx4.jar"/>
+	<classpathentry kind="lib" path="/private/var/root/Repository/flashmonkey/java/lib/sphinx4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -1,0 +1,7 @@
+<project name="MultiplayerAnimated.assets">
+    <dirname property="MultiplayerAnimated.assets.dir" file="${ant.file.MultiplayerAnimated.assets}"/>
+
+    <!-- Define SWC exported by this library. -->
+    <property name="MultiplayerAnimated.swf" location="${MultiplayerAnimated.assets.dir}/${build.mxmlc.dir}/${project.swf}"/>
+
+</project>

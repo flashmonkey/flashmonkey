@@ -50,7 +50,7 @@ public class SynchroniseCreateMessage extends BroadcastMessage implements
 		setInput(avatar.getInput());
 		setState(avatar.getState());
 		
-		return super.read(service);
+		return super.read();
 	}
 	
 	public String getPlayerId() {

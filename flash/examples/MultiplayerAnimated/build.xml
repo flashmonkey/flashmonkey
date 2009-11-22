@@ -1,0 +1,25 @@
+<project name="MultiplayerAnimated" default="build">
+    <import file="build-imports.xml"/>
+
+    <!-- This library doesn't depend on anything else. -->
+    <path id="flex.lib.path">
+		<pathelement location="${flash.connection.swc}"/>
+        <pathelement location="${sos.logging.swc}"/>
+    	<pathelement location="${flash.core.swc}"/>
+    	<pathelement location="${flash.multiplayer.swc}"/>
+    	<pathelement location="${flash.pv3d.multiplayer.swc}"/>
+    	<pathelement location="${papervision.swc}"/>
+	</path>
+
+    <!-- targets -->
+    <target name="build" depends="init,flash-application,copy-assets" description="Build the example application"/>
+    	
+	<target name="copy-assets" description="copies the assets required for the application to the bin/swf directory">
+		<copy todir="${build.mxmlc.dir}" overwrite="true">
+			<fileset dir=".">
+				<include name="model/**/*"/>
+			</fileset>
+		</copy>
+	</target>
+	
+</project>

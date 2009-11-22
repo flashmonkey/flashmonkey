@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AS3Classpath>
+    <AS3Classpath generateProblems="false" type="lib" useAsSharedCode="false">playerglobal.swc</AS3Classpath>
+    <AS3Classpath generateProblems="true" type="source" useAsSharedCode="false">src</AS3Classpath>
+    <AS3Classpath generateProblems="false" type="lib" useAsSharedCode="false">flex.swc</AS3Classpath>
+    <AS3Classpath generateProblems="false" type="lib" useAsSharedCode="false">framework.swc</AS3Classpath>
+    <AS3Classpath generateProblems="false" type="lib" useAsSharedCode="false">rpc.swc</AS3Classpath>
+    <AS3Classpath generateProblems="false" type="lib" useAsSharedCode="false">utilities.swc</AS3Classpath>
+    <AS3Classpath generateProblems="true" type="source" useAsSharedCode="false">Paperworld_Connection</AS3Classpath>
+    <AS3Classpath generateProblems="true" type="source" useAsSharedCode="false">Paperworld_Core</AS3Classpath>
+    <AS3Classpath generateProblems="true" type="source" useAsSharedCode="false">Paperworld_Multiplayer_Core</AS3Classpath>
+    <AS3Classpath generateProblems="true" type="source" useAsSharedCode="false">Paperworld_PV3D_Core</AS3Classpath>
+    <AS3Classpath generateProblems="true" type="source" useAsSharedCode="false">Paperworld_PV3D_Multiplayer</AS3Classpath>
+    <AS3Classpath generateProblems="true" type="source" useAsSharedCode="false">Paperworld_ai</AS3Classpath>
+    <AS3Classpath generateProblems="false" type="lib" useAsSharedCode="false">Paperworld_Papervision.swc</AS3Classpath>
+    <AS3Classpath generateProblems="false" type="lib" useAsSharedCode="false">Paperworld_ascommons.swc</AS3Classpath>
+    <AS3Classpath generateProblems="false" type="lib" useAsSharedCode="false">Paperworld_datastructures.swc</AS3Classpath>
+    <AS3Classpath generateProblems="false" type="lib" useAsSharedCode="false">Paperworld_moccasin.swc</AS3Classpath>
+</AS3Classpath>

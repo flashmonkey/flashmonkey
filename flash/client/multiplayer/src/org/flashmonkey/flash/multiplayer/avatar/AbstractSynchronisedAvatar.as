@@ -167,7 +167,7 @@ package org.flashmonkey.flash.multiplayer.avatar
 		 */
 		public function set state(value : IState) : void
 		{
-			_previous = _current;
+			//_previous = _current.clone();
 			_current = value;
 		}
 

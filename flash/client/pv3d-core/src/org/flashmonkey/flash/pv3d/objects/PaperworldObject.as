@@ -5,11 +5,13 @@ package org.flashmonkey.flash.pv3d.objects
 	import org.flashmonkey.flash.api.ISynchronisedObject;
 	import org.flashmonkey.flash.core.action.Action;
 	import org.flashmonkey.flash.pv3d.behaviours.BasePV3DBehaviour;
-	import org.papervision3d.core.math.Matrix3D;
 	import org.papervision3d.objects.DisplayObject3D;
 
 	public class PaperworldObject implements ISynchronisedObject
 	{
+		private static var toDEGREES 	:Number = 180/Math.PI;
+		private static var toRADIANS 	:Number = Math.PI/180;
+		
 		private var _behaviour:Action;
 		
 		public function get behaviour():Action
@@ -41,13 +43,13 @@ package org.flashmonkey.flash.pv3d.objects
 
 		public function synchronise(time : int, input : IInput, state : IState) : void
 		{
-			/*var m:Matrix3D = Matrix3D.quaternion2matrix(state.orientation.x, state.orientation.y, state.orientation.z, state.orientation.w, _displayObject.transform);
+			_displayObject.x = state.position.x;
+			_displayObject.y = state.position.y;
+			_displayObject.z = state.position.z;
 
-			m.n14 = state.position.x;
-			m.n24 = state.position.y;
-			m.n34 = state.position.z;
-			
-			_displayObject.transform = m;*/
+			var angles:Array = state.orientation.toAngles();
+
+			_displayObject.rotationY = angles[1] * toDEGREES;
 		}
 		
 	}

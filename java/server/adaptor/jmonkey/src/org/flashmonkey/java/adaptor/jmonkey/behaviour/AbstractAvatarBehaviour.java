@@ -6,6 +6,9 @@ import org.flashmonkey.java.input.api.IInput;
 
 public class AbstractAvatarBehaviour implements IBehaviour {
 
+	protected final float toDEGREES = 180/(float)Math.PI;
+	protected final float toRADIANS = (float)Math.PI/180;
+	
 	/** A speed value that, if desired, can change how actions are performed. */
     protected float speed = 0;
     

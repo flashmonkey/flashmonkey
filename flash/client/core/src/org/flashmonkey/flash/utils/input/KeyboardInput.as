@@ -88,8 +88,9 @@ package org.flashmonkey.flash.utils.input
 		public function onKeyDown( event : KeyboardEvent ) : void 
 		{	
 			var command : ICommand = ICommand( _keyDownCommands[event.keyCode] );
-
+			trace("keydown " + event.keyCode + " " + command);
 			if (command) command.execute( );
+			trace("result: " + input.moveForward);
 		}
 
 		/**

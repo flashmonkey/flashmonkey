@@ -48,7 +48,7 @@ package {
 			PV3DMultiplayerGameState(state).client = client;
 			state.display.target = this;
 			
-			avatarService = new PaperworldAvatarService();
+			avatarService = new PaperworldAvatarService(client);
 			
 			state.avatarService = avatarService;
 			

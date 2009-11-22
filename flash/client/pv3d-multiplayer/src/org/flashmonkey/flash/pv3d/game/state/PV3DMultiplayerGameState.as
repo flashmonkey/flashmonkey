@@ -53,7 +53,7 @@ package org.flashmonkey.flash.pv3d.game.state
 		{
 			super.init();
 			
-			avatarService = new PaperworldAvatarService();
+			avatarService = new PaperworldAvatarService(_client);
 			
 			_syncScene = createSynchronisedScene();
 			_syncManager = createSynchronisationManager();

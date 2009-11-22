@@ -59,9 +59,9 @@ public class AvatarRotateRightBehaviour extends AbstractAvatarBehaviour {
 	        if (lockAxis == null) {
 	            orientation.getRotationColumn(1, tempVa);
 	            tempVa.normalizeLocal();
-	            incr.fromAngleNormalAxis(-speed, tempVa);
+	            incr.fromAngleNormalAxis(-speed * toRADIANS, tempVa);
 	        } else {
-	            incr.fromAngleNormalAxis(-speed, lockAxis);
+	            incr.fromAngleNormalAxis(-speed * toRADIANS, lockAxis);
 	        }
 	        orientation.fromRotationMatrix(
 	                incr.mult(orientation.toRotationMatrix(tempMa),

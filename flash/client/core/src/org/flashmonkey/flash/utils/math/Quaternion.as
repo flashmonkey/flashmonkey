@@ -210,7 +210,7 @@ package org.flashmonkey.flash.utils.math
 		 *            you want a new float[] to be created
 		 * @return the float[] in which the angles are stored.
 		 */
-		public function toAngles(angles:Array):Array {
+		public function toAngles(angles:Array = null):Array {
 			if (angles == null)
 				angles = new Array(3);
 			else if (angles.length != 3)

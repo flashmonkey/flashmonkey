@@ -12,6 +12,11 @@ package org.flashmonkey.flash.connection.messages
 	{
 		private var _message:IMessage;
 		
+		public function get message():IMessage
+		{
+			return _message;
+		}
+		
 		private var _connection:INetConnection;
 		
 		public function SendMessageOperation(message:IMessage, connection:INetConnection)
