@@ -42,6 +42,11 @@ public class MouseGestureApplication extends ApplicationAdapter implements IStre
 	
 	public MouseGestureApplication() {
 		System.out.println("MouseGestureApplication");
+		boolean train = controller.TrainNetwork();
+		
+		if (!train)	{
+			System.out.println("Failed to train network");
+		}
 	}
 	
 	/** {@inheritDoc} */
