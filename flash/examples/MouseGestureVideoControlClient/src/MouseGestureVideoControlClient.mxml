@@ -1,30 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Application 
+<Main
+	xmlns="org.flashmonkey.flash.examples.mousecontrolvideo.*"
+	xmlns:glib="org.flashmonkey.flash.gestures.*"
 	xmlns:mx="http://www.adobe.com/2006/mxml" 
-	layout="absolute"
-	creationComplete="onCreationComplete()">
+	layout="absolute">
 	
 	<mx:Script>
 		<![CDATA[
-			import com.joeberkovitz.moccasin.service.IOperation;
-			import org.flashmonkey.flash.connection.client.BasicClient;
-			import org.flashmonkey.flash.api.connection.IClient;
-			
-			private var _client:IClient;
-			
-			private function onCreationComplete():void 
-			{
-				_client = new BasicClient();
-				var connectionOp:IOperation = _client.connect("rtmp://localhost/MouseGestureVideoControl", ["flashmonkey", "password"]);
-				connectionOp.addEventListener(Event.COMPLETE, onConnectionEstablished);
-				connectionOp.execute();
-			}
-			
-			private function onConnectionEstablished(e:Event):void 
-			{
-				trace("ConnectionEstablished");
-			}
+			[Bindable]
+            [Embed(source="assets/ANTI_CLOCKWISE_SQUARE.gif")]
+            public var AntiClockwiseSquare:Class;
+            
+            [Bindable]
+            [Embed(source="assets/CLOCKWISE_SQUARE.gif")]
+            public var ClockwiseSquare:Class;
+            
+            [Bindable]
+            [Embed(source="assets/DOWN.gif")]
+            public var Down:Class;
+            
+            [Bindable]
+            [Embed(source="assets/LEFT.gif")]
+            public var Left:Class;
+            
+            [Bindable]
+            [Embed(source="assets/LEFT_ARROW.gif")]
+            public var LeftArrow:Class;
+            
+            [Bindable]
+            [Embed(source="assets/RIGHT.gif")]
+            public var Right:Class;
+            
+            [Bindable]
+            [Embed(source="assets/RIGHT_ARROW.gif")]
+            public var RightArrow:Class;
+            
+            [Bindable]
+            [Embed(source="assets/SOUTH_EAST.gif")]
+            public var SouthEast:Class;
+            
+            [Bindable]
+            [Embed(source="assets/SOUTH_WEST.gif")]
+            public var SouthWest:Class;
+            
+            [Bindable]
+            [Embed(source="assets/UP.gif")]
+            public var Up:Class;
+            
+            [Bindable]
+            [Embed(source="assets/ZORRO.gif")]
+            public var Zorro:Class;
 		]]>
 	</mx:Script>
+	
+	<mx:Array id="gestureListProvider">
+        <glib:GestureEntry label="Anti-Clockwise Square"
+                thumbnailImage="{AntiClockwiseSquare}"
+                fullImage="Anti-Clockwise Square" />
+        <glib:GestureEntry label="Clockwise Square"
+                thumbnailImage="{ClockwiseSquare}"
+                fullImage="Clockwise Square" />
+        <glib:GestureEntry label="Down"
+                thumbnailImage="{Down}"
+                fullImage="Down" />
+        <glib:GestureEntry label="Left"
+                thumbnailImage="{Left}"
+                fullImage="Left" />
+        <glib:GestureEntry label="Left Arrow"
+                thumbnailImage="{LeftArrow}"
+                fullImage="Left Arrow" />
+        <glib:GestureEntry label="Right"
+                thumbnailImage="{Right}"
+                fullImage="Right" />
+        <glib:GestureEntry label="Right Arrow"
+                thumbnailImage="{RightArrow}"
+                fullImage="Right Arrow" />
+        <glib:GestureEntry label="South East"
+                thumbnailImage="{SouthEast}"
+                fullImage="South East" />
+        <glib:GestureEntry label="South West"
+                thumbnailImage="{SouthWest}"
+                fullImage="South West" />
+        <glib:GestureEntry label="Up"
+                thumbnailImage="{Up}"
+                fullImage="Up" />
+        <glib:GestureEntry label="Zorro"
+                thumbnailImage="{Zorro}"
+                fullImage="Zorro" />
+    </mx:Array>
+	
+	<mx:Canvas id="drawingCanvas" width="100%" height="100%"/>
 
-</mx:Application>
+</Main>

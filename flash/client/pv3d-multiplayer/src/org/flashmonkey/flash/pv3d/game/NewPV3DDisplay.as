@@ -3,15 +3,16 @@ package org.flashmonkey.flash.pv3d.game
 	import flash.display.DisplayObjectContainer;
 	
 	import org.flashmonkey.flash.core.game.display.IDisplay;
-	import org.papervision3d.view.BasicView;
+	import org.flashmonkey.flash.pv3d.views.ChequerBoardView;
+	import org.papervision3d.view.AbstractView;
 
 	public class NewPV3DDisplay implements IDisplay
 	{
-		private var _view:BasicView;
+		private var _view:AbstractView;
 		
 		public function NewPV3DDisplay(viewportWidth:Number=640, viewportHeight:Number=480, scaleToStage:Boolean=true, interactive:Boolean=false, cameraType:String="Target")
 		{
-			_view = new BasicView(viewportWidth, viewportHeight, scaleToStage, interactive, cameraType);
+			_view = new ChequerBoardView(1000, 1000, viewportWidth, viewportHeight, scaleToStage, interactive, cameraType);
 		}
 		
 		public function set target(value:DisplayObjectContainer):void

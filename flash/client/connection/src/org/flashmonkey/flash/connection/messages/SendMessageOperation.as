@@ -31,7 +31,7 @@ package org.flashmonkey.flash.connection.messages
 		{
 			_message.addEventListener(Event.COMPLETE, handleComplete);
 			_message.addEventListener(ErrorEvent.ERROR, handleError);
-			
+			trace("Message being sent!!!!!!!!! " + _message);
 			_message.write(_connection);			
 		}
 		

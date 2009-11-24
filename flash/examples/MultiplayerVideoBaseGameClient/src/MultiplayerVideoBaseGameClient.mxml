@@ -2,10 +2,18 @@
 <mx:Application 
 	xmlns:mx="http://www.adobe.com/2006/mxml" 
 	layout="absolute"
-	creationComplete="onCreationComplete()">
+	applicationComplete="onApplicationComplete()">
 	
 	<mx:Script>
 		<![CDATA[
+			import org.flashmonkey.flash.utils.input.SimpleInput;
+			import org.flashmonkey.flash.api.IInput;
+			import org.flashmonkey.flash.utils.keys.KeyDefinitions;
+			import org.flashmonkey.flash.api.connection.messages.IMessage;
+			import org.flashmonkey.flash.utils.input.events.UserInputEvent;
+			import com.pblabs.engine.PBE;
+			import org.flashmonkey.flash.utils.input.BasicKeyboardInput;
+			import org.flashmonkey.flash.utils.input.AbstractUserInput;
 			import org.flashmonkey.flash.pv3d.game.state.PV3DGameState;
 			import org.flashmonkey.flash.core.game.state.IGameState;
 			import org.flashmonkey.flash.api.IState;
@@ -17,10 +25,13 @@
 			
 			private var _client:BasicClient;
 			
-			private function onCreationComplete():void 
+			private function onApplicationComplete():void 
 			{
+				PBE.startup(this);
+				
 				_client = new BasicClient();
-				var connection:IOperation = _client.connect("rtmp://192.168.1.68/MultiplayerVideoBaseGame", ["flashmonkey","password"]);
+				_client.handshake.addClassToRegister(MultiplayerVideoInputMessage);
+				var connection:IOperation = _client.connect("rtmp://169.254.92.38/MultiplayerVideoBaseGame", ["flashmonkey","password"]);
 				connection.addEventListener(Event.COMPLETE, onConnectionEstablished);
 				connection.execute();
 				
@@ -33,19 +44,81 @@
 			
 			private function onConnectionEstablished(e:Event):void 
 			{
-				trace("connection established " + Camera.names[2]);
-				
-				for each (var name:String in Camera.names)
-				{
-					trace(name + " => " + Camera.getCamera(name));
-				}
-				
-				trace("trying to connect camera: " + Camera.getCamera());
+				trace("connection established");
 				
 				var netStream:NetStream = new NetStream(NetConnection(_client.connection));
 				netStream.attachCamera(Camera.getCamera());
-				trace("Publishing stream");
+
 				netStream.publish("stream");
+				
+				stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+				stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+			}
+			
+			private function onKeyDown(e:KeyboardEvent):void 
+			{
+				var input:IInput = new SimpleInput();
+				
+				switch (e.keyCode)
+				{
+					case KeyDefinitions.W:
+						input.moveForward = true;
+						break;
+						
+					case KeyDefinitions.S:
+						input.moveBackward = true;
+						break;
+						
+					case KeyDefinitions.A:
+						input.yawNegative = true;
+						break;
+						
+					case KeyDefinitions.D:
+						input.yawPositive = true;
+						break;
+						
+					default:
+						break;
+				}
+				
+				onInputChanged(input);
+			}
+			
+			private function onKeyUp(e:KeyboardEvent):void
+			{
+				var input:IInput = new SimpleInput();
+				
+				switch (e.keyCode)
+				{
+					case KeyDefinitions.W:
+						input.moveForward = false;
+						break;
+						
+					case KeyDefinitions.S:
+						input.moveBackward = false;
+						break;
+						
+					case KeyDefinitions.A:
+						input.yawNegative = false;
+						break;
+						
+					case KeyDefinitions.D:
+						input.yawPositive = false;
+						break;
+						
+					default:
+						break;
+				}
+				
+				onInputChanged(input);
+			}
+			
+			private function onInputChanged(input:IInput):void 
+			{
+				var message:MultiplayerVideoInputMessage = new MultiplayerVideoInputMessage();
+				message.input = input;
+				trace("SEnding input");
+				_client.sendToServer(message).execute();
 			}
 			
 		]]>

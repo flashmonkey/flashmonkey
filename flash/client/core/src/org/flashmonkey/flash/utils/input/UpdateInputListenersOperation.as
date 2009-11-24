@@ -15,7 +15,7 @@ package org.flashmonkey.flash.utils.input
 		
 		public override function execute():void
 		{
-			_userInput.updateListeners();
+			//_userInput.updateListeners();
 			
 			dispatchResult(this);
 		}

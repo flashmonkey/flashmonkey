@@ -193,6 +193,8 @@ package org.flashmonkey.flash.connection.client
 		
 		private function _sendMessage(message:IMessage):IOperation 
 		{
+			trace("Sending " + message + " to server");
+			
 			message.senderId = _id;
 			message.service = _defaultService;
 

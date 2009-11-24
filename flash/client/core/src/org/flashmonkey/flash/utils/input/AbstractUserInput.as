@@ -68,6 +68,7 @@ package org.flashmonkey.flash.utils.input
 
 		public function updateListeners() : void
 		{
+			
 			if (_current.notEquals(_previous))
 			{
 				_previous.copyFrom(_current);
