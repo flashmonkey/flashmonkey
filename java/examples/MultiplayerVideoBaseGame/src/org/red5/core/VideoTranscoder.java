@@ -112,7 +112,7 @@ public class VideoTranscoder {
 							BufferedImage.TYPE_3BYTE_BGR);
 		    	  IConverter converter = ConverterFactory.createConverter(img,
 							picture.getPixelType());
-		    	  System.out.println("Transcoding");
+		    	  
 		    	  picture = converter.toPicture(img, picture.getTimeStamp());
 		    	  /*
 		        //System.out.println("grayscaling half of a video picture for fun and profit");

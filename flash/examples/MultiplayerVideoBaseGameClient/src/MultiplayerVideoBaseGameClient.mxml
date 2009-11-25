@@ -2,6 +2,8 @@
 <mx:Application 
 	xmlns:mx="http://www.adobe.com/2006/mxml" 
 	layout="absolute"
+	width="640"
+	height="480"
 	applicationComplete="onApplicationComplete()">
 	
 	<mx:Script>
@@ -31,13 +33,15 @@
 				
 				_client = new BasicClient();
 				_client.handshake.addClassToRegister(MultiplayerVideoInputMessage);
-				var connection:IOperation = _client.connect("rtmp://169.254.92.38/MultiplayerVideoBaseGame", ["flashmonkey","password"]);
+				var connection:IOperation = _client.connect("rtmp://localhost/MultiplayerVideoBaseGame", ["flashmonkey","password"]);
 				connection.addEventListener(Event.COMPLETE, onConnectionEstablished);
 				connection.execute();
 				
 				var game:IGame = new AbstractGame();
 				var state:IGameState = new PV3DGameState("Multiplayer Video", true);
 				var display:MultiplayerVideoDisplay = new MultiplayerVideoDisplay(_client.connection, "xuggle_stream");
+				display.video.height = 480;
+				display.video.width = 640;
 				rawChildren.addChild(display.video);
 				state.display = display;
 			}
@@ -51,8 +55,8 @@
 
 				netStream.publish("stream");
 				
-				stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
-				stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+				//stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+				//stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 			}
 			
 			private function onKeyDown(e:KeyboardEvent):void 
