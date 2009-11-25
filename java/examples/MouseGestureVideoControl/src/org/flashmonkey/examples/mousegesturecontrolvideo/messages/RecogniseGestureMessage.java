@@ -18,8 +18,6 @@ public class RecogniseGestureMessage extends BaseGestureMessage {
 	}
 	
 	public Object read() {
-		System.out.println("Service " + service);
-		System.out.println("result: " + service.getController().TestForMatch(gesture));
 		if (service.getController().TestForMatch(gesture)) {
 			return service.getController().getBestMatchName();
 		}

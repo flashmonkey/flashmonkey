@@ -60,6 +60,25 @@
 	      	  createMic();
 	      	  createNetStream();
 	      	  createNumberMap();
+	      	  
+	      	  stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+	      	  stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+		  }
+		  
+		  private function onKeyDown(e:KeyboardEvent):void 
+		  {
+		  	if (e.keyCode == 32)
+		  	{
+		  		mic.gain = 60;
+		  	}
+		  }
+		  
+		  private function onKeyUp(e:KeyboardEvent):void 
+		  {
+		  	if (e.keyCode == 32)
+		  	{
+		  		mic.gain = 0;
+		  	}
 		  }
 		  
 		  private function createNumberMap():void 
@@ -84,29 +103,17 @@
 	
 	      public function createMic():void
 	      {
-	      	trace("Creating mic");
-	      	
 	      	var deviceArray:Array = Microphone.names;
 
 	        mic = Microphone.getMicrophone(0);
-	        
-	        trace("mic " + mic);
 
-	        mic.gain = 60;
+	        mic.gain = 0;
 			mic.rate = 11;
 			mic.setUseEchoSuppression(true);
 			mic.setLoopBack(true);
 			mic.setSilenceLevel(5, 1000);
 
 	        mic.addEventListener(ActivityEvent.ACTIVITY, activity);
-	        
-	        var micDetails:String = "Sound input device name: " + mic.name + '\n';
-			micDetails += "Gain: " + mic.gain + '\n';
-			micDetails += "Rate: " + mic.rate + " kHz" + '\n';
-			micDetails += "Muted: " + mic.muted + '\n';
-			micDetails += "Silence level: " + mic.silenceLevel + '\n';
-			micDetails += "Silence timeout: " + mic.silenceTimeout + '\n';
-			micDetails += "Echo suppression: " + mic.useEchoSuppression + '\n';
 	      }
 	      
 	      public function setClientID(id:String):void 
@@ -122,7 +129,6 @@
 				_currentStream = "speech" + _count++;
 				netStream.publish(_currentStream, "record");
 	        	addEventListener(Event.ENTER_FRAME, showMicLevel);
-	        	
 	  		}
 	  		else
 	  		{
@@ -141,8 +147,6 @@
 	      	
 	      	clearDiceArray();
 	      	createNewDice(message.bestResult);
-
-	      	
 	      }
 	      
 	      private function clearDiceArray():void 
@@ -168,7 +172,6 @@
 	      		var die:RollingDice = new RollingDice();
 	      		die.x = startX + (diceSeperation * i);
 	      		die.y = stage.stageHeight / 2;
-	      		//die.scaleX = die.scaleY = 3;
 	      		
 	      		var n:String = String(numbers[i]);
 	      		var numberToShow:Number = Number(numberMap[n]);

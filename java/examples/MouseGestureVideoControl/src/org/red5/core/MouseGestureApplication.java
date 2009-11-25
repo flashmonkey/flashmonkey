@@ -41,7 +41,7 @@ public class MouseGestureApplication extends ApplicationAdapter implements IStre
 	private Controller controller = new Controller();
 	
 	public MouseGestureApplication() {
-		System.out.println("MouseGestureApplication");
+
 		boolean train = controller.TrainNetwork();
 		
 		if (!train)	{
@@ -63,8 +63,7 @@ public class MouseGestureApplication extends ApplicationAdapter implements IStre
 		if (!super.connect(conn, scope, params)) {
 			return false;
 		}
-System.out.println("got here");
-		String username = params[0].toString();
+
 		String uid = conn.getClient().getId();
 		
 		// Notify client about unique id.
