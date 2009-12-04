@@ -12,6 +12,7 @@
 		<pathelement location="${spring.core.jar}" />
     	<pathelement location="${jme.test.jar}"/>
     	<pathelement location="${jme.terrain.jar}"/>
+    	<pathelement location="${java.core.jar}"/>
 	</path>
 
     <!-- targets -->

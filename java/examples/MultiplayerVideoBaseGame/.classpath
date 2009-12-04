@@ -10,5 +10,8 @@
 	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/lib/xuggle-xuggler.jar"/>
 	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/lib/xuggle-xuggler-red5.jar"/>
 	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/lib/spring-core-2.5.6.jar"/>
+	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/dist/server/flashmonkey-multiplayer.jar"/>
+	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/dist/server/flashmonkey-jmonkey.jar"/>
+	<classpathentry kind="lib" path="D:/projects/flashmonkey/java/dist/server/flashmonkey-core.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

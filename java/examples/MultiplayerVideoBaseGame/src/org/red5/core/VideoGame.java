@@ -12,46 +12,53 @@ public class VideoGame extends Lesson9 {
 
 	private BufferedImage screenContents;
 	
+	private boolean dirty = true;
+	
 	public VideoGame() {
 
 	}
 	
 	@Override
 	protected void render(float interpolation) {
-        // Clear the screen
-        display.getRenderer().clearBuffers();
-        //display.getRenderer().draw(scene);
-        /** Have the PassManager render. */
-        passManager.renderPasses(display.getRenderer());
-        
+		
 		Renderer renderer = display.getRenderer();
 		
-		final int width = renderer.getWidth();
-		final int height = renderer.getHeight();
-		final ByteBuffer buff = BufferUtils.createByteBuffer(width * height * 3);
-		renderer.grabScreenContents(buff, Image.Format.RGB8, 0, 0, width, height);
-		final int w = width;
-		final int h = height;
-
-		BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-
-		// Grab each pixel information and set it to the BufferedImage info.
-		for (int x = 0; x < w; x++) {
-			for (int y = 0; y < h; y++) {
-
-				int index = 3 * ((h - y - 1) * w + x);
-				int argb = (((int) (buff.get(index + 0)) & 0xFF) << 16) // r
-						| (((int) (buff.get(index + 1)) & 0xFF) << 8) // g
-						| (((int) (buff.get(index + 2)) & 0xFF)); // b
-
-				img.setRGB(x, y, argb);
+        // Clear the screen
+		renderer.clearBuffers();
+        //display.getRenderer().draw(scene);
+        /** Have the PassManager render. */
+        passManager.renderPasses(renderer);
+        
+		if (dirty)
+		{
+			final int width = renderer.getWidth();
+			final int height = renderer.getHeight();
+			final ByteBuffer buff = BufferUtils.createByteBuffer(width * height * 3);
+			renderer.grabScreenContents(buff, Image.Format.RGB8, 0, 0, width, height);
+			final int w = width;
+			final int h = height;
+	
+			BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+	
+			// Grab each pixel information and set it to the BufferedImage info.
+			for (int x = 0; x < w; x++) {
+				for (int y = 0; y < h; y++) {
+	
+					int index = 3 * ((h - y - 1) * w + x);
+					int argb = (((int) (buff.get(index + 0)) & 0xFF) << 16) // r
+							| (((int) (buff.get(index + 1)) & 0xFF) << 8) // g
+							| (((int) (buff.get(index + 2)) & 0xFF)); // b
+	
+					img.setRGB(x, y, argb);
+				}
 			}
+			
+			screenContents = img;
 		}
-		
-		screenContents = img;
 	}
 	
 	public BufferedImage getScreenContents() {
+		dirty = true;
 		return screenContents;
 	}
 }

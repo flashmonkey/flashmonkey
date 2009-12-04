@@ -19,6 +19,7 @@ package org.red5.core;
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA 
  */
 
+import org.flashmonkey.java.message.api.IMessage;
 import org.red5.server.adapter.ApplicationAdapter;
 import org.red5.server.api.IConnection;
 import org.red5.server.api.IScope;
@@ -40,6 +41,8 @@ public class MultiplayerVideoBaseGameApplication extends ApplicationAdapter impl
 	
 	private VideoGame game = new VideoGame();
 	
+	private MultiplayerVideoInputHandler inputHandler;
+	
 	public MultiplayerVideoBaseGameApplication() {
 		System.out.println("MultiplayerVideoBaseGameApplication 2");
 				
@@ -47,12 +50,19 @@ public class MultiplayerVideoBaseGameApplication extends ApplicationAdapter impl
 			public void run() { createGame(); }
 		}.start();
 		//game.start();
+		//createGame();
 	}
 	
 	private void createGame() {
 		game = new VideoGame();
 		resamplerDemo.setGame(game);
 		game.start();
+	}
+	
+	public Object receiveMessage(IMessage message) {
+		message.setService(this);
+		message.read();
+		return null;
 	}
 	
 	/** {@inheritDoc} */
@@ -68,7 +78,7 @@ public class MultiplayerVideoBaseGameApplication extends ApplicationAdapter impl
 		/*if (!super.connect(conn, scope, params)) {
 			return false;
 		}*/
-    	System.out.println("for fuck's sake!!!");
+
     	super.connect(conn, scope, params);
 
 		String uid = conn.getClient().getId();
@@ -87,7 +97,11 @@ public class MultiplayerVideoBaseGameApplication extends ApplicationAdapter impl
 		super.disconnect(conn, scope);
 	}
     
-      /**
+    public Object echo(IMessage o) {
+    	return o;
+    }
+    
+	  /**
 	   * Called on publish: NetStream.publish("streamname", "live")
 	   */
 	  @Override
@@ -106,6 +120,10 @@ public class MultiplayerVideoBaseGameApplication extends ApplicationAdapter impl
 	    resamplerDemo.stopTranscodingStream(stream,
 	        Red5.getConnectionLocal().getScope());
 	    super.streamBroadcastClose(stream);
+	  }
+	  
+	  public MultiplayerVideoInputHandler getInputHandler() {
+		  return inputHandler;
 	  }
 	
 }
