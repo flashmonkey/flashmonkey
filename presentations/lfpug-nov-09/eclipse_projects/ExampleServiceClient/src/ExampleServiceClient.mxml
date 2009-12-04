@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute"
+	creationComplete="onCreationComplete(event)">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.events.FlexEvent;
+			
+			private var connection:NetConnection;
+			
+			public function onCreationComplete(event:FlexEvent) : void {
+				// setup connection code
+				connection = new NetConnection();
+				connection.connect("rtmp://localhost/ExampleService");
+				connection.addEventListener(NetStatusEvent.NET_STATUS, onConnectionNetStatus);
+				connection.client = this;	
+			}
+			
+			public function onConnectionNetStatus(event:NetStatusEvent) : void {
+				// did we successfully connect
+				if(event.info.code == "NetConnection.Connect.Success") {
+					Alert.show("Successful Connection", "Information", 4, null, add);
+				} else {
+					Alert.show("Unsuccessful Connection", "Information");
+				}
+			}
+			
+			public function add(e:Event):void 
+			{
+				connection.call("example.add", new Responder(onResponse), 3, 2);
+			}
+			
+			public function onResponse(sum:int):void 
+			{
+				Alert.show("3 + 2 = " + sum);
+			}
+			
+		]]>
+	</mx:Script>
+	
+</mx:Application>

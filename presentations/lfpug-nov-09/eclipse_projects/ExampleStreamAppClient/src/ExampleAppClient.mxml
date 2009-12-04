@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute"
+	creationComplete="onCreationComplete(event)">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.events.FlexEvent;
+			
+			private var connection:NetConnection;
+			
+			public function onCreationComplete(event:FlexEvent) : void {
+				// setup connection code
+				connection = new NetConnection();
+				connection.connect("rtmp://localhost/ExampleApp");
+				connection.addEventListener(NetStatusEvent.NET_STATUS, onConnectionNetStatus);
+				connection.client = this;	
+			}
+			
+			public function onConnectionNetStatus(event:NetStatusEvent) : void {
+				// did we successfully connect
+				if(event.info.code == "NetConnection.Connect.Success") {
+					Alert.show("Successful Connection", "Information", 4, null, success);
+				} else {
+					Alert.show("Unsuccessful Connection", "Information");
+				}
+			}
+			
+			public function success(e:Event):void 
+			{
+				// PUBLISH
+				var publishNetStream:NetStream = new NetStream(connection);
+				publishNetStream.attachCamera(Camera.getCamera());
+				publishNetStream.publish("stream", "record");
+				
+				var publish:Video = new Video();
+				publish.attachCamera(Camera.getCamera());
+				
+				rawChildren.addChild(publish);
+				
+				
+				// SUBSCRIBE
+				var subscribe:Video = new Video();
+				var subscribeNetStream:NetStream = new NetStream(connection);
+				
+				subscribe.attachNetStream(subscribeNetStream);
+				
+				subscribeNetStream.play("stream");
+				
+				subscribe.x = publish.width + 25;
+				rawChildren.addChild(subscribe);
+				
+			}
+			
+		]]>
+	</mx:Script>
+	
+</mx:Application>
