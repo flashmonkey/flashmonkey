@@ -1,0 +1,30 @@
+Welcome to flashmonkey's presentation at LFPUG - November '09
+
+By the time you're reading this you should be able to see the video of the presentation at www.lfpug.com
+
+All the source for the binaries in this distribution are available from the GIT repository at http://github.com/flashmonkey/flashmonkey
+
+In this file you should find:
+
+/eclipse_projects
+
+A directory containing the eclipse projects for the simple applications created using the Red5 Eclipse Plugin during the first half of the presentation.
+
+/demos
+
+The client and server applications for the demos shown in the second half of the presentation.
+
+Beware: You'll need to have some things installed on your system to run these demos… if you're having trouble feel free to contact me at trevor@flashmonkey.org and ask.
+
+HelloGestureVideoControl/HelloMouseGesturesClient
+
+This is an AIR app that shows the mouse gesture recognition in action. Just run the webapp in a Red5 installation and launch the air app and start drawing gestures.
+
+HelloSpeechRecognition/HelloSpeechRecognitionClient
+
+You'll need to have ffmpeg installed on the machine the webapp is running on. Check http://ffmpeg.org/ for details of how to do that. once you're running it'll recognize numbers between 0 and 9.
+
+MultiplayerVideoBaseGame/MultiplayerVideoBaseGameClient
+
+Run the webapp in a Red5 installation and you should see a java window pop up with the simulation running. When you open the swf file it'll connect to red5 running on localhost and try to grab the webcam - so make sure you've got one active and it should all be fine.
+
